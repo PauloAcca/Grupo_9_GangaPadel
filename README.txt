@@ -8,5 +8,4 @@ Las páginas en las cuales nos inspiramos son las siguientes:
 - https://royalpadel.com.ar/web2/
 - https://www.sporting.com.ar/
 - https://www.empirepadel.com.ar/
-
 Consideramos que todas ellas cuentan con la temática, estructura y estética visual necesaria para cumplir con los objetivos propuestos. 
