@@ -2,7 +2,7 @@
   "name": "tp-integrador-grupo-9",
   "version": "1.0.0",
   "description": "Proyecto integrador, Digital House, grupo 9\r integrantes: Sebastián Emanuel Manchado | Ariel Cesari | David Chung | Nazareno Lopez | Octavio\r Escalante | Paulo Accardo",
-  "main": "app.js",
+  "main": "./src/app.js",
   "scripts": {
     "test": "nodemon src/app.js"
   },
