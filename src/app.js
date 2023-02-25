@@ -4,6 +4,8 @@ const path = require("path");
 
 app.use(express.static(path.resolve(__dirname,"../public")))
 
+app.use(express.static(path.resolve(__dirname,"./views")))
+
 app.listen(3030, ()=> console.log("El server escucha en el puerto 3030"))
 
 app.get("/",(req,res)=>{
@@ -12,5 +14,9 @@ app.get("/",(req,res)=>{
 
 app.get("/inicioSesion",(req,res)=>{
     res.sendFile(path.join(__dirname,"./views/inicioSesion.html"))
+})
+
+app.get("/registro",(req,res)=>{
+    res.sendFile(path.join(__dirname,"./views/registro.html"))
 })
 
