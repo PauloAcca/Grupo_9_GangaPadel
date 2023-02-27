@@ -71,24 +71,32 @@ body, html{
 }
 .button-register{
     padding: 10px 0 10px 0;
-    width: 100%;
+    margin: 10px;
     text-align: center;
     color: var(--blanco-txt);
     align-self: center;
-    background-color: var(--rojo-p);
-    border-top: var(--gris-p) solid 1px;
-    border-bottom: var(--gris-p) solid 1px;
     border-left: 0;
     border-right: 0;
     font-weight: bolder;
-    transition-property: width, background-color;
-    transition-duration: 0.5s;
+    
     text-decoration: none;
 }
-.button-register:hover{
-    cursor: pointer;
-    background-color: var(--gris-p);
+
+.container-register {
     width: 60%;
+    height: 41px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--rojo-p);
+    border-top: var(--gris-p) solid 1px;
+    border-bottom: var(--gris-p) solid 1px;
+    transition-property: width, background-color;
+    transition-duration: 0.5s;
+}
+.container-register:hover{
+    background-color: var(--gris-p);
+    width: 100%;
 }
 
 .bottom-form{
@@ -136,6 +144,7 @@ body, html{
     padding: 10px;
     font-weight: bolder;
     border-bottom: var(--gris-p) 1px solid;
+    color: var(--blanco-txt);
     background-color: transparent;
     border-top: 0;
     border-right: 0;
