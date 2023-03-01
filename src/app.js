@@ -20,3 +20,7 @@ app.get("/registro",(req,res)=>{
     res.sendFile(path.join(__dirname,"./views/registro.html"))
 })
 
+app.get("/producto",(req,res)=>{
+    res.sendFile(path.join(__dirname,"./views/producto.html"))
+})
+
