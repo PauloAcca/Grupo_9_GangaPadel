@@ -14,3 +14,6 @@ Las páginas en las cuales nos inspiramos son las siguientes:
 - https://www.sporting.com.ar/
 - https://www.empirepadel.com.ar/
 Consideramos que todas ellas cuentan con la temática, estructura y estética visual necesaria para cumplir con los objetivos propuestos. 
+
+
+Tablero de trabajo en Trello : https://trello.com/invite/b/dm7egU4v/ATTIc333aee6c71769b7791a5fb5d4c976b3160EC8CF/gangapadel-grupo9
