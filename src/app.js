@@ -1,33 +1,33 @@
-const express = require("express")
+// Requerimos express y lo ejecutamos para tener disponibles todos los metodos que vamos a precisar
+const express = require("express");
 const app = express();
-const path = require("path");
 
-app.use(express.static(path.resolve(__dirname,"../public")))
+// Requerimos path
 
-app.use(express.static(path.resolve(__dirname,"./views")))
+const path=require("path");
 
-app.listen(3030, ()=> console.log("El server escucha en el puerto 3030"))
+// Guardamos direccion del puerto
+const port = process.env.PORT || 3030;
 
-app.get("/",(req,res)=>{
-    res.sendFile(path.join(__dirname,"./views/index.html"))
-})
+// Importamos los distintos enrutadores
+const mainRouter=require("./routes/mainRouter.js");
 
-app.get("/inicioSesion",(req,res)=>{
-    res.sendFile(path.join(__dirname,"./views/inicioSesion.html"))
-})
+// Usando recursos estáticos.
+app.use(express.static(path.resolve(__dirname,"../public")));
 
-app.get("/registro",(req,res)=>{
-    res.sendFile(path.join(__dirname,"./views/registro.html"))
-})
+app.use(express.static(path.resolve(__dirname,"./views")));
 
-app.get("/producto",(req,res)=>{
-    res.sendFile(path.join(__dirname,"./views/producto.html"))
-})
+// Usando los enrutadores importados
+app.use("/", mainRouter);
+app.use("/login", mainRouter);
+app.use("/registro", mainRouter);
+app.use("/producto", mainRouter);
 
-/* Provisionales */
-app.get("/footer",(req,res)=>{
-    res.sendFile(path.join(__dirname,"./views/footer.html"))
-})
-app.get("/header",(req,res)=>{
-    res.sendFile(path.join(__dirname,"./views/header.html"))
-})
+// app.use("/wishlist", mainRouter);
+// app.use("/carrito", mainRouter);
+// app.use("filter", mainRouter);
+
+// Ponemos a escuchar el servidor
+app.listen(port, () => {
+    console.log("Servidor corriendo el puerto: " + port);
+});
