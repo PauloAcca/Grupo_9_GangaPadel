@@ -1,6 +1,6 @@
 * { 
     box-sizing: border-box;
-}    
+}
 
 html{
     font-family: 'Montserrat', sans-serif;
@@ -13,11 +13,11 @@ main{
     padding: 6px;
 
 }
- 
+
 .img-raqueta{
     width: 25vw;
-   
-   
+
+
 }
 
 .contenedor-padre{
@@ -25,16 +25,10 @@ main{
     margin: auto;
     border: solid 3px black;
     padding-top: 2%;
-    
-   
-    
-    
 }
 
 .contenedores.hijos{
     display: flex;
-    
-
 }
 
 .textos {
@@ -47,15 +41,15 @@ main{
     width: 8vw;
     margin: auto;
     display: block;
-    
-   
-    
-    
+
+
+
+
 }
 
 .contenedor-3{
     display: block;
-    
+
 }
 
 .titulo-productos{
@@ -64,7 +58,7 @@ main{
     border-radius: 3px;
     text-align: center;
     font-weight: bold;
-   
+
 }
 
 .contenedor-pagar{
@@ -74,7 +68,7 @@ main{
     text-align: center;
     font-weight: bold;
     border-radius: 3px;
-    
+
 
 }
 
@@ -87,7 +81,7 @@ main{
     border-radius: 4%;
     padding: 1%;
     max-width: 100%;
-   
+
 }
 
 .fa-sharp{
@@ -95,8 +89,8 @@ main{
     color: black;
     text-align: center;
     font-size: 30px;
-   
-    
+
+
 }
 
 .agregar-carrito{
@@ -106,8 +100,8 @@ main{
     text-align: center;
     font-weight: bold;
     border-radius: 3px;
-    
-    
+
+
 }
 
 .contenedores-hijos-agregar-carrito{
@@ -118,7 +112,7 @@ main{
     width: 45%;
     padding: 1%;
     max-width: 100%;
-   
+
 }
 
 .texto-eliminar {
@@ -134,11 +128,11 @@ main{
 
 .img-raqueta-similares{
     width: 8vw;
-    
+
 }
 
 .contenedor-imagenes{
     text-align: center;
-    
-    
+
+
 }

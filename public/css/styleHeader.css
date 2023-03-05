@@ -20,42 +20,80 @@
     padding: 1rem;
     width: 100%;
 }
+
 .barraInferior{
     background-color: var(--gris-p);
-}
-.logo{
-    width: 10%;
-    margin-left: 5%;
-}
-.buscadorCarritoCuenta{
     display: flex;
-    justify-content: right;
-    width: 70%;
+    justify-content: space-evenly;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    height: 6vh;
+    z-index: 1;
+    border-bottom: #DA0037 solid 3px;
+}
+
+.barraInferior a{
+    color: var(--negro-s);
+    text-decoration: none;
+    font-weight: bolder;
+    transition: color 0.3s;
+    letter-spacing: 1.2px;
+    text-shadow: -0.3px 0.3px, 0.3px 0.3px, 0.3px 0.3px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
+
+.barraInferior a .fa-solid{
+    padding-left: 10px;
+}
+
+.barraInferior a:hover{
+    color: #DA0037;
+}
+
+
+header .hipervinculo-logo{
+    width: 7%;
+    margin-left: 3%;
+}
+
+.logo{
+    width: 80%;
+}
+
+.iconos-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+}
+
 #busqueda{
-    width: 40%;
-    height: 1.5rem;
+    width: 30%;
+    height: 1.9rem;
     border-radius: 1rem;
     text-align: left;
     border: none;
-    margin-right: 10px;
 }
 
 #busqueda::placeholder{
     padding-left: 3%;
+    color: var(--negro-s);
+    font-weight: 800;
 }
+
 header i{
-    color: var(--gris-p)
+    color: var(--gris-p);
+    padding-right: 15px;
+    font-size: 1.7rem;
 }
 header i:hover{
     color: var(--blanco-txt);
 }
-.barraInferior{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
+
 header a{
     text-decoration: none;
     color: var(--negro-s);
@@ -63,40 +101,30 @@ header a{
 header a:hover{
     color: var(--blanco-txt);
 }
-.barraInferior{
-    height: 5vh;
+
+@media(min-width:768px){
+    header .hipervinculo-logo{
+        width:  10%;
+    } 
 }
 
-/* @media(min-width:700px){
-    
-    
-    .busqueda{
-        height: 2rem;
-        width: 70%;
-        
+
+@media(max-width:768px){
+    header .hipervinculo-logo{
+        width:  14%;
+    } 
+
+    #busqueda{
+        width: 40%;
+        height: 1.4rem;
     }
-    .barraInferior{
-        font-size: 2rem;
-    }
-    .barraSuperior{
-        justify-content: space-around;
-    }
+
     header i{
-        font-size: 2rem;
+        font-size: 1.2rem;
+    }
+
+    .barraSuperior{
+        background-color: var(--negro-s);
+        padding: 0.5rem;
     }
 }
-@media(min-width:1020){
-    .busqueda{
-        height: 4rem;
-        width: 75%;
-    }
-    .barraInferior{
-        font-size: 3rem;
-    }
-    .barraSuperior{
-        justify-content: space-around;
-    }
-    header i{
-        font-size: 3rem;
-    }
-} */
