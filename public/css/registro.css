@@ -5,7 +5,7 @@
     --negro-s:#171717;
 }
 body{
-    background-image:url(/img/Fondo-registro-InicioDeSesion16.jpg);
+    background-image:url(/img/imagen-Fondo-regYinic.jpeg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position:center;
@@ -29,7 +29,7 @@ body, html{
     box-shadow: 0px 0px 20px 9px black;
     max-width: 800px;
     backdrop-filter: blur(5px);
-    background-color: rgb(0 0 0 / 30%);;
+    background-color: rgb(0 0 0 / 40%);;
     border: 0;
 }
 .top-title{
