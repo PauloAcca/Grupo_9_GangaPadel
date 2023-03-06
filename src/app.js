@@ -22,10 +22,11 @@ app.use("/", mainRouter);
 app.use("/login", mainRouter);
 app.use("/registro", mainRouter);
 app.use("/producto", mainRouter);
+app.use("/filtrado", mainRouter);
 
 // app.use("/wishlist", mainRouter);
 // app.use("/carrito", mainRouter);
-// app.use("filter", mainRouter);
+
 
 // Ponemos a escuchar el servidor
 app.listen(port, () => {

@@ -24,5 +24,7 @@ router.get('/carrito', mainController.carrito);
 
 router.get('/wishlist', mainController.wishlist);
 
+router.get('/filtrado', mainController.filtrado)
+
 // Exportamos la variable router ya con todas las rutas "guardadas", que se usará en app.js
 module.exports = router;
