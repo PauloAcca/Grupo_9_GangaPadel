@@ -30,6 +30,9 @@ const mainController = {
     wishlist: (req,res)=>{
         res.sendFile(path.join(__dirname,"../views/wishlist.html"))
     },
+    filtrado: (req,res)=>{
+        res.sendFile(path.join(__dirname,"../views/filtrado.html"))
+    }
 }
 
 // Exportamos el objeto literal con los distintos métodos, que se usará en el enrutador por defecto
