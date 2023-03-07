@@ -13,6 +13,9 @@ body, html{
     background-color: var(--negro-s);
     color: var(--blanco-txt);
 }
+main{
+    height: auto;
+}
 .main-image{
     display: flex;
     overflow-x:scroll;
@@ -34,6 +37,9 @@ body, html{
 .main-image div img{
     height: 99%;
     width: 100%;
+}
+.container-compra{
+    margin-top: 4rem;
 }
 /* ---------- Botones */
 .buttons-container{
@@ -63,6 +69,11 @@ body, html{
     display: none;
 }
 /* -------- Info */
+.info-prod{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 .container-redes{
     text-align: center;
 }
@@ -131,7 +142,6 @@ body, html{
     }
     main{
         padding: 3rem;
-        height: 100vh;
     }
     .botones:hover{
         background-color: var(--blanco-txt);
