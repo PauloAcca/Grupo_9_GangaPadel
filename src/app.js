@@ -28,6 +28,9 @@ app.use("/producto", mainRouter);
 app.use("/filtrado", mainRouter);
 app.use("/wishlist", mainRouter);
 app.use("/carrito", mainRouter);
+app.use("/header",mainRouter);
+app.use("/footer",mainRouter);
+
 
 
 // Ponemos a escuchar el servidor
