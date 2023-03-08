@@ -95,6 +95,7 @@ main{
     color: black;
     text-align: center;
     font-size: 30px;
+    margin-top: 10px;
    
     
 }
@@ -139,6 +140,7 @@ main{
 
 .contenedor-imagenes{
     text-align: center;
+   
     
     
 }
