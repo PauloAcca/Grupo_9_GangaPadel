@@ -1,37 +1,36 @@
 // Requerimos path para poder enviar los archivos HTML
-const path = require("path");
-
+const path = require('path')
 // Creamos el objeto literal con los métodos a exportar
 const mainController = {
 
      // Manejo del pedido get con ruta
     home: (req,res)=>{
          // comunicarse con el modelo, conseguir información
-        res.sendFile(path.resolve(__dirname,"../views/home.html"))
+        res.render('home')
     },
 
     //Repito proceso para todas las vistas
     login: (req,res)=>{
-        res.sendFile(path.join(__dirname,"../views/login.html"))
+        res.render('login')
     },
 
     registro: (req,res)=>{
-        res.sendFile(path.join(__dirname,"../views/registro.html"))
+        res.render('registro')
     },
 
     producto: (req,res)=>{
-        res.sendFile(path.join(__dirname,"../views/producto.html"))
+        res.render('producto')
     },
 
     carrito: (req,res)=>{
-        res.sendFile(path.join(__dirname,"../views/carrito.html"))
+        res.render('carrito')
     },
 
     wishlist: (req,res)=>{
-        res.sendFile(path.join(__dirname,"../views/wishlist.html"))
+        res.render('wishlist')
     },
     filtrado: (req,res)=>{
-        res.sendFile(path.join(__dirname,"../views/filtrado.html"))
+        res.render('filtrado')
     }
 }
 
