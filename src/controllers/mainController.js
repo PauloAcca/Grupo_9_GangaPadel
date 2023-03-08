@@ -31,6 +31,12 @@ const mainController = {
     },
     filtrado: (req,res)=>{
         res.render('filtrado')
+    },
+    header:  (req,res)=>{
+        res.render('header');
+    },
+    footer:(req,res)=>{
+        res.render('footer');
     }
 }
 
