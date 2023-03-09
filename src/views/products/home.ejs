@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/home-style.css">
-    <link rel="stylesheet" href="css/styleFooter.css">
-    <link rel="stylesheet" href="css/styleHeader.css">
-    <script src="https://kit.fontawesome.com/09ef2a5033.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;1,300&display=swap" rel="stylesheet">
-    <title>Home-Ganga-Padel</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/styleHome.css">
+        <link rel="stylesheet" href="css/styleFooter.css">
+        <link rel="stylesheet" href="css/styleHeader.css">
+        <link rel="stylesheet" href="/css/normalize.css">
+        <script src="https://kit.fontawesome.com/09ef2a5033.js" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;1,300&display=swap" rel="stylesheet">
+        <title>Home-Ganga-Padel</title>
+    </head>
 <body>
     <header>
-            <div class="barraSuperior">
-                <img src="img/logo.png" alt="logo" class="logo">
-                <div class="buscadorCarritoCuenta">
-                    <input type="search" name="busqueda" id="busqueda" class="busqueda" placeholder="Busque aquí...">
-                    <a href=""><i class="fa-regular fa-user"></i></a> <!-- Logo De Cuentas -->
-                    <a href=""><i class="fa-solid fa-cart-shopping"></i></i></a> <!-- Logo de Carrito -->
-                </div>
+        <div class="barraSuperior">
+            <a href="./home.ejs" class="hipervinculo-logo"><img src="img/logo.png" alt="logo" class="logo"></a>
+            <input type="search" name="busqueda" id="busqueda" class="busqueda" placeholder="Busque aquí...">
+            <div class="iconos-header">
+                <a href=""><i class="fa-regular fa-user"></i></a>
+                <a href=""><i class="fa-solid fa-cart-shopping"></i></i></a>
             </div>
-            <div class="barraInferior">
-                <a href="#">Productos</a>
-                <a href="#">Marcas</a>
-                <a href="#">Ofertas</a>
-            </div>
+        </div>
     </header>
-    <main> 
+    <main>
+        <div class="barraInferior">
+            <a href="#">Productos<i class="fa-solid fa-chevron-down"></i></a>
+            <a href="#">Marcas<i class="fa-solid fa-chevron-down"></i></a>
+            <a href="#">Ofertas<i class="fa-solid fa-chevron-down"></i></a>
+        </div>
         <div id="contenedor-slider">
             <div class="slider">
                 <img src="img/slider-1.jpg" alt="imagen-slider">
@@ -45,7 +46,6 @@
         <div class="contenedor-h">
             <h3>TE RECOMENDAMOS</h3>
         </div>
-       
         <section>
             <div class="contenedor-productos">
                 <article class="articulo">
@@ -164,52 +164,50 @@
                 <i class="fa-solid fa-arrow-right arrow-right-article"></i>
             </div>
         </section>
-    </main>    
-    <footer>
-                <div class="navegacion">
-                    <ul>
-                        <li><h3>Navegación</h3></li>
-                        <li><a href="#">Inicio</a></li>
-                        <li><a href="#">Productos</a></li>
-                        <li><a href="#">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="redesSociales">
-                    <ul>
-                        <li><h3>Redes</h3></li>
-                        <li><i class="fa-brands fa-instagram"></i> <!-- Ig --></li>
-                        <li><i class="fa-brands fa-whatsapp"></i> <!-- wpp --></li>
-                        <li><i class="fa-brands fa-facebook"></i> <!-- Facebook --></li>
-                    </ul>
-                </div>
-                <div class="información">
-                    <ul>
-                        <li><h3>información</h3></li>
-                        <li><a href="#">Sobre nosotros</a></li>
-                        <li><a href="#">Términos de servicio</a></li>
-                        <li><a href="#">Política de devolución</a></li>
-                    </ul>
-                </div>
-                <div class="contacto">
-                    <ul>
-                        <li><h3>Contacto</h3></li>
-                        <li>Ganga padel</li>
-                        <li>Caseros 1828</li>
-                        <li><a href="tel:+541168551033">+541168551033</a></li>
-                    </ul>
-                    
-                </div>
-                <div class="FormasDePago">
-                    <ul>
-                        <li><h3>Pagos</h3></li>
-                        <li><i class="fa-regular fa-credit-card"></i></li> <!-- Tarjetas -->
-                        <li><i class="fa-solid fa-building-columns"></i></li> <!-- Mp -->
-                        <li><i class="fa-brands fa-cc-paypal"></i></li> <!-- paypal -->
-                    </ul>
-                </div>
-                <div class="logo">
-                    <a href="#"><img src="#" alt="Logo"></a>
-                </div>  
-    </footer>
+        <footer>
+            <div class="contenedor-info-footer">
+                <h3>Navegación</h3>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="contenedor-info-footer">
+                <h3>Redes</h3>
+                <ul class="ul-iconos">
+                    <li><i class="fa-brands fa-instagram"></i></li>
+                    <li><i class="fa-brands fa-whatsapp"></i> </li>
+                    <li><i class="fa-brands fa-facebook"></i> </li>
+                </ul>
+            </div>
+            <div class="contenedor-info-footer">
+                <h3>Información</h3>
+                <ul>
+                    <li><a href="#">Sobre nosotros</a></li>
+                    <li><a href="#">Términos de servicio</a></li>
+                    <li><a href="#">Política de devolución</a></li>
+                </ul>
+            </div>
+            <div class="contenedor-info-footer">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>Ganga padel</li>
+                    <li>Caseros 1828</li>
+                    <li><a href="tel:+541168551033">+541168551033</a></li>
+                </ul>
+            </div>
+            <div class="contenedor-info-footer">
+                <h3>Pagos</h3>
+                <ul class="ul-iconos">
+                    <li><i class="fa-regular fa-credit-card"></i></li>
+                    <li><i class="fa-solid fa-building-columns"></i></li>
+                    <li><i class="fa-brands fa-cc-paypal"></i></li>
+                </ul>
+            </div>
+        </footer>   
+    </main>
 </body>
 </html>
+
+<!--  -->
