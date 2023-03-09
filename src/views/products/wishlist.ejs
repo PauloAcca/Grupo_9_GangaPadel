@@ -1,36 +1,9 @@
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/1d21def6f6.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/styleHeader.css">
-    <link rel="stylesheet" href="/css/styleFooter.css">
-    <link rel="stylesheet" href="/css/listaDeseos.css">
-    <title>Ganga Padel</title>
-</head>
+<%- include('../partials/head.ejs') %>
 
 <body>
-    <header>
-        <div class="barraSuperior">
-            <a href="./home.html" class="hipervinculo-logo"><img src="img/logo.png" alt="logo" class="logo"></a>
-            <div class="buscadorCarritoCuenta">
-                <input type="search" name="busqueda" id="busqueda" class="busqueda" placeholder="Busque aquí...">
-                <a href=""><i class="fa-regular fa-user"></i></a> <!-- Logo De Cuentas -->
-                <a href=""><i class="fa-solid fa-cart-shopping"></i></i></a> <!-- Logo de Carrito -->
-            </div>
-        </div>
-        <div class="barraInferior">
-            <a href="#">Productos</a>
-            <a href="#">Marcas</a>
-            <a href="#">Ofertas</a>
-        </div>
-    </header>
+    <%- include('../partials/header.ejs') %>
     <main>
         <h2 class="titulo-productos">Productos</h2>
         <div class="contenedor-padre">
@@ -64,64 +37,9 @@
         </div>
 
     </main>
+    <%- include('../partials/footer.ejs') %>
 
-    <footer>
-        <div class="navegacion">
-            <ul>
-                <li>
-                    <h3>Navegación</h3>
-                </li>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Productos</a></li>
-                <li><a href="#">Contacto</a></li>
-            </ul>
-        </div>
-        <div class="redesSociales">
-
-            <ul>
-                <li>
-                    <h3>Redes</h3>
-                </li>
-                <li><i class="fa-brands fa-instagram"></i> <!-- Ig --></li>
-                <li><i class="fa-brands fa-whatsapp"></i> <!-- wpp --></li>
-                <li><i class="fa-brands fa-facebook"></i> <!-- Facebook --></li>
-            </ul>
-        </div>
-        <div class="información">
-            <ul>
-                <li>
-                    <h3>información</h3>
-                </li>
-                <li><a href="#">Sobre nosotros</a></li>
-                <li><a href="#">Términos de servicio</a></li>
-                <li><a href="#">Política de devolución</a></li>
-            </ul>
-        </div>
-        <div class="contacto">
-            <ul>
-                <li>
-                    <h3>Contacto</h3>
-                </li>
-                <li>Ganga padel</li>
-                <li>Caseros 1828</li>
-                <li><a href="tel:+541168551033">+541168551033</a></li>
-            </ul>
-
-        </div>
-        <div class="FormasDePago">
-            <ul>
-                <li>
-                    <h3>Pagos</h3>
-                </li>
-                <li><i class="fa-regular fa-credit-card"></i></li> <!-- Tarjetas -->
-                <li><i class="fa-solid fa-building-columns"></i></li> <!-- Mp -->
-                <li><i class="fa-brands fa-cc-paypal"></i></li> <!-- paypal -->
-            </ul>
-        </div>
-        <div class="logo">
-            <a href="#"><img src="#" alt="Logo"></a>
-        </div>
-    </footer>
+    
 
 </body>
 
