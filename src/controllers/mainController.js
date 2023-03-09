@@ -6,31 +6,31 @@ const mainController = {
      // Manejo del pedido get con ruta
     home: (req,res)=>{
          // comunicarse con el modelo, conseguir información
-        res.render('home')
+        res.render('products/home')
     },
 
     //Repito proceso para todas las vistas
     login: (req,res)=>{
-        res.render('login')
+        res.render('users/login')
     },
 
     registro: (req,res)=>{
-        res.render('registro')
+        res.render('users/registro')
     },
 
     producto: (req,res)=>{
-        res.render('producto')
+        res.render('products/producto')
     },
 
     carrito: (req,res)=>{
-        res.render('carrito')
+        res.render('products/carrito')
     },
 
     wishlist: (req,res)=>{
-        res.render('wishlist')
+        res.render('products/wishlist')
     },
     filtrado: (req,res)=>{
-        res.render('filtrado')
+        res.render('products/filtrado')
     },
     header:  (req,res)=>{
         res.render('header');
