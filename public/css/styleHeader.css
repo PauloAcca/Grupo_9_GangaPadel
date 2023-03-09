@@ -128,4 +128,7 @@ header a:hover{
         background-color: var(--negro-s);
         padding: 0.5rem;
     }
+    .barraInferior a{
+        font-size: 14px;
+    }
 }

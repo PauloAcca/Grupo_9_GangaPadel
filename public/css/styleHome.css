@@ -114,6 +114,7 @@ main{
     color: grey;
     font-size: x-small;
     margin-top: 10px;
+    font-weight: bolder;
 }
 
 .nombre-producto{
@@ -128,6 +129,7 @@ main{
     font-size: small;
     margin-top: 15px;
     margin-right: 20px;
+    font-weight: bold;
 }
 
 .contenedor-productos{
@@ -268,5 +270,8 @@ main{
     #contenedor-imagen-promocional{
         width: 100%;
         height: 150px;
+    }
+    .precio{
+        margin-left: 11px;
     }
 }
