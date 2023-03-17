@@ -3,14 +3,18 @@ const express = require("express");
 const app = express();
 
 // Requerimos path
-
 const path=require("path");
+
+// Requerimos mainRouter
+const mainRouter=require("./routes/mainRouter.js");
+
+//Requerimos methodOverride
+const methodOverride= require('method-oerride');
 
 // Guardamos direccion del puerto
 const port = process.env.PORT || 3030;
 
 // Importamos los distintos enrutadores
-const mainRouter=require("./routes/mainRouter.js");
 let admRouter = require('./routes/admRouter.js');
 let usersRouter = require('./routes/usersRouter.js');
 let productsRouter = require('./routes/productsRouter.js');
@@ -20,7 +24,12 @@ app.set("view engine", "ejs");
 
 // Usando recursos estáticos.
 app.use(express.static("public"));
+app.use(express.json());
+app.use(express.urlencoded({extended:false}));
+app.use(methodOverride('_method'));
 
+
+// Establecemos el metodo a usar en las vistas
 app.set('views', path.resolve(__dirname, "views"));
 
 // Usando los enrutadores importados
