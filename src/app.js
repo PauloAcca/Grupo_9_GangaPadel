@@ -9,7 +9,7 @@ const path=require("path");
 const mainRouter=require("./routes/mainRouter.js");
 
 //Requerimos methodOverride
-const methodOverride= require('method-oerride');
+const methodOverride= require('method-override');
 
 // Guardamos direccion del puerto
 const port = process.env.PORT || 3030;
