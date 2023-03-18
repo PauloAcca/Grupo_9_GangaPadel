@@ -2,6 +2,7 @@
 const path = require('path');
 // Creamos el objeto literal con los métodos a exportar
 const productsController = {
+    
     producto: (req,res)=>{
         res.render('products/producto');
     },

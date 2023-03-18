@@ -15,9 +15,9 @@ const methodOverride= require('method-override');
 const port = process.env.PORT || 3030;
 
 // Importamos los distintos enrutadores
-let admRouter = require('./routes/admRouter.js');
-let usersRouter = require('./routes/usersRouter.js');
-let productsRouter = require('./routes/productsRouter.js');
+const admRouter = require('./routes/admRouter.js');
+const usersRouter = require('./routes/usersRouter.js');
+const productsRouter = require('./routes/productsRouter.js');
 
 // elegimos nuestro view engine
 app.set("view engine", "ejs");
@@ -34,9 +34,9 @@ app.set('views', path.resolve(__dirname, "views"));
 
 // Usando los enrutadores importados
 app.use("/", mainRouter);
-app.use("/products",productsRouter);
-app.use("/users",usersRouter);
-app.use("/adm",admRouter);
+app.use("/",productsRouter);
+app.use("/",usersRouter);
+app.use("/",admRouter);
 
 // Ponemos a escuchar el servidor
 app.listen(port, () => {
