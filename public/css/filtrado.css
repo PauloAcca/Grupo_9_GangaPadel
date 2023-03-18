@@ -74,7 +74,7 @@ article img{
         display: flex;
     }
     .galeriaProductos{
-        position: absolute;
+        position: relative;
         left: 30%;
         width:65%;
     }

@@ -1,7 +1,11 @@
+<!DOCTYPE html>
 <html lang="en">
-
-<%- include('../partials/head.ejs') %>
-
+<head> <!-- Al poner include del head, tenemos  Problemas con el CSS --> 
+    <%- include('../partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/listaDeseos.css">
+    <%- include('../partials/header-footer-stylesheet.ejs')  %>
+    <title>Producto</title>
+</head>
 <body>
     <%- include('../partials/header.ejs') %>
     <main>
