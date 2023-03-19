@@ -3,31 +3,40 @@ const express = require("express");
 const app = express();
 
 // Requerimos path
-
 const path=require("path");
+
+// Requerimos mainRouter
+const mainRouter=require("./routes/mainRouter.js");
+
+//Requerimos methodOverride
+const methodOverride= require('method-override');
 
 // Guardamos direccion del puerto
 const port = process.env.PORT || 3030;
 
 // Importamos los distintos enrutadores
-const mainRouter=require("./routes/mainRouter.js");
-let admRouter = require('./routes/admRouter.js');
-let usersRouter = require('./routes/usersRouter.js');
-let productsRouter = require('./routes/productsRouter.js');
+const admRouter = require('./routes/admRouter.js');
+const usersRouter = require('./routes/usersRouter.js');
+const productsRouter = require('./routes/productsRouter.js');
 
 // elegimos nuestro view engine
 app.set("view engine", "ejs");
 
 // Usando recursos estáticos.
-app.use(express.static(path.resolve(__dirname,"../public"))); // agregar barra en public y borrar en otras rutas 
+app.use(express.static("public"));
+app.use(express.json());
+app.use(express.urlencoded({extended:false}));
+app.use(methodOverride('_method'));
 
+
+// Establecemos el metodo a usar en las vistas
 app.set('views', path.resolve(__dirname, "views"));
 
 // Usando los enrutadores importados
 app.use("/", mainRouter);
-app.use("/products",productsRouter);
-app.use("/users",usersRouter);
-app.use("/adm",admRouter);
+app.use("/",productsRouter);
+app.use("/",usersRouter);
+app.use("/",admRouter);
 
 // Ponemos a escuchar el servidor
 app.listen(port, () => {
