@@ -1,78 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> <!-- Al poner include del head, tenemos  Problemas con el CSS --> 
+
+<head> 
     <%- include('../partials/head.ejs') %>
-    <%- include('../partials/header-footer-stylesheet.ejs')  %>
-    <link rel="stylesheet" href="/css/producto.css">
-    <title>Producto</title>
+        <%- include('../partials/header-footer-stylesheet.ejs') %>
+            <link rel="stylesheet" href="/css/producto.css">
+            <title>Producto</title>
 </head>
+
 <body>
     <%- include('../partials/header.ejs') %>
 
-    
-    <main>
-        <div class="barraInferior">
-            <a href="#">Productos<i class="fa-solid fa-chevron-down"></i></a>
-            <a href="#">Marcas<i class="fa-solid fa-chevron-down"></i></a>
-            <a href="#">Ofertas<i class="fa-solid fa-chevron-down"></i></a>
-        </div>
-        <div class="main-div">
-            <div class="container-compra">
-                <div class="main-image">
-                    <div><img src="/img/fotoPaletaPadel.jpg" alt=""></div>
-                    <div><img src="/img/fotoPaletaPadel.jpg" alt=""></div>
-                    <div><img src="/img/fotoPaletaPadel.jpg" alt=""></div>
-                    <div><img src="/img/fotoPaletaPadel.jpg" alt=""></div>
-                    <div><img src="/img/fotoPaletaPadel.jpg" alt=""></div>
-                </div>
-                <div class="info-prod">
-                    <h2>Nombre Producto</h2>
-                    <h3>$9999,99</h3>
-                    <p class="informacion">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum at, maxime architecto inventore provident harum veritatis rerum quasi repudiandae eius aspernatur culpa, enim voluptates. Autem ea dicta animi cum tenetur? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque quae enim aspernatur nemo atque sunt ratione in distinctio maxime ut culpa sint, ipsa exercitationem, magnam consequatur officiis fuga saepe fugit? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni sed, dolorem, minima earum sequi quo consequuntur non dolores nesciunt quia iste. Tempore porro sapiente quaerat suscipit ratione! Non, ad ipsam.
-                    </p>
-                    <div class="buttons-container">
-                        <div class="div-cantidades">
-                            <p>Cantidad</p>
-                            <input type="number" min="0">
+
+        <main>
+            <%- include('../partials/navbar.ejs') %>
+                <div class="main-div">
+                    <div class="container-compra">
+                        <div class="main-image">
+                            <div><img src="/img/fotoPaletaPadel.jpg" alt=""></div>
+                            <div><img src="/img/fotoPaletaPadel.jpg" alt=""></div>
+                            <div><img src="/img/fotoPaletaPadel.jpg" alt=""></div>
+                            <div><img src="/img/fotoPaletaPadel.jpg" alt=""></div>
+                            <div><img src="/img/fotoPaletaPadel.jpg" alt=""></div>
                         </div>
-                        <button class="botones comprar">Comprar</button>
-                        <button class="botones botonesLetras">Agregar al carrito</button>
-                        <button class="botones botonesIcons"><i class="fa-solid fa-cart-shopping"></i></button>
-                        <button class="botones botonesLetras">LIsta de deseos</button>
-                        <button class="botones botonesIcons"><i class="fa-solid fa-heart"></i></button>
-                    </div>
-                    <div class="divs-info">
-                        <div class="container-redes">
-                            <p>Tienes alguna duda?</p>
-                            <div class="div-icons">
-                                <div><a href=""><i class="fa-brands fa-facebook"></i></a></div>
-                                <div><a href=""><i class="fa-brands fa-instagram"></i></a></div>
-                                <div><a href=""><i class="fa-brands fa-whatsapp"></i></a></div>
+                        <div class="info-prod">
+                            <h2>Nombre Producto</h2>
+                            <h3>$9999,99</h3>
+                            <p class="informacion">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum at, maxime architecto
+                                inventore provident harum veritatis rerum quasi repudiandae eius aspernatur culpa, enim
+                                voluptates. Autem ea dicta animi cum tenetur? Lorem ipsum dolor, sit amet consectetur
+                                adipisicing elit. Eaque quae enim aspernatur nemo atque sunt ratione in distinctio
+                                maxime ut culpa sint, ipsa exercitationem, magnam consequatur officiis fuga saepe fugit?
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni sed, dolorem, minima
+                                earum sequi quo consequuntur non dolores nesciunt quia iste. Tempore porro sapiente
+                                quaerat suscipit ratione! Non, ad ipsam.
+                            </p>
+                            <div class="buttons-container">
+                                <div class="div-cantidades">
+                                    <p>Cantidad</p>
+                                    <input type="number" min="0">
+                                </div>
+                                <button class="botones comprar">Comprar</button>
+                                <button class="botones botonesLetras">Agregar al carrito</button>
+                                <button class="botones botonesIcons"><i class="fa-solid fa-cart-shopping"></i></button>
+                                <button class="botones botonesLetras">LIsta de deseos</button>
+                                <button class="botones botonesIcons"><i class="fa-solid fa-heart"></i></button>
+                            </div>
+                            <div class="divs-info">
+                                <div class="container-redes">
+                                    <p>Tienes alguna duda?</p>
+                                    <div class="div-icons">
+                                        <div><a href=""><i class="fa-brands fa-facebook"></i></a></div>
+                                        <div><a href=""><i class="fa-brands fa-instagram"></i></a></div>
+                                        <div><a href=""><i class="fa-brands fa-whatsapp"></i></a></div>
+                                    </div>
+                                </div>
+                                <div class="info-extra">
+                                    <p><i class="fa-solid fa-building-columns"></i> Formas de pago seguras</p>
+                                    <p><i class="fa-solid fa-money-bill"></i>Paga a plazos,elige tu cuota</p>
+                                    <p><i class="fa-solid fa-truck"></i>Envios rapidos desde nuestro almacen</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="info-extra">
-                            <p><i class="fa-solid fa-building-columns"></i> Formas de pago seguras</p>
-                            <p><i class="fa-solid fa-money-bill"></i>Paga a plazos,elige tu cuota</p>
-                            <p><i class="fa-solid fa-truck"></i>Envios rapidos desde nuestro almacen</p>
+                    </div>
+                </div>
+                <div class="div-prods-Relacionados">
+                    <h3>Productos relacionados</h3>
+                    <div class="scroll-relacionados">
+                        <div class="image-relacionados">
+                            <div><img src="/img/fotoPaletaPadel.jpg" alt=""></div>
+                            <div><img src="/img/fotoPaletaPadel.jpg" alt=""></div>
+                            <div><img src="/img/fotoPaletaPadel.jpg" alt=""></div>
+                            <div><img src="/img/fotoPaletaPadel.jpg" alt=""></div>
+                            <div><img src="/img/fotoPaletaPadel.jpg" alt=""></div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="div-prods-Relacionados">
-            <h3>Productos relacionados</h3>
-            <div class="scroll-relacionados">
-                <div class="image-relacionados">
-                    <div><img src="/img/fotoPaletaPadel.jpg" alt=""></div>
-                    <div><img src="/img/fotoPaletaPadel.jpg" alt=""></div>
-                    <div><img src="/img/fotoPaletaPadel.jpg" alt=""></div>
-                    <div><img src="/img/fotoPaletaPadel.jpg" alt=""></div>
-                    <div><img src="/img/fotoPaletaPadel.jpg" alt=""></div>
-                </div>
-            </div>
-        </div>
-    </main>
-    <%- include('../partials/footer.ejs') %>
+        </main>
+        <%- include('../partials/footer.ejs') %>
 </body>
+
 </html>
