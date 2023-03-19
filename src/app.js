@@ -40,5 +40,5 @@ app.use("/",admRouter);
 
 // Ponemos a escuchar el servidor
 app.listen(port, () => {
-    console.log("Servidor corriendo el puerto: " + port);
+    console.log("Servidor corriendo el puerto http://localhost:" + port);
 });
