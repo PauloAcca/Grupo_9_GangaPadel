@@ -19,7 +19,7 @@ let productsRouter = require('./routes/productsRouter.js');
 app.set("view engine", "ejs");
 
 // Usando recursos estáticos.
-app.use(express.static(path.resolve(__dirname,"../public")));
+app.use(express.static(path.resolve(__dirname,"../public"))); // agregar barra en public y borrar en otras rutas 
 
 app.set('views', path.resolve(__dirname, "views"));
 

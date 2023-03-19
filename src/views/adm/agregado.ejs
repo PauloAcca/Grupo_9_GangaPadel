@@ -1,42 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/agregado.css">
-    <title>Agregar producto</title>
-</head>
+<%- include('../partials/head')  %>
+<%- include('../partials/header')  %>
+
 <body>
     <main>
         <h1>Agregar producto</h1>
         <div class="FormularioDiv">
             <form action="#" method="post">
                 <label for="nombre">
-
+                    Nombre del producto
+                    <input type="text">
                 </label>
+                <label for="precio">
+                    Precio del producto
+                    <input type="number">
+                </label>
+
                 <label for="condicion">
+                    Condición del producto
                     <input type="radio" name="condicion" id="nuevo">Nuevo
                     <input type="radio" name="condicion" id="usado">Usado
                 </label>
                 <label for="marca">
+                    Marca del producto
                     <select name="seleccionar" id="1">
                         <option value="seleccionar">Seleccionar</option>
                     </select>
                 </label>
                 <label for="categoria">
+                    Categoría del producto 
                     <select name="seleccionar" id="1">
                         <option value="seleccionar">Seleccionar</option>
                     </select>
                 </label>
+                Descripcion del producto
                 <label for="descripcion">
                     <textarea name="descripcion" id="descripcion" cols="30" rows="10"></textarea>
                 </label>
 
             </form>
+            <h2>Otras opciones</h2>
+            <ul>
+                <li>Editar Producto</li>
+                <li>Eliminar Producto</li>
+            </ul>
         </div>
 
     </main>
+    <%- include('../partials/footer')  %>
 </body>
 </html>
 
