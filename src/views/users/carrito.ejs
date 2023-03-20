@@ -3,73 +3,60 @@
 
 <head>
     <%- include('../partials/head.ejs') %>
-        <link rel="stylesheet" href="/css/styleCarrito.css">
-        <%- include('../partials/header-footer-stylesheet.ejs') %>
-            <title>Carrito</title>
+    <%- include('../partials/header-footer-stylesheet.ejs') %>
+    <link rel="stylesheet" href="/css/styleCarrito.css">
+    <title>Carrito</title>
 </head>
 
 <body>
     <%- include('../partials/header.ejs') %>
-
-        <main>
-            <%- include('../partials/navbar.ejs') %>
-
-                <h2 class="titulo-productos"> Carrito</h2>
-                <div class="contenedor-padre">
-
-                    <article class="contenedores-hijos">
-
-                        <img class="img-raqueta" src="/img/adidas-pala-padel-metalbone-3.2.jpg" alt="Raqueta">
-                        <p class="textos">Adidas </p>
-                        <p class="textos">$65.000</P>
-                        <input id="number" type="number" value="1" />
-                        <p class="textos">Total: $65000</p>
-                        <p class="texto-eliminar"> <strong>Eliminar producto</strong></p>
-                    </article>
-
-                    <article class="contenedores-hijos">
-                        <img class="img-raqueta" src="/img/head-pala-padel-evo-delta-2022.jpg" alt="Raqueta">
-                        <p class="textos">Head</p>
-                        <P class="textos">$80000</P>
-                        <input id="number" type="number" value="1" />
-                        <p class="textos">Total: $80000</p>
-                        <p class="texto-eliminar"> <strong>Eliminar producto</strong></p>
-                    </article>
-
-                    <article class="contenedores-hijos-3">
-
-                        <p class="contenedor-3">Subtotal</p>
-                        <p class="contenedor-3">$145000</p>
-                        <p class="contenedor-3">Envio</p>
-                        <label for="tipo-entrega" value="domicilio"> Domicilio </label> <input type="radio"
-                            name="tipo-entrega" value="Domicilio">
-                        <label for="Sucursal"> Retiro en sucursal </label> <input type="radio" name="tipo-entrega"
-                            value="Sucursal">
-                        <a href="#" class="contenedor-pagar"> Pagar</a>
-                        <i class="fa-sharp fa-solid fa-cart-shopping"></i>
-                        <div class="similares">
-                            <a href="producto">Productos similares</a>
-                        </div>
-                        <div class="contenedor-imagenes"><a href=""><img class="img-raqueta-similares"
-                                    src="/img/adidas-pala-padel-kaltom-ctrl-2.0.jpg" alt="raqueta"></a>
-                            <a href=""><img class="img-raqueta-similares" src="/img/head-pala-padel-flash.jpg"
-                                    alt="raqueta"></a>
-                            <a href=""><img class="img-raqueta-similares" src="/img/nox-pala-padel-x-one-evo.jpg"
-                                    alt="raqueta"></a>
-                            <a href=""><img class="img-raqueta-similares" src="/img/nox-pala-padel-x-one-evo (1).jpg"
-                                    alt="raqueta"></a>
-                        </div>
-                    </article>
-
-
-
-
+    <%- include('../partials/navbar.ejs') %>
+    
+    <main>
+        <h2 class="titulo-productos"> Carrito</h2>
+        <div class="contenedor-padre">
+            <article class="contenedores-hijos">
+                <img class="img-raqueta" src="/img/adidas-pala-padel-metalbone-3.2.jpg" alt="Raqueta">
+                <p class="textos">Adidas </p>
+                <p class="textos">$65.000</P>
+                <input id="number" type="number" value="1" />
+                <p class="textos">Total: $65000</p>
+                <p class="texto-eliminar"> <strong>Eliminar producto</strong></p>
+            </article>
+            <article class="contenedores-hijos">
+                <img class="img-raqueta" src="/img/head-pala-padel-evo-delta-2022.jpg" alt="Raqueta">
+                <p class="textos">Head</p>
+                <P class="textos">$80000</P>
+                <input id="number" type="number" value="1" />
+                <p class="textos">Total: $80000</p>
+                <p class="texto-eliminar"> <strong>Eliminar producto</strong></p>
+            </article>
+            <article class="contenedores-hijos-3">
+                <p class="contenedor-3">Subtotal</p>
+                <p class="contenedor-3">$145000</p>
+                <p class="contenedor-3">Envio</p>
+                <label for="tipo-entrega" value="domicilio"> Domicilio </label> <input type="radio"
+                    name="tipo-entrega" value="Domicilio">
+                <label for="Sucursal"> Retiro en sucursal </label> <input type="radio" name="tipo-entrega"
+                    value="Sucursal">
+                <a href="#" class="contenedor-pagar"> Pagar</a>
+                <i class="fa-sharp fa-solid fa-cart-shopping"></i>
+                <div class="similares">
+                    <a href="producto">Productos similares</a>
                 </div>
-
-        </main>
-        <%- include('../partials/footer.ejs') %>
-
-
+                <div class="contenedor-imagenes"><a href=""><img class="img-raqueta-similares"
+                            src="/img/adidas-pala-padel-kaltom-ctrl-2.0.jpg" alt="raqueta"></a>
+                    <a href=""><img class="img-raqueta-similares" src="/img/head-pala-padel-flash.jpg"
+                            alt="raqueta"></a>
+                    <a href=""><img class="img-raqueta-similares" src="/img/nox-pala-padel-x-one-evo.jpg"
+                            alt="raqueta"></a>
+                    <a href=""><img class="img-raqueta-similares" src="/img/nox-pala-padel-x-one-evo (1).jpg"
+                            alt="raqueta"></a>
+                </div>
+            </article>
+        </div>
+    </main>
+    <%- include('../partials/footer.ejs') %>
 </body>
 
 </html>
