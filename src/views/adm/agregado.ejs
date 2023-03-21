@@ -3,54 +3,54 @@
 <head>
     <%- include('../partials/head.ejs') %>
     <%- include('../partials/header-footer-stylesheet.ejs') %>
+    
     <link rel="stylesheet" href="/css/agregado.css">
     <title>Pagina agregado de productos</title>
 </head>
 <body>
     <%- include('../partials/header')  %>
-    <main>
-        <h1>Agregar producto</h1>
+    <%- include('../partials/navbar.ejs') %>
+    <main class="agregadoMain">
+        <h1 class="agregadoTitulo">Agregar producto</h1>
         <div class="FormularioDiv">
             <form action="#" method="post">
-                <label for="nombre">
+                <label class="centered" for="nombre">
                     Nombre del producto
-                    <input type="text">
+                    <input class="blockInput" type="text">
                 </label>
-                <label for="precio">
+                <label class="centered" for="precio">
                     Precio del producto
-                    <input type="number">
+                    <input  class="blockInput" type="number">
                 </label>
 
-                <label for="condicion">
+                <label class="centered" for="condicion">
                     Condición del producto
-                    <input type="radio" name="condicion" id="nuevo">Nuevo
-                    <input type="radio" name="condicion" id="usado">Usado
+                    <div class="radioCentered">
+                    <input   class="condicionRadio" type="radio" name="condicion" id="nuevo">Nuevo
+                    <input   class="condicionRadio" type="radio" name="condicion" id="usado">Usado
+                    </div>
                 </label>
-                <label for="marca">
+                <label class="centered" for="marca">
                     Marca del producto
-                    <select name="seleccionar" id="1">
+                    <select  class="blockInput" name="seleccionar" id="1">
                         <option value="seleccionar">Seleccionar</option>
                     </select>
                 </label>
-                <label for="categoria">
+                <label class="centered" for="categoria">
                     Categoría del producto 
-                    <select name="seleccionar" id="1">
+                    <select class="blockInput"  name="seleccionar" id="1">
                         <option value="seleccionar">Seleccionar</option>
                     </select>
                 </label>
-                Descripcion del producto
-                <label for="descripcion">
-                    <textarea name="descripcion" id="descripcion" cols="30" rows="10"></textarea>
+                <label class="centered" for="descripcion">
+                    Descripcion del producto
+                    <textarea  class="blockInput txt" name="descripcion" id="descripcion" cols="30" rows="10"></textarea>
                 </label>
 
             </form>
-            <h2>Otras opciones</h2>
-            <ul>
-                <li>Editar Producto</li>
-                <li>Eliminar Producto</li>
-            </ul>
-        </div>
-
+            <h2 class="agregadoTitulo" >Otras opciones</h2>
+            <a href="#"  class="linksAgregado">Editar Producto<a>
+            <a href="#"  class="linksAgregado">Eliminar Producto</a>
     </main>
     <%- include('../partials/footer')  %>
 </body>

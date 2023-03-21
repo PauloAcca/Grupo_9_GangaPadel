@@ -1,0 +1,38 @@
+.agregadoTitulo{
+    text-align: center;
+}
+.centered{
+    display: block;
+    text-align: center;
+    font-weight: bold;
+   
+    margin: 1rem;
+  
+}
+.blockInput{
+    display: block;
+    text-align: center;
+    margin: auto;
+}
+.radioCentered{
+    display: block;
+    font-weight: lighter;
+}
+
+
+.linksAgregado{
+    text-align: center;
+    display: block;
+    color: var(--gris);
+    transition: color 450ms;
+
+}
+.linksAgregado:hover{
+    color: #DA0037;
+}
+.agregadoMain{
+    text-align: center;
+}
+.FormularioDiv{
+    margin:auto;
+}
