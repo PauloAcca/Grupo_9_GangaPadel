@@ -16,7 +16,7 @@ router.get("/", mainController.home);
 
 router.get('/login', mainController.login);
 
-router.get('/registro', mainController.registro);
+router.get('/register', mainController.registro);
 
 
 // Exportamos la variable router ya con todas las rutas "guardadas", que se usará en app.js
