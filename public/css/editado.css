@@ -1,0 +1,47 @@
+.editadoTitulo{
+    text-align: center;
+}
+.centered{
+    display: block;
+    text-align: center;
+    font-weight: bold;
+   
+    margin: 1rem;
+  
+}
+.blockInput{
+    display: block;
+    text-align: center;
+    margin: auto;
+    
+}
+
+.blockInputDescripcion{
+    display: block;
+    text-align: center;
+    margin: auto;
+    
+}
+
+.radioCentered{
+    display: block;
+    font-weight: lighter;
+}
+
+
+.linksEditado{
+    text-align: center;
+    display: block;
+    color: var(--gris);
+    transition: color 450ms;
+
+}
+.linksEditado:hover{
+    color: #DA0037;
+}
+.editadoMain{
+    text-align: center;
+}
+.FormularioDiv{
+    margin:auto;
+}

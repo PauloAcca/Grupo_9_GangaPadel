@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head.ejs') %>
+    <%- include('../partials/header-footer-stylesheet.ejs') %>
+
+    <link rel="stylesheet" href="/css/editado.css">
+            <title>Página Editado de productos</title>
+</head>
+
+<body>
+    <%- include('../partials/header') %>
+        <%- include('../partials/navbar.ejs') %>
+
+        <main class="editadoMain">
+            <h1 class="aditadoTitulo">Editar producto</h1>
+            <div class="FormularioDiv">
+                <form action="#" method="post">
+                    <label class="centered" for="nombre">
+                        Nombre del producto
+                        <input class="blockInput" type="text">
+                    </label>
+                    <label class="centered" for="precio">
+                        Precio del producto
+                        <input  class="blockInput" type="number">
+                    </label>
+    
+                    <label class="centered" for="condicion">
+                        Condición del producto
+                        <div class="radioCentered">
+                        <input   class="condicionRadio" type="radio" name="condicion" id="nuevo">Nuevo
+                        <input   class="condicionRadio" type="radio" name="condicion" id="usado">Usado
+                        </div>
+                    </label>
+                    <label class="centered" for="marca">
+                        Marca del producto
+                        <select  class="blockInput" name="seleccionar" id="1">
+                            <option value="seleccionar">Seleccionar</option>
+                        </select>
+                    </label>
+                    <label class="centered" for="categoria">
+                        Categoría del producto 
+                        <select class="blockInput"  name="seleccionar" id="1">
+                            <option value="seleccionar">Seleccionar</option>
+                        </select>
+                    </label>
+                    <label class="centered" for="descripcion">
+                        Descripcion del producto
+                        <textarea  class="blockInputDescripcion" name="descripcion" id="descripcion" cols="30" rows="10"></textarea>
+                    </label>
+    
+                </form>
+                <h2 class="editadoTitulo" >Otras opciones</h2>
+                <a href="/admin/edit"  class="linksEditado">Editar Producto<a>
+                <a href="#"  class="linksEditado">Eliminar Producto</a>
+                <a href="/admin/add"  class="linksEditado">Atras</a>
+        </main>
+</body>
+<footer>
+    <%- include('../partials/footer') %>
+</footer>
