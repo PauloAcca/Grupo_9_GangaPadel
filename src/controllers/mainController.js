@@ -4,9 +4,10 @@ const path = require('path')
 const mainController = {
 
      // Manejo del pedido get con ruta
-    home: (req,res)=>{
+    index: (req,res)=>{
          // comunicarse con el modelo, conseguir información
-        res.render('home/home');
+        let productos={categoria:'Coleccion raquetas 2023', nombre_producto: 'Metalbone 23', precio:'$40.000'}
+        res.render('home/index', {productos});
     },
 
     //Repito proceso para todas las vistas

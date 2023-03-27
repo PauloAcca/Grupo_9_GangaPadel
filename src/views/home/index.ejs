@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head.ejs') %>
+    <%- include('../partials/header-footer-stylesheet.ejs') %>
+    <link rel="stylesheet" href="/css/styleHome.css">
+    <title>Ganga Padel</title>
+</head>
+
+<body>
+    <%- include('../partials/header.ejs') %>
+    <%- include('../partials/navbar.ejs') %>
+    <main>
+        <div id="contenedor-slider">
+            <div class="slider">
+                <img src="img/slider-1.jpg" alt="imagen-slider">
+            </div>
+            <i class="fa-solid fa-arrow-left"></i>
+            <i class="fa-solid fa-arrow-right"></i>
+            <div id="dots">
+                <i class="fa-solid fa-circle"></i>
+                <i class="fa-solid fa-circle"></i>
+                <i class="fa-solid fa-circle"></i>
+            </div>
+        </div>
+        <div class="contenedor-h">
+            <h3>TE RECOMENDAMOS</h3>
+        </div>
+        <section>
+            <div class="contenedor-productos">
+                <% for (let i =0; i<5; i++ ) { %>
+                    <% if(i==2) {%>
+                        <article class="articulo" id="uno">
+                    <% } else if (i==3) { %>
+                        <article class="articulo" id="dos">
+                    <% } else if (i==4) { %>
+                        <article class="articulo" id="tres">
+                    <% } else { %>
+                        <article class="articulo">
+                    <% } %>
+                        <div class="contenedor-imagen">
+                            <img class="imagen-producto" src="img/raqueta-1.jpg" alt="imagen-producto">
+                        </div>
+                        <div class="descripcion-producto">
+                            <p class="categoria"><%= productos.categoria %></p>
+                            <p class="nombre_producto"><%= productos.nombre_producto %></p>
+                        </div>
+                        <p class="precio"><%= productos.precio %></p>
+                    </article>
+                <% } %>
+                <i class="fa-solid fa-arrow-left arrow-left-article"></i>
+                <i class="fa-solid fa-arrow-right arrow-right-article"></i>
+            </div>
+        </section>
+        <div id="contenedor-imagen-promocional">
+            <img src="img/slider-2.jpg" alt="imagen-promocional">
+        </div>
+        <div class="contenedor-h">
+            <h3>OFERTAS</h3>
+        </div>
+        <section>
+                <div class="contenedor-productos">
+                    <% for (let i =0; i<5; i++ ) { %>
+                        <% if(i==2) {%>
+                            <article class="articulo" id="uno">
+                        <% } else if (i==3) { %>
+                            <article class="articulo" id="dos">
+                        <% } else if (i==4) { %>
+                            <article class="articulo" id="tres">
+                        <% } else { %>
+                            <article class="articulo">
+                        <% } %>
+                            <div class="contenedor-imagen">
+                                <img class="imagen-producto" src="img/raqueta-1.jpg" alt="imagen-producto">
+                            </div>
+                            <div class="descripcion-producto">
+                                <p class="categoria"><%= productos.categoria %></p>
+                                <p class="nombre_producto"><%= productos.nombre_producto %></p>
+                            </div>
+                            <p class="precio"><%= productos.precio %></p>
+                        </article>
+                    <% } %>
+                    <i class="fa-solid fa-arrow-left arrow-left-article"></i>
+                    <i class="fa-solid fa-arrow-right arrow-right-article"></i>
+                </div>
+        </section>
+        <%- include('../partials/footer.ejs') %>
+    </main>
+</body>
+
+</html>
+
+<!--  -->
