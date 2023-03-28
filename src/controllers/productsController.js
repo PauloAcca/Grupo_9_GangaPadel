@@ -8,8 +8,37 @@ const productsController = {
     },
 
     filtrado: (req,res)=>{
-        let producto={id:1, categoria:'Coleccion raquetas 2023', nombre_producto: 'Metalbone 23', precio:'$40.000'};
-        res.render('products/filtrado', {producto});
+        let producto = [
+            {id:1, categoria:'Coleccion raquetas 2023', nombre_producto: 'Metalbone 23', precio:'$40.000'},
+            {id:2, categoria:'Coleccion raquetas 2023', nombre_producto: 'Royal 23', precio:'$40.000'},
+            {id:3, categoria:'Coleccion raquetas 2023', nombre_producto: 'Babolat 23', precio:'$40.000'},
+            {id:4, categoria:'Coleccion raquetas 2023', nombre_producto: 'Adidas 23', precio:'$40.000'},
+            {id:5, categoria:'Coleccion raquetas 2023', nombre_producto: 'Nike 23', precio:'$40.000'}
+        ];
+
+        res.render('products/filtrado', {producto:producto});
+    },
+
+    search: (req,res)=>{
+        let producto = [
+            {id:1, categoria:'Coleccion raquetas 2023', nombre_producto: 'Metalbone 23', precio:'$40.000'},
+            {id:2, categoria:'Coleccion raquetas 2023', nombre_producto: 'Royal 23', precio:'$40.000'},
+            {id:3, categoria:'Coleccion raquetas 2023', nombre_producto: 'Babolat 23', precio:'$40.000'},
+            {id:4, categoria:'Coleccion raquetas 2023', nombre_producto: 'Adidas 23', precio:'$40.000'},
+            {id:5, categoria:'Coleccion raquetas 2023', nombre_producto: 'Nike 23', precio:'$40.000'}
+        ];
+
+        let busqueda = req.query.busqueda;
+
+        let resultado = [];
+
+        for (let i = 0; i<producto.length; i++){
+            if (producto[i].nombre_producto.includes(busqueda)){
+                resultado.push(producto[i]);
+            }
+        }
+
+        res.render('products/filtrado', {producto:resultado});
     }
 }
 

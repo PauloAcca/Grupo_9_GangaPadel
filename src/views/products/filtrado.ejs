@@ -23,12 +23,12 @@
             </div>
         </div>
         <div class="galeriaProductos">
-            <% for (i=0; i<12; i++){ %>
+            <% for (let i=0; i<producto.length; i++){ %>
                 <article>
                     <img src="/img/adidas-pala-padel-kaltom-ctrl-2.0.jpg" alt="Pala 1">
                     <div class="bloque-info">
-                        <p class="precio"><%= producto.precio %></p>
-                        <p class="descripcion"><%= producto.nombre_producto %></p>
+                        <p class="precio"><%= producto[i].precio %></p>
+                        <p class="descripcion"><%= producto[i].nombre_producto %></p>
                     </div>
                 </article>
             <% } %>
