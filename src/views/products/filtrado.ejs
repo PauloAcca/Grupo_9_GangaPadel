@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head> <!-- Al poner include del head, tenemos  Problemas con vista de escritorio -->
+<head>
     <%- include('../partials/head.ejs') %>
     <%- include('../partials/header-footer-stylesheet.ejs')%>
     <link rel="stylesheet" href="/css/filtrado.css">
@@ -23,121 +23,15 @@
             </div>
         </div>
         <div class="galeriaProductos">
-            <article>
-                <img src="/img/adidas-pala-padel-kaltom-ctrl-2.0.jpg" alt="Pala 1">
-                <div class="bloque-info">
-                    <p class="precio">$35000</p>
-                    <p class="descripcion">Paleta Adidas Kaltom</p>
-                </div>
-            </article>
-            <article>
-                <img src="/img/adidas-pala-padel-kaltom-ctrl-2.0.jpg" alt="Pala 1">
-                <div class="bloque-info">
-                    <p class="precio">$35000</p>
-                    <p class="descripcion">Paleta Adidas Kaltom</p>
-                </div>
-            </article>
-            <article>
-                <img src="/img/adidas-pala-padel-kaltom-ctrl-2.0.jpg" alt="Pala 1">
-                <div class="bloque-info">
-                    <p class="precio">$35000</p>
-                    <p class="descripcion">Paleta Adidas Kaltom</p>
-                </div>
-            </article>
-            <article>
-                <img src="/img/adidas-pala-padel-kaltom-ctrl-2.0.jpg" alt="Pala 1">
-                <div class="bloque-info">
-                    <p class="precio">$35000</p>
-                    <p class="descripcion">Paleta Adidas Kaltom</p>
-                </div>
-            </article>
-
-            <article>
-                <img src="/img/adidas-pala-padel-kaltom-ctrl-2.0.jpg" alt="Pala 1">
-                <div class="bloque-info">
-                    <p class="precio">$35000</p>
-                    <p class="descripcion">Paleta Adidas Kaltom</p>
-                </div>
-            </article>
-            <article>
-                <img src="/img/adidas-pala-padel-kaltom-ctrl-2.0.jpg" alt="Pala 1">
-                <div class="bloque-info">
-                    <p class="precio">$35000</p>
-                    <p class="descripcion">Paleta Adidas Kaltom</p>
-                </div>
-            </article>
-            <article>
-                <img src="/img/adidas-pala-padel-kaltom-ctrl-2.0.jpg" alt="Pala 1">
-                <div class="bloque-info">
-                    <p class="precio">$35000</p>
-                    <p class="descripcion">Paleta Adidas Kaltom</p>
-                </div>
-            </article>
-            <article>
-                <img src="/img/adidas-pala-padel-kaltom-ctrl-2.0.jpg" alt="Pala 1">
-                <div class="bloque-info">
-                    <p class="precio">$35000</p>
-                    <p class="descripcion">Paleta Adidas Kaltom</p>
-                </div>
-            </article>
-
-            <article>
-                <img src="/img/adidas-pala-padel-kaltom-ctrl-2.0.jpg" alt="Pala 1">
-                <div class="bloque-info">
-                    <p class="precio">$35000</p>
-                    <p class="descripcion">Paleta Adidas Kaltom</p>
-                </div>
-            </article>
-            <article>
-                <img src="/img/adidas-pala-padel-kaltom-ctrl-2.0.jpg" alt="Pala 1">
-                <div class="bloque-info">
-                    <p class="precio">$35000</p>
-                    <p class="descripcion">Paleta Adidas Kaltom</p>
-                </div>
-            </article>
-            <article>
-                <img src="/img/adidas-pala-padel-kaltom-ctrl-2.0.jpg" alt="Pala 1">
-                <div class="bloque-info">
-                    <p class="precio">$35000</p>
-                    <p class="descripcion">Paleta Adidas Kaltom</p>
-                </div>
-            </article>
-            <article>
-                <img src="/img/adidas-pala-padel-kaltom-ctrl-2.0.jpg" alt="Pala 1">
-                <div class="bloque-info">
-                    <p class="precio">$35000</p>
-                    <p class="descripcion">Paleta Adidas Kaltom</p>
-                </div>
-            </article>
-
-            <article>
-                <img src="/img/adidas-pala-padel-kaltom-ctrl-2.0.jpg" alt="Pala 1">
-                <div class="bloque-info">
-                    <p class="precio">$35000</p>
-                    <p class="descripcion">Paleta Adidas Kaltom</p>
-                </div>
-            </article>
-            <article>
-                <img src="/img/adidas-pala-padel-kaltom-ctrl-2.0.jpg" alt="Pala 1">
-                <div class="bloque-info">
-                    <p class="precio">$35000</p>
-                    <p class="descripcion">Paleta Adidas Kaltom</p>
-                </div>
-            </article>
-            <article>
-                <img src="/img/adidas-pala-padel-kaltom-ctrl-2.0.jpg" alt="Pala 1">
-                <div class="bloque-info">
-                    <p class="precio">$35000</p>
-                    <p class="descripcion">Paleta Adidas Kaltom</p>
-                </div>
-            </article>
-            <article>
-                <img src="/img/adidas-pala-padel-kaltom-ctrl-2.0.jpg" alt="Pala 1">
-                <div class="bloque-info">
-                    <p class="precio">$35000</p>
-                    <p class="descripcion">Paleta Adidas Kaltom</p>
-                </div>
-            </article>
+            <% for (i=0; i<12; i++){ %>
+                <article>
+                    <img src="/img/adidas-pala-padel-kaltom-ctrl-2.0.jpg" alt="Pala 1">
+                    <div class="bloque-info">
+                        <p class="precio"><%= producto.precio %></p>
+                        <p class="descripcion"><%= producto.nombre_producto %></p>
+                    </div>
+                </article>
+            <% } %>
         </div>
     </main>
     <%- include('../partials/footer.ejs') %>

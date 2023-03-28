@@ -8,7 +8,8 @@ const productsController = {
     },
 
     filtrado: (req,res)=>{
-        res.render('products/filtrado');
+        let producto={id:1, categoria:'Coleccion raquetas 2023', nombre_producto: 'Metalbone 23', precio:'$40.000'};
+        res.render('products/filtrado', {producto});
     }
 }
 

@@ -38,7 +38,7 @@
                     <% } else { %>
                         <article class="articulo">
                     <% } %>
-                        <a href="#" class="link-producto"></a>
+                        <a href="/products/detail?<%= productos.id %>" class="link-producto"></a>
                         <div class="contenedor-imagen">
                             <img class="imagen-producto" src="img/raqueta-1.jpg" alt="imagen-producto">
                         </div>
@@ -71,6 +71,7 @@
                         <% } else { %>
                             <article class="articulo">
                         <% } %>
+                            <a href="/products/detail?productId=<%= productos.id %>" class="link-producto"></a>
                             <div class="contenedor-imagen">
                                 <img class="imagen-producto" src="img/raqueta-1.jpg" alt="imagen-producto">
                             </div>

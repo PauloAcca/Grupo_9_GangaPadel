@@ -6,7 +6,7 @@ const mainController = {
      // Manejo del pedido get con ruta
     index: (req,res)=>{
          // comunicarse con el modelo, conseguir información
-        let productos={categoria:'Coleccion raquetas 2023', nombre_producto: 'Metalbone 23', precio:'$40.000'}
+        let productos={id:1, categoria:'Coleccion raquetas 2023', nombre_producto: 'Metalbone 23', precio:'$40.000'};
         res.render('home/index', {productos});
     },
 
