@@ -6,8 +6,14 @@ const mainController = {
      // Manejo del pedido get con ruta
     index: (req,res)=>{
          // comunicarse con el modelo, conseguir información
-        let productos={id:1, categoria:'Coleccion raquetas 2023', nombre_producto: 'Metalbone 23', precio:'$40.000'};
-        res.render('home/index', {productos});
+        let producto = [
+            {id:1, categoria:'Coleccion raquetas 2023', nombre_producto: 'Metalbone 23', precio:'$40.000'},
+            {id:2, categoria:'Coleccion raquetas 2023', nombre_producto: 'Royal 23', precio:'$40.000'},
+            {id:3, categoria:'Coleccion raquetas 2023', nombre_producto: 'Babolat 23', precio:'$40.000'},
+            {id:4, categoria:'Coleccion raquetas 2023', nombre_producto: 'Adidas 23', precio:'$40.000'},
+            {id:5, categoria:'Coleccion raquetas 2023', nombre_producto: 'Nike 23', precio:'$40.000'}
+        ];
+        res.render('home/index', {producto: producto});
     },
 
     //Repito proceso para todas las vistas
