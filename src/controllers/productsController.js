@@ -4,7 +4,23 @@ const path = require('path');
 const productsController = {
     
     producto: (req,res)=>{
-        res.render('products/producto');
+        let producto = [
+            {id:1, categoria:'Coleccion raquetas 2023', nombre_producto: 'Metalbone 23', precio:'$40.000'},
+            {id:2, categoria:'Coleccion raquetas 2023', nombre_producto: 'Royal 23', precio:'$40.000'},
+            {id:3, categoria:'Coleccion raquetas 2023', nombre_producto: 'Babolat 23', precio:'$40.000'},
+            {id:4, categoria:'Coleccion raquetas 2023', nombre_producto: 'Adidas 23', precio:'$40.000'},
+            {id:5, categoria:'Coleccion raquetas 2023', nombre_producto: 'Nike 23', precio:'$40.000'}
+        ];
+
+        let idDetail=req.query.id;
+
+        productoDetail= producto.filter( producto=>{
+            console.log([producto.id,parseInt(idDetail, 10)])
+            return producto.id == parseInt(idDetail, 10)
+        });
+        console.log(productoDetail)
+
+        res.render('products/producto', {productoDetail});
     },
 
     filtrado: (req,res)=>{
