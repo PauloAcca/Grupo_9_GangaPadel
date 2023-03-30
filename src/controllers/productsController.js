@@ -14,13 +14,18 @@ const productsController = {
 
         let idDetail=req.query.id;
 
-        productoDetail= producto.filter( producto=>{
-            console.log([producto.id,parseInt(idDetail, 10)])
-            return producto.id == parseInt(idDetail, 10)
-        });
-        console.log(productoDetail)
+        if (idDetail){
+            productoDetail= producto.filter( producto=>{
+                console.log([producto.id,parseInt(idDetail, 10)])
+                return producto.id == parseInt(idDetail, 10)
+            });
+            console.log(productoDetail)
+    
+            res.render('products/producto', {productoDetail});
+        }else{
+            res.render('products/producto', {productoDetail:producto});
+        }
 
-        res.render('products/producto', {productoDetail});
     },
 
     filtrado: (req,res)=>{
