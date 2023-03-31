@@ -2,6 +2,9 @@
 const express = require("express");
 const app = express();
 
+// Requerimos multer
+const multer = require('multer');
+
 // Requerimos path
 const path=require("path");
 
