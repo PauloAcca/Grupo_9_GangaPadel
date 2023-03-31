@@ -1,16 +1,13 @@
 // Requerimos path para poder enviar los archivos HTML
 const path = require('path');
+const fs=require('fs');
+const archivo= path.join(__dirname,'..','data','productos.json');
 // Creamos el objeto literal con los métodos a exportar
 const productsController = {
     
     producto: (req,res)=>{
-        let producto = [
-            {id:1, categoria:'Coleccion raquetas 2023', nombre_producto: 'Metalbone 23', precio:'$40.000'},
-            {id:2, categoria:'Coleccion raquetas 2023', nombre_producto: 'Royal 23', precio:'$40.000'},
-            {id:3, categoria:'Coleccion raquetas 2023', nombre_producto: 'Babolat 23', precio:'$40.000'},
-            {id:4, categoria:'Coleccion raquetas 2023', nombre_producto: 'Adidas 23', precio:'$40.000'},
-            {id:5, categoria:'Coleccion raquetas 2023', nombre_producto: 'Nike 23', precio:'$40.000'}
-        ];
+        let archivoProductos = fs.readFileSync(archivo, {encoding:'utf-8'});
+        let producto= JSON.parse(archivoProductos);
 
         let idDetail=req.query.id;
 
@@ -29,25 +26,15 @@ const productsController = {
     },
 
     filtrado: (req,res)=>{
-        let producto = [
-            {id:1, categoria:'Coleccion raquetas 2023', nombre_producto: 'Metalbone 23', precio:'$40.000'},
-            {id:2, categoria:'Coleccion raquetas 2023', nombre_producto: 'Royal 23', precio:'$40.000'},
-            {id:3, categoria:'Coleccion raquetas 2023', nombre_producto: 'Babolat 23', precio:'$40.000'},
-            {id:4, categoria:'Coleccion raquetas 2023', nombre_producto: 'Adidas 23', precio:'$40.000'},
-            {id:5, categoria:'Coleccion raquetas 2023', nombre_producto: 'Nike 23', precio:'$40.000'}
-        ];
+        let archivoProductos = fs.readFileSync(archivo, {encoding:'utf-8'});
+        let producto= JSON.parse(archivoProductos);
 
         res.render('products/filtrado', {producto:producto});
     },
 
     search: (req,res)=>{
-        let producto = [
-            {id:1, categoria:'Coleccion raquetas 2023', nombre_producto: 'Metalbone 23', precio:'$40.000'},
-            {id:2, categoria:'Coleccion raquetas 2023', nombre_producto: 'Royal 23', precio:'$40.000'},
-            {id:3, categoria:'Coleccion raquetas 2023', nombre_producto: 'Babolat 23', precio:'$40.000'},
-            {id:4, categoria:'Coleccion raquetas 2023', nombre_producto: 'Adidas 23', precio:'$40.000'},
-            {id:5, categoria:'Coleccion raquetas 2023', nombre_producto: 'Nike 23', precio:'$40.000'}
-        ];
+        let archivoProductos = fs.readFileSync(archivo, {encoding:'utf-8'});
+        let producto= JSON.parse(archivoProductos);
 
         let busqueda = req.query.busqueda;
 

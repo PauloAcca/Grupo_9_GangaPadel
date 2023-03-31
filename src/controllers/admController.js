@@ -1,6 +1,7 @@
 // Requerimos path para poder enviar los archivos HTML
 const path = require('path');
 const fs=require('fs');
+const { producto } = require('./productsController');
 const archivo= path.join(__dirname,'..','data','productos.json');
 // Creamos el objeto literal con los métodos a exportar
 const admController = {
@@ -12,33 +13,23 @@ const admController = {
     },
     editado:  (req,res)=>{
         // comunicarse con el modelo, conseguir información
-    let idProducto= req.params.idProducto;
+        let idProducto= req.params.idProducto;
 
-    let producto = [
-        {id:1, categoria:'Coleccion raquetas 2023', nombre_producto: 'Metalbone 23', precio:'$40.000'},
-        {id:2, categoria:'Coleccion raquetas 2023', nombre_producto: 'Royal 23', precio:'$40.000'},
-        {id:3, categoria:'Coleccion raquetas 2023', nombre_producto: 'Babolat 23', precio:'$40.000'},
-        {id:4, categoria:'Coleccion raquetas 2023', nombre_producto: 'Adidas 23', precio:'$40.000'},
-        {id:5, categoria:'Coleccion raquetas 2023', nombre_producto: 'Nike 23', precio:'$40.000'}
-    ];
+        let archivoProductos = fs.readFileSync(archivo, {encoding:'utf-8'});
+        let producto= JSON.parse(archivoProductos);
 
-    let productoEditar = producto[idProducto-1];
+        let productoEditar = producto[idProducto-1];
 
-    console.log(productoEditar);
+        console.log(productoEditar);
 
-    res.render('adm/editado', {productoEditar:productoEditar});
+        res.render('adm/editado', {productoEditar:productoEditar});
     },
 
     editadoPut: (req,res) => {
-        let producto = [
-            {id:1, categoria:'Coleccion raquetas 2023', nombre_producto: 'Metalbone 23', precio:'$40.000'},
-            {id:2, categoria:'Coleccion raquetas 2023', nombre_producto: 'Royal 23', precio:'$40.000'},
-            {id:3, categoria:'Coleccion raquetas 2023', nombre_producto: 'Babolat 23', precio:'$40.000'},
-            {id:4, categoria:'Coleccion raquetas 2023', nombre_producto: 'Adidas 23', precio:'$40.000'},
-            {id:5, categoria:'Coleccion raquetas 2023', nombre_producto: 'Nike 23', precio:'$40.000'}
-        ];
-        
-        producto[req.body.id-1] = req.body;
+        let archivoProductos = fs.readFileSync(archivo, {encoding:'utf-8'});
+        let producto= JSON.parse(archivoProductos);
+
+        producto[req.body.id] = req.body;
         res.redirect('/');
     },
 
