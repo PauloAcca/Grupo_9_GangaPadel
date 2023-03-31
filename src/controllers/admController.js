@@ -1,7 +1,7 @@
 // Requerimos path para poder enviar los archivos HTML
 const path = require('path');
-const fs=require('fs');
 const { producto } = require('./productsController');
+const fs=require('fs');
 const archivo= path.join(__dirname,'..','data','productos.json');
 // Creamos el objeto literal con los métodos a exportar
 const admController = {
