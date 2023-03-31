@@ -52,6 +52,7 @@ const admController = {
             category: req.body.category,
             description: req.body.description,
             brand: req.body.brand,
+            image: req.body.image
         }
 
         //primero: leer que cosas ya habia;
