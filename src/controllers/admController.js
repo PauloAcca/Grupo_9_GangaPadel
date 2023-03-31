@@ -1,7 +1,7 @@
 // Requerimos path para poder enviar los archivos HTML
-const { writeFileSync } = require('fs');
 const path = require('path');
 const fs=require('fs');
+const archivo= path.join(__dirname,'..','data','productos.json');
 // Creamos el objeto literal con los métodos a exportar
 const admController = {
 
@@ -43,8 +43,7 @@ const admController = {
     },
 
     guardarProducto: (req,res)=>{
-        console.log(req.body);
-        let prodcuto = {
+        let producto = {
             name: req.body.name,
             price: req.body.price,
             discount: req.body.discount,
@@ -52,11 +51,20 @@ const admController = {
             description: req.body.description,
         }
 
-        //guardo
+        //primero: leer que cosas ya habia;
+        let archivoProductos = fs.readFileSync(archivo, {encoding:'utf-8'});
+        let arrayProductos=[];
+        if (archivoProductos==''){
+            arrayProductos=[];
+        }else{
+            arrayProductos = JSON.parse(archivoProductos);
+        }
 
-        let productoJSON =JSON.stringify(prodcuto);
+        arrayProductos.push(producto);
 
-        fs.writeFileSync('productos.json', productoJSON);
+        productosJSON = JSON.stringify(arrayProductos);
+
+        fs.writeFileSync(archivo,productosJSON)
 
         res.redirect('/');
     }

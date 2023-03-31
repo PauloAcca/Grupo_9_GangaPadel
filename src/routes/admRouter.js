@@ -8,6 +8,6 @@ router.post('/add', admController.guardarProducto);
 
 router.get("/edit/:idProducto", admController.editado);
 
-router.put('/edit', admController.editadoPut)
+router.put('/edit', admController.editadoPut);
 
 module.exports = router;
