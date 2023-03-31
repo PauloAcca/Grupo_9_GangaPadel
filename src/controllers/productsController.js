@@ -41,7 +41,7 @@ const productsController = {
         let resultado = [];
 
         for (let i = 0; i<producto.length; i++){
-            if (producto[i].nombre_producto.includes(busqueda)){
+            if (producto[i].name.includes(busqueda)){
                 resultado.push(producto[i]);
             }
         }
