@@ -45,6 +45,7 @@ const admController = {
     guardarProducto: (req,res)=>{
         console.log(req.body);
         let producto = {
+            id: null,
             name: req.body.name,
             price: req.body.price,
             discount: req.body.discount,
@@ -58,8 +59,10 @@ const admController = {
         let arrayProductos=[];
         if (archivoProductos==''){
             arrayProductos=[];
+            producto.id=0;
         }else{
             arrayProductos = JSON.parse(archivoProductos);
+            producto.id=arrayProductos.length;
         }
 
         arrayProductos.push(producto);
