@@ -43,12 +43,14 @@ const admController = {
     },
 
     guardarProducto: (req,res)=>{
+        console.log(req.body);
         let producto = {
             name: req.body.name,
             price: req.body.price,
             discount: req.body.discount,
-            condition: req.body.condition,
+            category: req.body.category,
             description: req.body.description,
+            brand: req.body.brand,
         }
 
         //primero: leer que cosas ya habia;

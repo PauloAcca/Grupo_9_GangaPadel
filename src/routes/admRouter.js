@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const multer = require('multer');
 const admController =  require("../controllers/admController.js");
 
 router.get("/add", admController.agregado);
