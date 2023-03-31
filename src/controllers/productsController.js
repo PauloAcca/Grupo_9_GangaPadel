@@ -23,7 +23,7 @@ const productsController = {
     
             res.render('products/producto', {productoDetail});
         }else{
-            res.render('products/producto', {productoDetail:producto});
+            res.render('products/producto', {productoDetail:producto}); 
         }
 
     },

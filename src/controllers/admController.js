@@ -1,5 +1,7 @@
 // Requerimos path para poder enviar los archivos HTML
+const { writeFileSync } = require('fs');
 const path = require('path');
+const fs=require('fs');
 // Creamos el objeto literal con los métodos a exportar
 const admController = {
 
@@ -49,6 +51,13 @@ const admController = {
             condition: req.body.condition,
             description: req.body.description,
         }
+
+        //guardo
+
+        let productoJSON =JSON.stringify(prodcuto);
+
+        fs.writeFileSync('productos.json', productoJSON);
+
         res.redirect('/');
     }
 }
