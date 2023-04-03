@@ -2,8 +2,6 @@
 const express = require("express");
 const app = express();
 
-// Requerimos multer
-
 // Requerimos path
 const path=require("path");
 
