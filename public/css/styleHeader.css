@@ -70,18 +70,21 @@ header .hipervinculo-logo{
     justify-content: center;
     align-items: center;
     width: 10%;
+    
 }
 
 #busqueda{
-    width: 30%;
+    width: 30vw;
     height: 1.9rem;
     border-radius: 1rem;
     text-align: left;
     border: none;
+    padding-left: 1%;
+    font-weight: bold;
+    
 }
 
 #busqueda::placeholder{
-    padding-left: 3%;
     color: var(--negro-s);
     font-weight: 800;
 }
@@ -106,7 +109,8 @@ header a:hover{
 @media(min-width:768px){
     header .hipervinculo-logo{
         width:  10%;
-    } 
+
+    }
 }
 
 
@@ -114,11 +118,6 @@ header a:hover{
     header .hipervinculo-logo{
         width:  14%;
     } 
-
-    #busqueda{
-        width: 40%;
-        height: 1.4rem;
-    }
 
     header i{
         font-size: 1.2rem;

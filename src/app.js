@@ -34,11 +34,11 @@ app.set('views', path.resolve(__dirname, "views"));
 
 // Usando los enrutadores importados
 app.use("/", mainRouter);
-app.use("/",productsRouter);
-app.use("/",usersRouter);
-app.use("/",admRouter);
+app.use("/products",productsRouter);
+app.use("/users",usersRouter);
+app.use("/admin",admRouter);
 
 // Ponemos a escuchar el servidor
 app.listen(port, () => {
-    console.log("Servidor corriendo el puerto: " + port);
+    console.log("Servidor corriendo el puerto http://localhost:" + port);
 });
