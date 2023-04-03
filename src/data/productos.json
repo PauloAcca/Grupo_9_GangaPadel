@@ -1,1 +1,42 @@
-[{"id":0,"name":"Metalbone 23","price":"$40.000","discount":"","category":"Coleccion raquetas 2023","description":"","brand":"","image":""},{"id":1,"name":"Royal 23","price":"$40.000","discount":"","category":"Coleccion raquetas 2023","description":"","brand":"","image":""},{"id":2,"name":"Babolat 23","price":"$40.000","discount":"","category":"Coleccion raquetas 2023","description":"","brand":"","image":""},{"id":3,"name":"Adidas 23","price":"$40.000","discount":"","category":"Coleccion raquetas 2023","description":"","brand":"","image":""},{"id":4,"name":"Nike 23","price":"$40.000","discount":"","category":"Coleccion raquetas 2023","description":"","brand":"","image":"raqueta-1.jpg"}]
+[
+ {
+  "id": 1,
+  "name": "Royal 23",
+  "price": "$30.000",
+  "discount": "",
+  "category": "Coleccion raquetas 2023",
+  "description": "",
+  "brand": "",
+  "image": ""
+ },
+ {
+  "id": 2,
+  "name": "Babolat 23",
+  "price": "$35.000",
+  "discount": "",
+  "category": "Coleccion raquetas 2023",
+  "description": "",
+  "brand": "",
+  "image": ""
+ },
+ {
+  "id": 3,
+  "name": "Adidas 23",
+  "price": "$22.000",
+  "discount": "",
+  "category": "Coleccion raquetas 2023",
+  "description": "",
+  "brand": "",
+  "image": ""
+ },
+ {
+  "id": 4,
+  "name": "Nike 23",
+  "price": "$27.000",
+  "discount": "",
+  "category": "Coleccion raquetas 2023",
+  "description": "",
+  "brand": "",
+  "image": "raqueta-1.jpg"
+ }
+]

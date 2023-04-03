@@ -58,17 +58,24 @@ const admController = {
     
             arrayProductos.push(producto);
     
-            productosJSON = JSON.stringify(arrayProductos);
+            productosJSON = JSON.stringify(arrayProductos,null,' ');
     
-            fs.writeFileSync(archivo,productosJSON)
+            fs.writeFileSync(archivo,productosJSON);
     
             res.redirect('/');
         }
         else{
             res.redirect('/admin/add');
         }
-
-        
+    },
+    eliminarProducto: (req,res)=>{
+        let idProducto= req.params.idProducto;
+        let archivoProductos = fs.readFileSync(archivo, {encoding:'utf-8'});
+        let productosTodos= JSON.parse(archivoProductos);
+        let productosFinal = productosTodos.filter(producto => producto.id != idProducto);
+        productosJSON = JSON.stringify(productosFinal,null,' ');
+        fs.writeFileSync(archivo,productosJSON);
+        res.redirect('/')
     }
 }
 
