@@ -20,8 +20,6 @@ const admController = {
 
         let productoEditar = producto[idProducto-1];
 
-        console.log(productoEditar);
-
         res.render('adm/editado', {productoEditar:productoEditar});
     },
 
@@ -34,36 +32,43 @@ const admController = {
     },
 
     guardarProducto: (req,res)=>{
-        console.log(req.body);
-        let producto = {
-            id: null,
-            name: req.body.name,
-            price: req.body.price,
-            discount: req.body.discount,
-            category: req.body.category,
-            description: req.body.description,
-            brand: req.body.brand,
-            image: req.body.image
+        
+        if (req.file){
+            let producto = {
+                id: null,
+                name: req.body.name,
+                price: req.body.price,
+                discount: req.body.discount,
+                category: req.body.category,
+                description: req.body.description,
+                brand: req.body.brand,
+                image: req.file.filename,
+            }
+    
+            //primero: leer que cosas ya habia;
+            let archivoProductos = fs.readFileSync(archivo, {encoding:'utf-8'});
+            let arrayProductos=[];
+            if (archivoProductos==''){
+                arrayProductos=[];
+                producto.id=0;
+            }else{
+                arrayProductos = JSON.parse(archivoProductos);
+                producto.id=arrayProductos.length;
+            }
+    
+            arrayProductos.push(producto);
+    
+            productosJSON = JSON.stringify(arrayProductos);
+    
+            fs.writeFileSync(archivo,productosJSON)
+    
+            res.redirect('/');
+        }
+        else{
+            res.redirect('/admin/add');
         }
 
-        //primero: leer que cosas ya habia;
-        let archivoProductos = fs.readFileSync(archivo, {encoding:'utf-8'});
-        let arrayProductos=[];
-        if (archivoProductos==''){
-            arrayProductos=[];
-            producto.id=0;
-        }else{
-            arrayProductos = JSON.parse(archivoProductos);
-            producto.id=arrayProductos.length;
-        }
-
-        arrayProductos.push(producto);
-
-        productosJSON = JSON.stringify(arrayProductos);
-
-        fs.writeFileSync(archivo,productosJSON)
-
-        res.redirect('/');
+        
     }
 }
 
