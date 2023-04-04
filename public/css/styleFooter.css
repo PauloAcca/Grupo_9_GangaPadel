@@ -22,6 +22,8 @@ footer{
     border-top: solid 30px var(--negro-s);
     margin-top: 20px;
     width: 100%;
+    position: relative;
+    bottom: -163px;
 }
 
 footer ul{
