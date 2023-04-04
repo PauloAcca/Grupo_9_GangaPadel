@@ -78,6 +78,7 @@ header .hipervinculo-logo{
     border-radius: 1rem;
     text-align: left;
     border: none;
+    padding: 1rem;
 }
 
 #busqueda::placeholder{
