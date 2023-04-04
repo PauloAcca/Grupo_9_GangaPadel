@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,25 +16,34 @@
                 <div class="side">
                     <h4>Filtrado</h4>
                     <ul class="filtros">
-                        <li><a>Categoría</li></a>
-                        <li><a>Precio</li></a>
-                        <li><a>Marca</li></a>
+                        <li><a href="#">Categoría</a></li>
+                        <li><a href="#">Precio</a></li>
+                        <li><a href="#">Marca</a></li>
 
                     </ul>
                 </div>
+
                 <div class="galeriaProductos">
+
                     <% for (let i=0; i<producto.length; i++){ %>
                         <article>
-                            <img src="/img/adidas-pala-padel-kaltom-ctrl-2.0.jpg" alt="Pala 1">
-                            <div class="bloque-info">
-                                <p class="precio">
-                                    <%= producto[i].price %>
-                                </p>
-                                <p class="descripcion">
-                                    <%= producto[i].name %>
-                                </p>
-                            </div>
+                            <form method="POST" action="#" class="form-edit">
+                                <input type="submit" value="Editar">
+                                <form method="POST" action="#" class="form-delete">
+                                    <input type="submit" value="Eliminar">
+                                    
+                                </form> <a href="/products/detail?id=<%= producto[i].id %>" class="link-producto"></a>
+                                <img class="imagen-producto" src="img/raqueta-1.jpg" alt="imagen-producto">
+                                <div class="bloque-info">
+                                    <p class="precio">
+                                        <%= producto[i].price %>
+                                    </p>
+                                    <p class="descripcion">
+                                        <%= producto[i].name %>
+                                    </p>
+                                </div>
                         </article>
+
                         <% } %>
                 </div>
             </main>

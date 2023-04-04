@@ -30,6 +30,11 @@ ul {
 li{
   margin-bottom: 5%;
 }
+
+li a{
+    text-decoration: none;
+    color: #959592;
+}
 .side p{
     font-size: 1.5rem;
 }
@@ -62,6 +67,27 @@ article img{
     width: 90%;
     border-radius: 10%;
 }
+
+.link-producto{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+    
+}
+
+.imagen-producto{
+    width: 17vw;
+}
+
+
+
+
+
+
 .bloque-info{
     font-size: 1rem;
     text-align: center;
