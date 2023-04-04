@@ -1,12 +1,17 @@
 // Requerimos path para poder enviar los archivos HTML
 const path = require('path')
+const fs=require('fs');
+const archivo= path.join(__dirname,'..','data','productos.json');
 // Creamos el objeto literal con los métodos a exportar
 const mainController = {
 
      // Manejo del pedido get con ruta
-    home: (req,res)=>{
+    index: (req,res)=>{
          // comunicarse con el modelo, conseguir información
-        res.render('home/home');
+        let archivoProductos = fs.readFileSync(archivo, {encoding:'utf-8'});
+        let producto= JSON.parse(archivoProductos);
+
+        res.render('home/index', {producto: producto});
     },
 
     //Repito proceso para todas las vistas

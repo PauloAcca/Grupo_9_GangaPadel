@@ -7,14 +7,28 @@
 *{
     font-family: 'Montserrat', sans-serif;
 }
-.filtros{
-    display: none;
-}
+
 .side{
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(239, 239, 239,90%);
+    
+
 }
-.side h4{
+
+ h4{
     font-size: 1rem;
+    
+}
+ul {
+    margin-top: 5%;
+    text-align: center;
+}
+
+li{
+  margin-bottom: 5%;
 }
 .side p{
     font-size: 1.5rem;
@@ -73,25 +87,12 @@ article img{
     main{
         display: flex;
     }
-    .galeriaProductos{
-        position: relative;
-        left: 30%;
-        width:65%;
-    }
-    .side{
-        position: fixed;
-        top: 30%;
-        left:2%;
-        width: 20%;
-        background-color: rgba(239, 239, 239,90%);
-        border-radius: 10%;
-    }
+
+ 
     .side h4{
         font-size: 2rem;
     }
-    .side h4 i{
-        display: none;
-    }
+   
     .filtros{
         display: block;
     }

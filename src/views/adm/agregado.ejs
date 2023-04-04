@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <%- include('../partials/head.ejs') %>
     <%- include('../partials/header-footer-stylesheet.ejs') %>
@@ -10,49 +8,38 @@
 <body>
     <%- include('../partials/header')  %>
     <%- include('../partials/navbar.ejs') %>
-    <main class="agregadoMain">
-        <h1 class="agregadoTitulo">Agregar producto</h1>
-        <div class="FormularioDiv">
-            <form action="#" method="post">
-                <label class="centered" for="nombre">
-                    Nombre del producto
-                    <input class="blockInput" type="text">
-                </label>
-                <label class="centered" for="precio">
-                    Precio del producto
-                    <input  class="blockInput" type="number">
-                </label>
 
-                <label class="centered" for="condicion">
-                    Condición del producto
-                    <div class="radioCentered">
-                    <input   class="condicionRadio" type="radio" name="condicion" id="nuevo">Nuevo
-                    <input   class="condicionRadio" type="radio" name="condicion" id="usado">Usado
-                    </div>
-                </label>
-                <label class="centered" for="marca">
-                    Marca del producto
-                    <select  class="blockInput" name="seleccionar" id="1">
-                        <option value="seleccionar">Seleccionar</option>
-                    </select>
-                </label>
-                <label class="centered" for="categoria">
-                    Categoría del producto 
-                    <select class="blockInput"  name="seleccionar" id="1">
-                        <option value="seleccionar">Seleccionar</option>
-                    </select>
-                </label>
-                <label class="centered" for="descripcion">
-                    Descripcion del producto
-                    <textarea  class="blockInput txt" name="descripcion" id="descripcion" cols="30" rows="10"></textarea>
-                </label>
+     <h2>Crear producto</h2>
+	<form id="form" action="/admin/add" method="POST" enctype="multipart/form-data">
+		<label for="name">Producto:</label>
+		<input type="text" id="name" name="name" required>
+		
+		<label for="price">Precio:</label>
+		<input type="text" id="discount" name="price" placeholder="Ej: 60000">
 
-            </form>
-            <h2 class="agregadoTitulo" >Otras opciones</h2>
-            <a href="#"  class="linksAgregado">Editar Producto<a>
-            <a href="#"  class="linksAgregado">Eliminar Producto</a>
-    </main>
-    <%- include('../partials/footer')  %>
+		<label for="discount">Descuento:</label>
+		<input type="text" id="discount" name="discount" placeholder="Ej: 20">
+
+		
+		<label for="category">Categoría:</label>
+		<select id="category" name="category">
+			<option value="value1">Valor 1</option>
+			<option value="value2">Valor 2</option>
+			<option value="value3">Valor 3</option>
+		</select>
+		
+		<label for="description">Descripción:</label>
+		<textarea id="description" name="description"></textarea>
+		
+		<label for="brand">Marca:</label>
+		<input type="text" id="brand" name="brand">
+		
+		<label for="image">Imagen:</label>
+		<input type="file" id="image" name="image">
+		
+		<button type="submit">Crear</button>
+	</form>
+	<%- include('../partials/footer')  %>
 </body>
 </html>
 
