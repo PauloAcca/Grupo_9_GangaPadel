@@ -23,10 +23,16 @@
 
                     </ul>
                 </div>
+
                 <div class="galeriaProductos">
+                    
                     <% for (let i=0; i<producto.length; i++){ %>
                         <article>
-                            <img src="/img/adidas-pala-padel-kaltom-ctrl-2.0.jpg" alt="Pala 1">
+                            <form method="POST" action="#" class="form-edit">
+                                <input type="submit" value="Editar">
+                                <form method="POST" action="#" class="form-delete">
+                                    <input type="submit" value="Eliminar">
+                              </form> <img src="/img/adidas-pala-padel-kaltom-ctrl-2.0.jpg" alt="Pala 1"> 
                             <div class="bloque-info">
                                 <p class="precio">
                                     <%= producto[i].price %>
@@ -36,6 +42,7 @@
                                 </p>
                             </div>
                         </article>
+                       
                         <% } %>
                 </div>
             </main>
