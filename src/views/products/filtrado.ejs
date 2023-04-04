@@ -33,8 +33,10 @@
                             <form method="POST" action="#" class="form-delete">
                                 <input type="submit" value="Eliminar">
                             </form> 
-                            <a href="/products/detail?id=<%= producto[i].id %>" class="link-producto"></a>
-                            <img class="imagen-producto" src="img/raqueta-1.jpg" alt="imagen-producto">
+                            <a href="/products/detail?id=<%= producto[i].id %>" class="link-producto"> <img class="imagen-producto" src="img/raqueta-1.jpg" alt="imagen-producto"></a>
+                            <div class="contenedor-imagen">
+                                
+                            </div>
                             <div class="bloque-info">
                                 <p class="precio">
                                     <%= producto[i].price %>

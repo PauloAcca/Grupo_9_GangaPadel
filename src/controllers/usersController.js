@@ -6,7 +6,7 @@ const usersConbtroller = {
      // Manejo del pedido get con ruta
     carrito: (req,res)=>{
          // comunicarse con el modelo, conseguir información
-        res.render('carrito');
+        res.render('users/carrito');
     },
 
     //Repito proceso para todas las vistas

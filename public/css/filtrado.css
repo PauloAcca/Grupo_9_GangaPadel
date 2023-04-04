@@ -1,5 +1,5 @@
 :root{
-    --gris-p:#414242 ;
+    --gris-p:#959592 ;
     --blanco-txt:#FFFFFF ;
     --rojo-p:#DA0037 ;
     --negro-s:#171717;
@@ -18,7 +18,7 @@
 
 }
 
-h4{
+ h4{
     font-size: 1rem;
     
 }
@@ -29,11 +29,6 @@ ul {
 
 li{
   margin-bottom: 5%;
-}
-
-li a{
-    text-decoration: none;
-    color: #959592;
 }
 .side p{
     font-size: 1.5rem;
@@ -47,13 +42,12 @@ li a{
 .galeriaProductos{
     display:flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     align-items: start;
-    width: 100%;
 }
 
 article{
     width: 45%; 
-    max-width: 364px;
     background-color: rgb(239, 239, 239);
     text-align: center;
     border-radius: 10%;
@@ -69,20 +63,17 @@ article img{
     border-radius: 10%;
 }
 
-.link-producto{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    opacity: 0;
-}
-
-.imagen-producto{
-    width: 17vw;
-    max-width: 300px;
-}
+li{
+    margin-bottom: 5%;
+  }
+  
+  li a{
+      text-decoration: none;
+      color: #959592;
+  }
+  .side p{
+      font-size: 1.5rem;
+  }
 
 
 .bloque-info{
@@ -95,19 +86,6 @@ article img{
 }
 .descripcion{
     margin: 0.25rem;
-}
-@media(min-width: 425px){
-    .galeriaProductos{
-        flex-direction: column;
-        align-items: center;
-    }
-    article{
-        width: 75%;
-    }
-    .imagen-producto{
-        width: 48vw;
-        height: 300px;
-    }
 }
 @media(min-width: 760px){
     article{
@@ -122,6 +100,8 @@ article img{
     main{
         display: flex;
     }
+
+ 
     .side h4{
         font-size: 2rem;
     }
