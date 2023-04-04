@@ -1,5 +1,5 @@
 :root{
-    --gris-p:#e9ecef ;
+    --gris-p:#414242 ;
     --blanco-txt:#FFFFFF ;
     --rojo-p:#DA0037 ;
     --negro-s:#171717;
@@ -17,7 +17,7 @@ footer{
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items:start;
-    background-color: var(--gris-p);
+    background-color: var(--blanco-txt);
     color: var(--negro-s);
     border-top: solid 30px var(--negro-s);
     margin-top: 20px;
@@ -69,6 +69,7 @@ footer a{
     text-decoration: none;
     color: var(--negro-s);
     transition: color 0.3s;
+    font-weight: bold;
 }
 footer a:hover{
     color: var(--rojo-p);

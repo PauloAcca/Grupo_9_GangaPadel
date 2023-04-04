@@ -1,5 +1,5 @@
 :root{
-    --gris-p:#e9ecef ;
+    --gris-p:#414242 ;
     --blanco-txt:#FFFFFF ;
     --rojo-p:#DA0037 ;
     --negro-s:#171717;
@@ -16,13 +16,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--negro-s);
-    padding: 1rem;
+    background-color: var(--gris-p);
     width: 100%;
 }
 
 .barraInferior{
-    background-color: var(--gris-p);
+    background-color: var(--blanco-txt);
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -61,7 +60,8 @@ header .hipervinculo-logo{
 }
 
 .logo{
-    width: 80%;
+    width: 100%;
+    max-width: 170px;
 }
 
 
@@ -75,13 +75,12 @@ header .hipervinculo-logo{
 
 #busqueda{
     width: 30vw;
-    height: 1.9rem;
+    height: 2.3rem;
     border-radius: 1rem;
     text-align: left;
-    border: none;
     padding-left: 1%;
     font-weight: bold;
-    
+    border: var(--rojo-p) 2px solid;
 }
 
 #busqueda::placeholder{
@@ -90,9 +89,12 @@ header .hipervinculo-logo{
 }
 
 header i{
-    color: var(--gris-p);
-    padding-right: 15px;
+    color: var(--negro-s);
     font-size: 1.7rem;
+    background-color: var(--blanco-txt);
+    padding: 8px;
+    margin: 5px;
+    border-radius: 2px;
 }
 header i:hover{
     color: var(--blanco-txt);

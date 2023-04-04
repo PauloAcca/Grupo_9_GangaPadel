@@ -4,6 +4,8 @@
 <head> 
     <%- include('../partials/head.ejs') %>
     <%- include('../partials/header-footer-stylesheet.ejs') %>
+    <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/producto.css">
     <title>Producto</title>
 </head>
@@ -15,12 +17,21 @@
     <main>
         <div class="main-div">
             <div class="container-compra">
-                <div class="main-image">
-                    <div><img src="/img/fotoPaletaPadel.jpg" alt=""></div>
-                    <div><img src="/img/fotoPaletaPadel.jpg" alt=""></div>
-                    <div><img src="/img/fotoPaletaPadel.jpg" alt=""></div>
-                    <div><img src="/img/fotoPaletaPadel.jpg" alt=""></div>
-                    <div><img src="/img/fotoPaletaPadel.jpg" alt=""></div>
+                <div class="swiffy-slider">
+                    <ul class="slider-container">
+                        <li><img src="/img/fotoPaletaPadel.jpg" style="max-width: 104%;height: 94%;"></li>
+                        <li><img src="/img/fotoPaletaPadel.jpg" style="max-width: 104%;height: 94%;"></li>
+                        <li><img src="/img/fotoPaletaPadel.jpg" style="max-width: 104%;height: 94%;"></li>
+                    </ul>
+                
+                    <button type="button" class="slider-nav"></button>
+                    <button type="button" class="slider-nav slider-nav-next"></button>
+                
+                    <div class="slider-indicators">
+                        <button class="active"></button>
+                        <button></button>
+                        <button></button>
+                    </div>
                 </div>
                 <div class="info-prod">
                     <h2><%= productoDetail[0].name %></h2>

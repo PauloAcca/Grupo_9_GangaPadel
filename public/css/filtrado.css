@@ -1,5 +1,5 @@
 :root{
-    --gris-p:#e9ecef ;
+    --gris-p:#414242 ;
     --blanco-txt:#FFFFFF ;
     --rojo-p:#DA0037 ;
     --negro-s:#171717;
@@ -48,6 +48,7 @@ li a{
     display:flex;
     flex-wrap: wrap;
     align-items: start;
+    width: 100%;
 }
 
 article{
@@ -69,8 +70,7 @@ article img{
 }
 
 .link-producto{
-    width: 100%;
-    height: 100%;
+    
     position: absolute;
     top: 0;
     left: 0;
@@ -81,11 +81,8 @@ article img{
 
 .imagen-producto{
     width: 17vw;
+    max-width: 300px;
 }
-
-
-
-
 
 
 .bloque-info{
