@@ -1,3 +1,16 @@
+RETRO SPRINT 4 
+
+Un nuevo sprint pasó, y la dinámica grupal sigue igual. Trabajamos individualmente y nos organizamos para realizar puesta en común. Corregir errores o simplemente para exponer lo realizado.
+
+Hemos tenido un comienzo de año con muchas responsabilidades personales, por tal motivo hemos disminuido la cantidad de reuniones semanales. 
+
+Dentro de las cuestiones positivas, podemos mencionar que aprendemos trabajando en equipo. Encontrando y corrigiendo errores ajenos 
+
+Hacer más: Reuniones 
+Seguir haciendo: Puesta en común
+
+________________________________________________________________________________________________________________________________________
+
 
 RETRO SPRINT 3 
 
