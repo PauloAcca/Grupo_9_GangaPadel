@@ -75,7 +75,7 @@ const admController = {
         let productosFinal = productosTodos.filter(producto => producto.id != idProducto);
         productosJSON = JSON.stringify(productosFinal,null,' ');
         fs.writeFileSync(archivo,productosJSON);
-        res.redirect('/')
+        res.redirect('/');
     }
 }
 
