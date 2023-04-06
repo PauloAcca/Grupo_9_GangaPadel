@@ -10,8 +10,9 @@
 }
 body, html{
     font-family: 'Montserrat', sans-serif;
-    background-color: var(--negro-s);
-    color: var(--blanco-txt);
+    background-color: rgba(239, 239, 239,90%);
+    
+    color: var(--gris-p);
 }
 main{
     height: auto;
@@ -19,6 +20,8 @@ main{
 
 .container-compra{
     margin-top: 4rem;
+    
+
 }
 /* ---------- Botones */
 .buttons-container{

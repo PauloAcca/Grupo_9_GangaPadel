@@ -1,35 +1,34 @@
 * { 
     box-sizing: border-box;
-}
+}    
 
 html{
     font-family: 'Montserrat', sans-serif;
     color:#959592;
     background-color:white;
-    font-weight:bold
+    font-weight:bold;
+    height: 100vh;
+    width: 100vw;
 }
 
 main{
     padding: 6px;
-
 }
-
+ 
 .img-raqueta{
-    width: 25vw;
-
-
+    width: 70%;
 }
 
 .contenedor-padre{
     display: flex;
+    align-items: center;
+    flex-wrap: wrap;
     margin: auto;
     border: solid 3px black;
     padding-top: 2%;
 }
 
-.contenedores.hijos{
-    display: flex;
-}
+
 
 .textos {
 
@@ -42,15 +41,9 @@ main{
     margin: auto;
     display: block;
 
-
-
-
 }
 
-.contenedor-3{
-    display: block;
 
-}
 
 .titulo-productos{
     background-color:#DA0037;
@@ -58,7 +51,6 @@ main{
     border-radius: 3px;
     text-align: center;
     font-weight: bold;
-
 }
 
 .contenedor-pagar{
@@ -68,20 +60,19 @@ main{
     text-align: center;
     font-weight: bold;
     border-radius: 3px;
-
-
 }
 
-.contenedores-hijos-3{
-
-    display: block;
-    margin: 30px;
+.contenedores-hijos{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    margin: 15px;
     border: solid 3px black;
-    width: 45%;
+    width: 29%;
     border-radius: 4%;
     padding: 1%;
-    max-width: 100%;
-
+    max-width: 396px;
 }
 
 .fa-sharp{
@@ -90,8 +81,6 @@ main{
     text-align: center;
     font-size: 30px;
     margin-top: 10px;
-
-
 }
 
 .agregar-carrito{
@@ -100,20 +89,23 @@ main{
     color: white;
     text-align: center;
     font-weight: bold;
-    border-radius: 3px;
-
-
+    border-radius: 3px; 
+    max-width: 150px;
+    padding: 7px;
+    text-decoration: none;
 }
 
 .contenedores-hijos-agregar-carrito{
 
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: auto;
     border:  3px black;
     width: 45%;
     padding: 1%;
     max-width: 100%;
-
+   
 }
 
 .texto-eliminar {
@@ -129,12 +121,22 @@ main{
 
 .img-raqueta-similares{
     width: 8vw;
-
+    
 }
 
 .contenedor-imagenes{
     text-align: center;
-    margin-top: 25px;
+ 
+}
 
 
+/* ****Celulares**** */
+@media (max-width: 425px) {
+    .contenedor-padre{
+        flex-direction: column;
+        min-height: 100%;
+    }
+    .contenedores-hijos{
+        width: 80%;
+    }
 }
