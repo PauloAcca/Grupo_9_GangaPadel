@@ -16,7 +16,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--gris-p);
     width: 100%;
 }
 
@@ -80,7 +79,7 @@ header .hipervinculo-logo{
     text-align: left;
     padding-left: 1%;
     font-weight: bold;
-    border: var(--rojo-p) 2px solid;
+    border: 2px solid;
 }
 
 #busqueda::placeholder{
@@ -91,14 +90,11 @@ header .hipervinculo-logo{
 header i{
     color: var(--negro-s);
     font-size: 1.7rem;
-    background-color: var(--blanco-txt);
     padding: 8px;
     margin: 5px;
     border-radius: 2px;
 }
-header i:hover{
-    color: var(--blanco-txt);
-}
+
 
 header a{
     text-decoration: none;
@@ -126,7 +122,7 @@ header a:hover{
     }
 
     .barraSuperior{
-        background-color: var(--negro-s);
+      
         padding: 0.5rem;
     }
     .barraInferior a{
