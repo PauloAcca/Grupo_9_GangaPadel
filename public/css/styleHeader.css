@@ -1,5 +1,6 @@
 :root{
     --gris-p:#414242 ;
+    --rojo-claro:#eeecec;
     --blanco-txt:#FFFFFF ;
     --rojo-p:#DA0037 ;
     --negro-s:#171717;
@@ -16,11 +17,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: #FFFFFF;
     width: 100%;
 }
 
 .barraInferior{
-    background-color: var(--blanco-txt);
+    background-color: #eeecec;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
