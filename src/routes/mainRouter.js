@@ -15,7 +15,7 @@ router.get("/", mainController.index);
 // Repetimos proceso con las distintas vistas
 
 router.get('/login', mainController.login);
-
+router.post('/login', mainController.newUser);
 router.get('/register', mainController.registro);
 
 

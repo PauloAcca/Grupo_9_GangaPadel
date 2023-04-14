@@ -21,6 +21,9 @@ const mainController = {
 
     registro: (req,res)=>{
         res.render('home/registro');
+    },
+    newUser: (req,res) =>{
+        res.redirect('/');
     }
 }
 
