@@ -1,7 +1,10 @@
 // Requerimos path para poder enviar los archivos HTML
 const path = require('path')
 const fs=require('fs');
+const { json } = require('express');
 const archivo= path.join(__dirname,'..','data','productos.json');
+const archivoUsers =path.join(__dirname,'..','data','usuarios.json');
+
 // Creamos el objeto literal con los métodos a exportar
 const mainController = {
 
@@ -23,7 +26,28 @@ const mainController = {
         res.render('home/registro');
     },
     newUser: (req,res) =>{
-        res.redirect('/');
+        let usuario = {
+            id: null, 
+            first_name: req.body.nombre,
+            last_name: req.body.apellido,
+            email: req.body.email,
+            password: req.body.password1, //modificar
+            profileType: null
+        }
+        let archivoUsuario = fs.readFileSync(archivoUsers,{encoding:'utf-8'});
+        let usuarios;
+        if (archivoUsuario == ""){
+            usuarios = [];
+            
+        }else{
+            usuarios = JSON.parse(archivoUsuario);
+            
+        }
+        usuarios.push(usuario);
+        
+        let usuarioJSON = JSON.stringify(usuario);
+        fs.writeFileSync(archivoUsers,usuarioJSON);//creo que el error está aca
+        
     }
 }
 
