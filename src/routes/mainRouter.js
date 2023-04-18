@@ -1,6 +1,7 @@
 // Requerimos express y guardamos la ejecución del método Router, que usaremos en el archivo.
 const express=require("express");
 
+const path=require("path");
 // Creamos constante router desde el metodo .Router
 const router = express.Router();
 

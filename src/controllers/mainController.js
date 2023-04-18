@@ -25,6 +25,7 @@ const mainController = {
     registro: (req,res)=>{
         res.render('home/registro');
     },
+    
     newUser: (req,res) =>{
         let usuario = {
             id: null, 
@@ -32,20 +33,19 @@ const mainController = {
             last_name: req.body.apellido,
             email: req.body.email,
             password: req.body.password1, //modificar
-            profileType: null
+            profileType: null,
         }
         let archivoUsuario = fs.readFileSync(archivoUsers,{encoding:'utf-8'});
         let usuarios = [];
-        if (archivoUsuario == ""){
+        if (archivoUsuario == ''){
             usuarios = [];
             
         }else{
             usuarios = JSON.parse(archivoUsuario);
-            
         }
-        usuarios.push(usuario);
         
-        let usuarioJSON = JSON.stringify(usuario);
+        usuarios.push(usuario);
+        usuarioJSON = JSON.stringify(usuarios);
         fs.writeFileSync(archivoUsers,usuarioJSON);//creo que el error está aca
         
     }

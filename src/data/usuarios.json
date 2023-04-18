@@ -1,1 +1,42 @@
-{"id":null,"first_name":"Sebastián","last_name":"Manchado","email":"seibomlove@gmail.com","password":"123","profileType":null}
+[
+    {
+        "id": null,
+        "first_name": "prueba1",
+        "last_name": "aaa",
+        "email": "lopeznazarenoo@gmail.com",
+        "password": "aaa",
+        "profileType": null
+    },
+    {
+        "id": null,
+        "first_name": "prueba1",
+        "last_name": "aaa",
+        "email": "lopeznazarenoo@gmail.com",
+        "password": "aaa",
+        "profileType": null
+    },
+    {
+        "id": null,
+        "first_name": "prueba2",
+        "last_name": "bbb",
+        "email": "solymarbue@hotmail.com",
+        "password": "bbb",
+        "profileType": null
+    },
+    {
+        "id": null,
+        "first_name": "prueba3",
+        "last_name": "cccc",
+        "email": "solymarbue@hotmail.com",
+        "password": "aaa",
+        "profileType": null
+    },
+    {
+        "id": null,
+        "first_name": "prueba3",
+        "last_name": "cccc",
+        "email": "solymarbue@hotmail.com",
+        "password": "aaa",
+        "profileType": null
+    }
+]
