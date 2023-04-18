@@ -35,7 +35,7 @@ const mainController = {
             profileType: null
         }
         let archivoUsuario = fs.readFileSync(archivoUsers,{encoding:'utf-8'});
-        let usuarios;
+        let usuarios = [];
         if (archivoUsuario == ""){
             usuarios = [];
             
