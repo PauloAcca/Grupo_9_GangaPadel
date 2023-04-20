@@ -11,6 +11,9 @@ const mainRouter=require("./routes/mainRouter.js");
 //Requerimos methodOverride
 const methodOverride= require('method-override');
 
+//Requerimos Session
+const session = require('express-session');
+
 // Guardamos direccion del puerto
 const port = process.env.PORT || 3030;
 
@@ -31,6 +34,11 @@ app.use(methodOverride('_method'));
 
 // Establecemos el metodo a usar en las vistas
 app.set('views', path.resolve(__dirname, "views"));
+
+// Indicamos Session como Midleware  a nivel de aplicacion
+app.use(session({secret:"Secreto"}))
+
+
 
 // Usando los enrutadores importados
 app.use("/", mainRouter);
