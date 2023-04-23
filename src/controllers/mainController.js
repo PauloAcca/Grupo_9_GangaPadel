@@ -47,7 +47,7 @@ const mainController = {
         usuarios.push(usuario);
         usuarioJSON = JSON.stringify(usuarios);
         fs.writeFileSync(archivoUsers,usuarioJSON);//creo que el error está aca
-        
+        res.redirect('/');
     }
 }
 

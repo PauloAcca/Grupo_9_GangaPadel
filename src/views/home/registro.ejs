@@ -35,7 +35,7 @@
             </div>
         </section>
         <section class="bottom-form">
-            <form class="forms" method="POST" action="/register">
+            <form class="forms" method="POST" action="/register" enctype="multipart/form-data">
                 <label for="nombre"></label>
                 <input type="text"name="nombre" placeholder="Nombre">
                 <label for="apellido"></label>
@@ -47,7 +47,7 @@
                 <label for="password2"></label>
                 <input type="password" name="password2" placeholder="Confirmar contraseña">
                 <label for="file" class="fileInput">Foto <br>
-                    <input type="file" name="file" class="fileInput">
+                    <input type="file" name="imagenUsuario" class="fileInput">
                 </label>
                 <section class="">
                     <hr class="hr-top">
