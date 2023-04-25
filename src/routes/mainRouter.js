@@ -1,14 +1,21 @@
 // Requerimos express y guardamos la ejecución del método Router, que usaremos en el archivo.
 const express=require("express");
 
+
 const path=require("path");
 // Creamos constante router desde el metodo .Router
 const router = express.Router();
 // Configuración de multer
 const multer = require('multer');
 
+// Requerimos los middlewares de usuario e invitado 
+const guestMiddleware = require("../middlewares/guestMiddleware")
+
+
+
 // Importamos el controlador de las rutas por defecto
-const mainController = require("../controllers/mainController.js")
+const mainController = require("../controllers/mainController.js");
+const usersConbtroller = require("../controllers/usersController");
 
 // Implemento multer 
 let multerDiskStorage = multer.diskStorage({
@@ -33,9 +40,13 @@ let fileUpload = multer({storage: multerDiskStorage});
 router.get("/", mainController.index);
 
 // Repetimos proceso con las distintas vistas
-router.get('/login', mainController.login);
+router.get('/login',guestMiddleware ,mainController.login);
+router.get('/register',guestMiddleware, mainController.registro);
 router.post('/register', fileUpload.single('imagenUsuario'),mainController.newUser); //fileUpload.single('nameDeInputEnEjs')
-router.get('/register', mainController.registro);
+
+
+
+
 
 
 // Exportamos la variable router ya con todas las rutas "guardadas", que se usará en app.js

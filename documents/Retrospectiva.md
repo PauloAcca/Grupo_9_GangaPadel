@@ -1,6 +1,17 @@
-RETRO SPRINT 4 
 
-Un nuevo sprint pasó, y la dinámica grupal sigue igual. Trabajamos individualmente y nos organizamos para realizar puesta en común. Corregir errores o simplemente para exponer lo realizado.
+RETRO SPRINT 5 
+
+Ya podemos decir que somos un grupo 100% consolidado. Conocemos las fortalezas de cada integrante del equipo y las explotamos al máximo.
+
+Continuamos trabajando de la misma forma. Repartimos tareas, avanzamos y finalizamos con puesta en común.
+
+Puntos para mejorar: Aumentar las reuniones. 
+Comenzar a hacer: Retocar y pulir detalles del proyecto.
+Continuar con la misma dinámica y buena comunicación 
+
+Seguiremos con esta conducta de trabajo hasta el final del proyecto. Ya estamos a mitad de camino. ¡Y vamos por más!
+
+________________________________________________________________________________________________________________________________________
 
 Hemos tenido un comienzo de año con muchas responsabilidades personales, por tal motivo hemos disminuido la cantidad de reuniones semanales. 
 
@@ -24,7 +35,7 @@ Si bien cada encuentro es muy bien aprovechado , consideramos que es importante 
 
 
 
-___________________________________________________________________________________________________________________________________________________
+________________________________________________________________________________________________________________________________________
 
 
 RETRO SPRINT 2
