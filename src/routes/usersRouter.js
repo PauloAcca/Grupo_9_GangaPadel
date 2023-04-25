@@ -3,5 +3,5 @@ let router = express.Router();
 const usersController =  require("../controllers/usersController.js");
 const authMiddleware = require("../middlewares/authMiddleware")
 router.get('/productCart',usersController.carrito);
-router.get('/wishlist', authMiddleware,usersConbtroller.wishlist)
+router.get('/wishlist', authMiddleware,usersController.wishlist)
 module.exports = router;

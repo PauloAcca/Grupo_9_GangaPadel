@@ -41,9 +41,13 @@ router.get("/", mainController.index);
 
 // Repetimos proceso con las distintas vistas
 router.get('/login',guestMiddleware ,mainController.login);
+// Procesar el login
+router.post('/login',guestMiddleware ,mainController.loginProcess);
+// Ver el registro
 router.get('/register',guestMiddleware, mainController.registro);
-router.post('/register', fileUpload.single('imagenUsuario'),mainController.newUser); //fileUpload.single('nameDeInputEnEjs')
-
+// Procesar el registro
+router.post('/register', fileUpload.single('imagenUsuario'),mainController.processRegister); //fileUpload.single('nameDeInputEnEjs')
+// si pongo processRegister en ves de newUser los usuarios de mandan a users.json y no a usuarios.json
 
 
 

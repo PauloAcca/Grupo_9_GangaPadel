@@ -42,7 +42,11 @@
             <form class="forms" action="/login" method="POST">
             
                 <input type="email" name="email" placeholder="Correo electronico"><br>
-                
+                <% if (locals.errors && errors.email) { %>
+                    <div class="text-danger">
+                        <%= errors.email.msj %>
+                    </div>
+                <% } %>
                 <input type="password"  name="password" placeholder="Contraseña">
                 <hr class="hr-top">
                 <div class="button-sesion">

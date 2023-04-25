@@ -35,9 +35,12 @@ app.use(methodOverride('_method'));
 // Establecemos el metodo a usar en las vistas
 app.set('views', path.resolve(__dirname, "views"));
 
-// Indicamos Session como Midleware  a nivel de aplicacion
-app.use(session({secret:"Secreto"}))
-
+// Indicamos Session como Midleware a nivel de aplicacion
+app.use(session({
+    secret: 'Esto es un secreto',
+    resave: false ,
+    saveUninitialized: false
+}));
 
 
 // Usando los enrutadores importados

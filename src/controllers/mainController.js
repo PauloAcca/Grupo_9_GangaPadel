@@ -2,8 +2,10 @@
 const path = require('path')
 const fs=require('fs');
 const { json } = require('express');
-const archivo= path.join(__dirname,'..','data','productos.json');
-const archivoUsers =path.join(__dirname,'..','data','usuarios.json');
+const archivo = path.join(__dirname,'..','data','productos.json');
+const archivoUsers = path.join(__dirname,'..','data','usuarios.json');
+const User = require('../models/User')
+const bcryptjs = require('bcryptjs')
 
 // Creamos el objeto literal con los métodos a exportar
 const mainController = {
@@ -13,7 +15,6 @@ const mainController = {
          // comunicarse con el modelo, conseguir información
         let archivoProductos = fs.readFileSync(archivo, {encoding:'utf-8'});
         let producto= JSON.parse(archivoProductos);
-
         res.render('home/index', {producto: producto});
     },
 
@@ -21,11 +22,56 @@ const mainController = {
     login: (req,res)=>{
         res.render('home/login');
     },
-
+    loginProcess:(req,res)=>{
+        let userToLogin = User.findByField('email', req.body.email)
+        if (userToLogin) {
+            let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password1);
+            if(isOkThePassword){
+                delete userToLogin.password1
+                delete userToLogin.password2
+                req.session.userLogged = userToLogin ;
+                return res.redirect('/')
+            }
+            return res.render('home/login',{
+                errors: {
+                    email:{
+                        msg:'Credenciales invalidas'
+                    }
+                }
+            })
+        }
+        return res.render('home/login',{
+            errors: {
+                email:{
+                    msg:'No se encuentra registrado'
+                }
+            }
+        })
+    },
     registro: (req,res)=>{
         res.render('home/registro');
     },
-    
+    processRegister: (req,res)=>{
+        let userInDB = User.findByField('email', req.body.email);
+        if(userInDB){
+            return res.render('home/registro',{
+                errors:{
+                    email:{
+                        msg: 'Este email ya esta registrado'
+                    }
+                },
+                oldData: req.body
+            })
+        }
+        let userToCreate = {
+            ...req.body,
+            password1: bcryptjs.hashSync(req.body.password1, 10),
+            password2: bcryptjs.hashSync(req.body.password2, 10),
+            avatar: req.file.filename
+        }
+        let userCreated = User.create(userToCreate);
+        return res.redirect('/login')
+    },
     newUser: (req,res) =>{
         let usuario = {
             id: null, 
@@ -45,9 +91,10 @@ const mainController = {
         }
         
         usuarios.push(usuario);
-        usuarioJSON = JSON.stringify(usuarios);
+        usuarioJSON = JSON.stringify(usuarios, null, ' ');
         fs.writeFileSync(archivoUsers,usuarioJSON);//creo que el error está aca
         res.redirect('/');
+        
     }
 }
 
