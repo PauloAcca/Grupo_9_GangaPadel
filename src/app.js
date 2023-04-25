@@ -21,9 +21,11 @@ const port = process.env.PORT || 3030;
 const admRouter = require('./routes/admRouter.js');
 const usersRouter = require('./routes/usersRouter.js');
 const productsRouter = require('./routes/productsRouter.js');
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware.js')
+const cookies = require('cookie-parser');
 
 // elegimos nuestro view engine
-app.set("view engine", "ejs");
+app.set("view engine", "ejs");               
 
 // Usando recursos estáticos.
 app.use(express.static("public"));
@@ -35,13 +37,18 @@ app.use(methodOverride('_method'));
 // Establecemos el metodo a usar en las vistas
 app.set('views', path.resolve(__dirname, "views"));
 
+
 // Indicamos Session como Midleware a nivel de aplicacion
 app.use(session({
     secret: 'Esto es un secreto',
     resave: false ,
     saveUninitialized: false
 }));
+// Otro Middleware de aplicacion
+app.use(userLoggedMiddleware)
 
+// Cookies
+app.use(cookies());
 
 // Usando los enrutadores importados
 app.use("/", mainRouter);

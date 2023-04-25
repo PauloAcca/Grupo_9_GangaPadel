@@ -4,8 +4,16 @@
         <form action="/products/search" method="GET">
             <input name="busqueda" id="busqueda" class="busqueda" placeholder="Busque aquí...">
         </form>
+        
+            
         <div class="iconos-header">
-            <a href="/login"><i class="fa-regular fa-user"></i></a>
+            <% if (locals.isLogged) { %>
+                <a href="/logOut" class="linksHeader">Log Out</a>
+            <% } %>
+            <a href="/login" class="linksHeader"><i class="fa-regular fa-user"></i>  
+            <% if (locals.isLogged) { %>
+             Hola,<%= locals.userLogged.nombre %>
+            <% } %></a>
             <a href="/users/productCart"><i class="fa-solid fa-cart-shopping"></i></i></a>
         </div>
     </div>

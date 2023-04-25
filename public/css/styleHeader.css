@@ -12,11 +12,17 @@
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
-
+.linksHeader {
+ display: flex;
+ align-items: center;
+}
+.linksHeader:hover{
+    color: #DA0037;
+}
 .barraSuperior{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     background-color: #FFFFFF;
     width: 100%;
 }

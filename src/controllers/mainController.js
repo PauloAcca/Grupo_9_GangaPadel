@@ -27,9 +27,13 @@ const mainController = {
         if (userToLogin) {
             let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password1);
             if(isOkThePassword){
-                delete userToLogin.password1
-                delete userToLogin.password2
+                delete userToLogin.password1;
+                delete userToLogin.password2;
                 req.session.userLogged = userToLogin ;
+
+                if (req.body.recordar) {
+                    res.cookie('userEmail', req.body.email, {maxAge:(1000 * 60) * 2})
+                }
                 return res.redirect('/')
             }
             return res.render('home/login',{
@@ -67,10 +71,15 @@ const mainController = {
             ...req.body,
             password1: bcryptjs.hashSync(req.body.password1, 10),
             password2: bcryptjs.hashSync(req.body.password2, 10),
-            avatar: req.file.filename
+            // avatar: req.file.filename
         }
         let userCreated = User.create(userToCreate);
         return res.redirect('/login')
+    },
+    logOut: (req,res)=>{
+        res.clearCookie('userEmail');
+        req.session.destroy();
+        return res.redirect('/');
     },
     newUser: (req,res) =>{
         let usuario = {
