@@ -6,6 +6,7 @@ const archivo = path.join(__dirname,'..','data','productos.json');
 const archivoUsers = path.join(__dirname,'..','data','usuarios.json');
 const User = require('../models/User')
 const bcryptjs = require('bcryptjs')
+const { validationResult } = require('express-validator');
 
 // Creamos el objeto literal con los métodos a exportar
 const mainController = {
@@ -57,6 +58,8 @@ const mainController = {
     },
     processRegister: (req,res)=>{
         let userInDB = User.findByField('email', req.body.email);
+        let resultValidaion= validationResult(req);
+        console.log(resultValidaion);
         if(userInDB){
             return res.render('home/registro',{
                 errors:{

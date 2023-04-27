@@ -11,6 +11,8 @@ const multer = require('multer');
 // Requerimos los middlewares de usuario e invitado 
 const guestMiddleware = require("../middlewares/guestMiddleware")
 
+//requerimos express validator
+const  {body} = require('express-validator');
 
 
 // Importamos el controlador de las rutas por defecto
@@ -26,13 +28,21 @@ let multerDiskStorage = multer.diskStorage({
     },
     filename: (req,file,callback) => {
         console.log(file);
-        let imageName = 'user-'+ req.file.originalname + Date.now() + path.extname(file.originalname);
+        let imageName = 'user-'+ file.originalname + Date.now() + path.extname(file.originalname);
         callback(null, imageName);
     }
 });
 let fileUpload = multer({storage: multerDiskStorage}); 
 
+//hacemos un array de lo que vamos a validar
 
+const validations = [
+    body('nombre').notEmpty().withMessage('El nombre no puede estar vacio'),
+    body('apellido').notEmpty().withMessage('El apellido no puede estar vacio'),
+    body('email').notEmpty().withMessage('El email no puede estar vacio'),
+    body('password1').notEmpty().withMessage('La password no puede estar vacia'),
+    body('password2').notEmpty().withMessage('La password no puede estar vacia'),
+]
 
 // En vez de app.get, utilizamos router.get. Esto va "guardando" en router las distintas rutas, que luego exportamos
 
@@ -47,9 +57,9 @@ router.post('/login',guestMiddleware ,mainController.loginProcess);
 router.get('/register',guestMiddleware, mainController.registro);
 // LogOut
 router.get('/logOut', mainController.logOut);
-// Procesar el registro
-router.post('/register', fileUpload.single('imagenUsuario'),mainController.processRegister); //fileUpload.single('nameDeInputEnEjs')
-// si pongo processRegister en ves de newUser los usuarios de mandan a users.json y no a usuarios.json
+// Procesar el registro por post
+//paso la constante validation para validar los campos del registro
+router.post('/register', fileUpload.single('imagenUsuario'), validations, mainController.processRegister); //fileUpload.single('nameDeInputEnEjs')
 
 
 
