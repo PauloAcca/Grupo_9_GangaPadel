@@ -57,9 +57,9 @@ router.post('/login',guestMiddleware ,mainController.loginProcess);
 router.get('/register',guestMiddleware, mainController.registro);
 // LogOut
 router.get('/logOut', mainController.logOut);
-// Procesar el registro por post
-//paso la constante validation para validar los campos del registro
-router.post('/register', fileUpload.single('imagenUsuario'), validations, mainController.processRegister); //fileUpload.single('nameDeInputEnEjs')
+// Procesar el registro
+router.post('/register', fileUpload.single('imagenUsuario'),mainController.processRegister); //fileUpload.single('nameDeInputEnEjs')
+// si pongo processRegister en ves de newUser los usuarios de mandan a users.json y no a usuarios.json
 
 
 

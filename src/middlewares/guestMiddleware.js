@@ -6,3 +6,5 @@ function guestMiddleware(req,res,next){
 }
 
 module.exports = guestMiddleware
+
+// middleware, si esta logeado un usuario no puede accerder de nuevo al login o register
