@@ -39,9 +39,15 @@ let fileUpload = multer({storage: multerDiskStorage});
 const validations = [
     body('nombre').notEmpty().withMessage('El nombre no puede estar vacio'),
     body('apellido').notEmpty().withMessage('El apellido no puede estar vacio'),
-    body('email').notEmpty().withMessage('El email no puede estar vacio'),
-    body('password1').notEmpty().withMessage('La password no puede estar vacia'),
-    body('password2').notEmpty().withMessage('La password no puede estar vacia'),
+    //bail corta las validaciones de email
+    body('email').notEmpty().withMessage('El email no puede estar vacio').bail().isEmail().withMessage('Ingrese un mail valido'),
+    body('password1').notEmpty().withMessage('La password no puede estar vacia').bail().isLength({ min: 8 }).withMessage('La password debe tener minimo 8 caracteres').matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/).withMessage('La password debe contener al menos una mayuscula, una minuscula y un numero'),
+    body('password2').notEmpty().withMessage('La password no puede estar vacia').custom((value,{req})=>{
+        if (value!==req.body.password1){
+            throw new Error('La confirmación de la password no coincide con la password');
+        }
+        return true;
+    }),
 ]
 
 // En vez de app.get, utilizamos router.get. Esto va "guardando" en router las distintas rutas, que luego exportamos

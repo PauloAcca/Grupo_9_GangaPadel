@@ -51,7 +51,7 @@
                     </div>
                 <% } %>
                 <label for="email"></label>
-                <input type="email" name="email" placeholder="Correo electronico" value="<%= locals.oldData && oldData.email ? oldData.email : null %>">
+                <input type="text" name="email" placeholder="Correo electronico" value="<%= locals.oldData && oldData.email ? oldData.email : null %>">
                 <% if (locals.errors && errors.email) { %>
                     <div class="error">
                         <%= errors.email.msg %>
