@@ -26,7 +26,7 @@ let multerDiskStorage = multer.diskStorage({
     },
     filename: (req,file,callback) => {
         console.log(file);
-        let imageName = 'user-'+ req.file.originalname + Date.now() + path.extname(file.originalname);
+        let imageName = 'user-'+ file.originalname + Date.now() + path.extname(file.originalname);
         callback(null, imageName);
     }
 });
@@ -49,7 +49,7 @@ router.get('/register',guestMiddleware, mainController.registro);
 router.get('/logOut', mainController.logOut);
 // Procesar el registro
 router.post('/register', fileUpload.single('imagenUsuario'),mainController.processRegister); //fileUpload.single('nameDeInputEnEjs')
-// si pongo processRegister en ves de newUser los usuarios de mandan a users.json y no a usuarios.json
+
 
 
 

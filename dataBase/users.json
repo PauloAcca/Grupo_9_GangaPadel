@@ -4,7 +4,8 @@
   "nombre": "Paulo",
   "apellido": "Accardo",
   "email": "paulo.matias.accardo@gmail.com",
-  "password1": "$2a$10$okQgFFrMOJWIeUQwhf5OiuogEHbPbJA7l6xc0YESnv7MT2qxUffc.",
-  "password2": "$2a$10$ACXhpx87A2xPWlV5XOu1weUbwtV0e7IsHZpgtHm35sIDSfFzawz4C"
+  "password1": "$2a$10$tQEEbXo7o8akhVTQCZ1m3epRsZ0v/m0yQNhJbvyPswYT2XfKGTLBe",
+  "password2": "$2a$10$PEzWXjWswu9Bj9KFVeKhxeHxgoiPVU72roLNETN0lUfgcXZi3jhnO",
+  "profileType": null
  }
 ]

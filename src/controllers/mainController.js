@@ -71,7 +71,7 @@ const mainController = {
             ...req.body,
             password1: bcryptjs.hashSync(req.body.password1, 10),
             password2: bcryptjs.hashSync(req.body.password2, 10),
-            // avatar: req.file.filename
+            profileType: null
         }
         let userCreated = User.create(userToCreate);
         return res.redirect('/login')
@@ -80,30 +80,6 @@ const mainController = {
         res.clearCookie('userEmail');
         req.session.destroy();
         return res.redirect('/');
-    },
-    newUser: (req,res) =>{
-        let usuario = {
-            id: null, 
-            first_name: req.body.nombre,
-            last_name: req.body.apellido,
-            email: req.body.email,
-            password: req.body.password1, //modificar
-            profileType: null,
-        }
-        let archivoUsuario = fs.readFileSync(archivoUsers,{encoding:'utf-8'});
-        let usuarios = [];
-        if (archivoUsuario == ''){
-            usuarios = [];
-            
-        }else{
-            usuarios = JSON.parse(archivoUsuario);
-        }
-        
-        usuarios.push(usuario);
-        usuarioJSON = JSON.stringify(usuarios, null, ' ');
-        fs.writeFileSync(archivoUsers,usuarioJSON);//creo que el error está aca
-        res.redirect('/');
-        
     }
 }
 
