@@ -7,5 +7,14 @@
   "password1": "$2a$10$tQEEbXo7o8akhVTQCZ1m3epRsZ0v/m0yQNhJbvyPswYT2XfKGTLBe",
   "password2": "$2a$10$PEzWXjWswu9Bj9KFVeKhxeHxgoiPVU72roLNETN0lUfgcXZi3jhnO",
   "profileType": null
+ },
+ {
+  "id": 2,
+  "nombre": "",
+  "apellido": "",
+  "email": "",
+  "password1": "$2a$10$hfkG.getdumbX3836.UXuObjbJoIVz0.UX5KbtTzZ4YQZw1xniS/6",
+  "password2": "$2a$10$Asm4I3cMB2BYiBSU./LQRuLZYFaIHvuPAHtYlvHnnydGh8fcTNH0O",
+  "profileType": null
  }
 ]

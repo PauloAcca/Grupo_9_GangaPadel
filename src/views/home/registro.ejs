@@ -36,6 +36,11 @@
         </section>
         <section class="bottom-form">
             <form class="forms" method="POST" action="/register" enctype="multipart/form-data">
+                <% if (locals.errors) { %>
+                    <% for ( let i in errors ) { %>
+                        <p><%= errors[i].msg %></p>
+                    <% } %>
+                <% } %>
                 <label for="nombre"></label>
                 <input type="text"name="nombre" placeholder="Nombre">
                 <label for="apellido"></label>

@@ -58,8 +58,13 @@ const mainController = {
     },
     processRegister: (req,res)=>{
         let userInDB = User.findByField('email', req.body.email);
-        let resultValidaion= validationResult(req);
-        console.log(resultValidaion);
+        let resultValidation= validationResult(req);
+        if (resultValidation.errors.length>0){
+            return res.render('home/registro', {
+                //convierte el array en objeto litereal con los nombres del formulario
+                errors: resultValidation.mapped(),
+            })
+        }
         if(userInDB){
             return res.render('home/registro',{
                 errors:{
