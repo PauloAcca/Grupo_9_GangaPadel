@@ -63,6 +63,7 @@ const mainController = {
             return res.render('home/registro', {
                 //convierte el array en objeto litereal con los nombres del formulario
                 errors: resultValidation.mapped(),
+                oldData: req.body,
             })
         }
         if(userInDB){

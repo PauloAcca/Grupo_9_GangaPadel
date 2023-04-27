@@ -4,6 +4,11 @@
     --rojo-p:#DA0037 ;
     --negro-s:#171717;
 }
+
+.error{
+    color: #DA0037;
+    font-weight: 900;
+}
 body{
     background-image:url(/img/imagen-Fondo-regYinic.jpeg);
     background-size: cover;
