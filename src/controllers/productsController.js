@@ -27,10 +27,15 @@ const productsController = {
     },
 
     filtrado: (req,res)=>{
+        // db.Productos.findAll()
+        //     .then(function(productos){
+        //         res.render('products/filtrado', {productos:productos});
+        //     })
         let archivoProductos = fs.readFileSync(archivo, {encoding:'utf-8'});
         let producto= JSON.parse(archivoProductos);
-
         res.render('products/filtrado', {producto:producto});
+
+        
     },
 
     search: (req,res)=>{
