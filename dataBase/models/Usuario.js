@@ -2,21 +2,21 @@ module.exports=(sequelize, dataTypes)=>{
     let alias= 'Usuario';
     let cols={
         id:{
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement:true, 
         },
         nombre: {
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
         },
         apellido: {
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
         },
         email: {
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
         },
         password: {
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
         },
     }
     let config={

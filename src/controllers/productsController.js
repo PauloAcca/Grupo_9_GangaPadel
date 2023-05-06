@@ -2,7 +2,7 @@
 const path = require('path');
 const fs=require('fs');
 const archivo= path.join(__dirname,'..','data','productos.json');
-//const db = require('../../dataBase/models');
+const db = require('../../dataBase/models');
 // Creamos el objeto literal con los métodos a exportar
 const productsController = {
     
