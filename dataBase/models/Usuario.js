@@ -1,25 +1,33 @@
 module.exports=(sequelize, dataTypes)=>{
-    let alias= 'usuarios';
+    let alias= 'pepito';
     let cols={
         idUsuario:{
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement:true, 
+            allowNull:false,
+            unique:true,
         },
         nombre: {
             type: dataTypes.STRING,
+            allowNull:false,
         },
         apellido: {
             type: dataTypes.STRING,
+            allowNull:false,
         },
         email: {
             type: dataTypes.STRING,
+            allowNull:false,
+            unique:true,
         },
         password: {
             type: dataTypes.STRING,
+            allowNull:false,
         },
         tipoUsuario:{
-            type:dataTypes.INTEGER
+            type:dataTypes.INTEGER,
+            allowNull:false,
         }
     }
     let config={
@@ -27,5 +35,8 @@ module.exports=(sequelize, dataTypes)=>{
         timestamps: false, //Son columnas de actualizacion de las tablas, sino las tenemos se pone false
     }
     const Usuario = sequelize.define(alias, cols, config);
+
     return Usuario;
+
+    
 };

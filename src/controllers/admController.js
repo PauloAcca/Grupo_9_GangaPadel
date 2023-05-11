@@ -3,7 +3,8 @@ const path = require('path');
 // const { producto } = require('./productsController');
 const fs=require('fs');
 const archivo= path.join(__dirname,'..','data','productos.json');
-const db = require('../../dataBase/models');
+const db = path.join(__dirname,'..','..','dataBase','models');
+const { producto } = require('./productsController');
 // Creamos el objeto literal con los métodos a exportar
 const admController = {
 
@@ -33,52 +34,58 @@ const admController = {
     },
 
     guardarProducto: (req,res)=>{
-
         db.Producto.create({
-            id: null,
-            name: req.body.name,
-            price: req.body.price,
-            discount: req.body.discount,
-            category: req.body.category,
-            description: req.body.description,
-            brand: req.body.brand,
+            idProducto: null,
+            nombreProducto: req.body.name,
+            precio: req.body.price,
+            descuento: req.body.discount,
+            idCategoria: req.body.category,
+            descripcion: req.body.description,
+            idMarca: req.body.brand,
             image: req.file.filename,
         })
-
-        if (req.file){
-            let producto = {
-                id: null,
-                name: req.body.name,
-                price: req.body.price,
-                discount: req.body.discount,
-                category: req.body.category,
-                description: req.body.description,
-                brand: req.body.brand,
-                image: req.file.filename,
-            }
-    
-            //primero: leer que cosas ya habia;
-            let archivoProductos = fs.readFileSync(archivo, {encoding:'utf-8'});
-            let arrayProductos=[];
-            if (archivoProductos==''){
-                arrayProductos=[];
-                producto.id=0;
-            }else{
-                arrayProductos = JSON.parse(archivoProductos);
-                producto.id=arrayProductos.length;
-            }
-    
-            arrayProductos.push(producto);
-    
-            productosJSON = JSON.stringify(arrayProductos);
-    
-            fs.writeFileSync(archivo,productosJSON);
-    
+        .then(producto=>{
             res.redirect('/');
-        }
-        else{
-            res.redirect('/admin/add');
-        }
+        })
+        .catch(error =>{
+            res.send(error)
+        })
+        
+
+        // if (req.file){
+        //     let producto = {
+        //         id: null,
+        //         name: req.body.name,
+        //         price: req.body.price,
+        //         discount: req.body.discount,
+        //         category: req.body.category,
+        //         description: req.body.description,
+        //         brand: req.body.brand,
+        //         image: req.file.filename,
+        //     }
+    
+        //     //primero: leer que cosas ya habia;
+        //     let archivoProductos = fs.readFileSync(archivo, {encoding:'utf-8'});
+        //     let arrayProductos=[];
+        //     if (archivoProductos==''){
+        //         arrayProductos=[];
+        //         producto.id=0;
+        //     }else{
+        //         arrayProductos = JSON.parse(archivoProductos);
+        //         producto.id=arrayProductos.length;
+        //     }
+    
+        //     arrayProductos.push(producto);
+    
+        //     productosJSON = JSON.stringify(arrayProductos);
+    
+        //     fs.writeFileSync(archivo,productosJSON);
+    
+        //     res.redirect('/');
+        // }
+        // else{
+        //     res.redirect('/admin/add');
+        // }
     },
     delate: (req,res)=>{
         let idProducto= req.params.idProducto;
