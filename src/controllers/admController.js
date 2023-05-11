@@ -34,14 +34,14 @@ const admController = {
     },
 
     guardarProducto: (req,res)=>{
+        console.log(req.body);
         db.Producto.create({
-            idProducto: null,
             nombreProducto: req.body.name,
             precio: req.body.price,
             descuento: req.body.discount,
-            idCategoria: req.body.category,
+            idCategoria: parseInt(req.body.category),
             descripcion: req.body.description,
-            idMarca: req.body.brand,
+            idMarca: parseInt(req.body.brand),
             image: req.file.filename,
         })
         .then(producto=>{
