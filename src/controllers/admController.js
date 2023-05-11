@@ -1,8 +1,9 @@
 // Requerimos path para poder enviar los archivos HTML
 const path = require('path');
-const { producto } = require('./productsController');
+// const { producto } = require('./productsController');
 const fs=require('fs');
 const archivo= path.join(__dirname,'..','data','productos.json');
+const db = require('../../dataBase/models');
 // Creamos el objeto literal con los métodos a exportar
 const admController = {
 
@@ -32,7 +33,18 @@ const admController = {
     },
 
     guardarProducto: (req,res)=>{
-        
+
+        db.Producto.create({
+            id: null,
+            name: req.body.name,
+            price: req.body.price,
+            discount: req.body.discount,
+            category: req.body.category,
+            description: req.body.description,
+            brand: req.body.brand,
+            image: req.file.filename,
+        })
+
         if (req.file){
             let producto = {
                 id: null,

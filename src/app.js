@@ -24,6 +24,12 @@ const productsRouter = require('./routes/productsRouter.js');
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware.js')
 const cookies = require('cookie-parser');
 
+//requerimo sequelize y lo configuramos
+
+const Sequelize = require('sequelize');
+const dbConfig = require('../dataBase/config/config.js');
+const sequelize = new Sequelize(dbConfig.development);
+
 // elegimos nuestro view engine
 app.set("view engine", "ejs");               
 

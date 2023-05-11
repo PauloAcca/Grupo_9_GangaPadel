@@ -1,35 +1,35 @@
 module.exports=(sequelize, dataTypes)=>{
-    let alias= 'Productos';
+    let alias= 'productos';
     let cols={
-        id:{
+        idProducto:{
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement:true,
         },
-        name: {
+        nombreProducto: {
             type: dataTypes.STRING,
         },
-        price: {
+        precio: {
             type: dataTypes.INTEGER,
         },
-        discount:{
+        descuento:{
             type: dataTypes.INTEGER,
         },
-        category: {
+        idCategoria: {
+            type: dataTypes.INTEGER,
+        },
+        descripcion: {
             type: dataTypes.STRING,
         },
-        description: {
+        idMarca:{
             type: dataTypes.STRING,
         },
-        brand:{
-            type: dataTypes.STRING,
-        },
-        image:{
+        imagen:{
             type: dataTypes.STRING,
         }
     }
     let config={
-        tableName:'Productos', //No hace falta si la tabla es el plural del nombbre del archivo
+        tableName:'productos', //No hace falta si la tabla es el plural del nombbre del archivo
         timestamps: false, //Son columnas de actualizacion de las tablas, sino las tenemos se pone false
     }
     const Producto = sequelize.define(alias, cols, config);

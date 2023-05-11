@@ -1,7 +1,7 @@
 module.exports=(sequelize, dataTypes)=>{
-    let alias= 'Usuarios';
+    let alias= 'usuarios';
     let cols={
-        id:{
+        idUsuario:{
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement:true, 
@@ -18,9 +18,12 @@ module.exports=(sequelize, dataTypes)=>{
         password: {
             type: dataTypes.STRING,
         },
+        tipoUsuario:{
+            type:dataTypes.INTEGER
+        }
     }
     let config={
-        tableName:'Usuarios', //No hace falta si la tabla es el plural del nombbre del archivo
+        tableName:'usuarios', //No hace falta si la tabla es el plural del nombbre del archivo
         timestamps: false, //Son columnas de actualizacion de las tablas, sino las tenemos se pone false
     }
     const Usuario = sequelize.define(alias, cols, config);

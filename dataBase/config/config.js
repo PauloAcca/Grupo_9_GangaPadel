@@ -1,9 +1,9 @@
 module.exports= {
   "development": {
     "username": "root",
-    "password": 'grupo9!',
-    "database": "padel_db",
-    "host": "127.0.0.1",
+    "password": '123456',
+    "database": "db_padel",
+    "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
