@@ -26,7 +26,7 @@ router.get("/edit/:idProducto", admController.editado);
 
 router.put('/edit', admController.editadoPut);
 
-router.delete('/delete/:idProducto',admController.delate);
+router.delete('/delete/:idProducto',admController.delete);
 
 
 module.exports = router;

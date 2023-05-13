@@ -33,5 +33,12 @@ module.exports=(sequelize, dataTypes)=>{
         timestamps: false, //Son columnas de actualizacion de las tablas, sino las tenemos se pone false
     }
     const Producto = sequelize.define(alias, cols, config);
+
+    // Producto.associate = function(models){
+    //     Producto.hasMany(models.Usuarios,{
+    //         as:"usuarios",
+    //         foreignKey:'usuariosID'
+    //     })
+    // }
     return Producto;
 };

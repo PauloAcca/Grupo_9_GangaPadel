@@ -9,6 +9,7 @@
         <div class="iconos-header">
             <% if (locals.isLogged) { %>
                 <a href="/logOut" class="linksHeader">Log Out</a>
+                <a href="/editarUsuario" class="linksHeader">Editar</a>
                 <img src="/img/fotosPerfil/<%= locals.userLogged.profileType %>" alt="" >
                 Hola,<%= locals.userLogged.nombre %>
             <% } %> 

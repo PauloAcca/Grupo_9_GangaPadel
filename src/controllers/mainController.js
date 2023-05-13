@@ -7,6 +7,7 @@ const archivoUsers = path.join(__dirname,'..','data','usuarios.json');
 const User = require('../models/User')
 const bcryptjs = require('bcryptjs')
 const { validationResult } = require('express-validator');
+let db = require("../../dataBase/models")
 
 // Creamos el objeto literal con los métodos a exportar
 const mainController = {
@@ -24,20 +25,24 @@ const mainController = {
         res.render('home/login');
     },
     loginProcess:(req,res)=>{
-        let userToLogin = User.findByField('email', req.body.email)
-        if (userToLogin) {
-            let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password1);
-            if(isOkThePassword){
-                delete userToLogin.password1;
-                delete userToLogin.password2;
-                req.session.userLogged = userToLogin ;
+        db.Usuarios.findOne({
+            where: {
+                email: req.body.email
+            }
+        })
+        .then((userToLogin) =>{
+            if (userToLogin) {
+                let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
+                if(isOkThePassword){
+                    delete userToLogin.password;
+                    req.session.userLogged = userToLogin ;
 
-                if (req.body.recordar) {
+                    if (req.body.recordar) {
                     res.cookie('userEmail', req.body.email, {maxAge:(1000 * 60) * 2})
                 }
                 return res.redirect('/')
-            }
-            return res.render('home/login',{
+                }
+                return res.render('home/login',{
                 errors: {
                     email:{
                         msg:'Credenciales invalidas'
@@ -52,6 +57,8 @@ const mainController = {
                 }
             }
         })
+        })
+        
     },
     registro: (req,res)=>{
         res.render('home/registro');
@@ -76,19 +83,29 @@ const mainController = {
                 oldData: req.body
             })
         }
-        let userToCreate = {
-            ...req.body,
-            password1: bcryptjs.hashSync(req.body.password1, 10),
-            password2: bcryptjs.hashSync(req.body.password2, 10),
-            profileType: null
-        }
-        let userCreated = User.create(userToCreate);
+        db.Usuarios.create({
+            nombre: req.body.nombre,
+            apellido: req.body.apellido,
+            email: req.body.email,
+            password: bcryptjs.hashSync(req.body.password1, 10)
+        })
         return res.redirect('/login')
     },
     logOut: (req,res)=>{
         res.clearCookie('userEmail');
         req.session.destroy();
         return res.redirect('/');
+    },
+    editarUsuario: (req,res)=>{
+        // db.Usuarios.findOne({
+        //     where: {
+        //         email: req.body.email
+        //     }
+        // })
+        // .then((usuarioEditar) => {
+        //     res.render('users/editarUsuario', {usuarioEditar});
+        // })
+        
     }
 }
 

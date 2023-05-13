@@ -2,7 +2,8 @@
 const path = require('path');
 const { producto } = require('./productsController');
 const fs=require('fs');
-const archivo= path.join(__dirname,'..','data','productos.json');
+const archivo = path.join(__dirname,'..','data','productos.json');
+let db = require("../../dataBase/models")
 // Creamos el objeto literal con los métodos a exportar
 const admController = {
 
@@ -68,7 +69,7 @@ const admController = {
             res.redirect('/admin/add');
         }
     },
-    delate: (req,res)=>{
+    delete: (req,res)=>{
         let idProducto= req.params.idProducto;
         let archivoProductos = fs.readFileSync(archivo, {encoding:'utf-8'});
         let productosTodos= JSON.parse(archivoProductos);
