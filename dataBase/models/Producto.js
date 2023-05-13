@@ -1,37 +1,47 @@
 module.exports=(sequelize, dataTypes)=>{
-    let alias= 'Productos';
+    let alias= 'Producto';
     let cols={
-        id:{
+        idProducto:{
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement:true,
+            unique:true,
+            allowNull:false,
         },
-        name: {
+        nombreProducto: {
             type: dataTypes.STRING,
+            allowNull:false,
         },
-        price: {
+        precio: {
             type: dataTypes.INTEGER,
+            allowNull:false,
         },
-        discount:{
+        descuento:{
             type: dataTypes.INTEGER,
+            defaultValue:null,
         },
-        category: {
-            type: dataTypes.STRING,
+        idCategoria: {
+            type: dataTypes.INTEGER,
+            allowNull:false,
         },
-        description: {
+        descripcion: {
             type: dataTypes.STRING,
+            defaultValue:null,
         },
-        brand:{
+        idMarca:{
             type: dataTypes.STRING,
+            allowNull:false,
         },
         image:{
             type: dataTypes.STRING,
+            allowNull:false,
         }
     }
     let config={
-        tableName:'Productos', //No hace falta si la tabla es el plural del nombbre del archivo
+        tableName:'productos', //No hace falta si la tabla es el plural del nombbre del archivo
         timestamps: false, //Son columnas de actualizacion de las tablas, sino las tenemos se pone false
     }
+
     const Producto = sequelize.define(alias, cols, config);
 
     // Producto.associate = function(models){
