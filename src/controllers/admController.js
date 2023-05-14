@@ -34,7 +34,6 @@ const admController = {
     },
 
     guardarProducto: (req,res)=>{
-        console.log(req.body);
         db.Producto.create({
             nombreProducto: req.body.name,
             precio: req.body.price,
@@ -44,7 +43,7 @@ const admController = {
             idMarca: parseInt(req.body.brand),
             image: req.file.filename,
         })
-        .then(producto=>{
+        .then(()=>{
             res.redirect('/');
         })
         .catch(error =>{
