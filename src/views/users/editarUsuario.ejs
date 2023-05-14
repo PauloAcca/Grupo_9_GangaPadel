@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1d21def6f6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/registro.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+</head>
+
+<body>
+    <div class="main-div">
+        <section class="top-title">
+            <div class="first-title">
+                <h1>Ganga Padel</h1>
+            </div>
+            <h3 class="second-title">Registrate</h3>
+            <div class="icons-container">
+                <a href="">
+                    <div class="icons"><i class="fa-brands fa-google"></i></div>
+                </a>
+                <a href="">
+                    <div class="icons"><i class="fa-brands fa-facebook"></i></div>
+                </a>
+                <a href="">
+                    <div class="icons"><i class="fa-brands fa-apple"></i></div>
+                </a>
+            </div>
+        </section>
+        <section class="bottom-form">
+            <form class="forms" method="POST" action="/editarUsuario" enctype="multipart/form-data">
+                <label for="nombre"></label>
+                <input type="text" name="nombre" placeholder="Nombre" value="<%= usuarioEditar.nombre %>">
+                <% if (locals.errors && errors.nombre) { %>
+                    <div class="error">
+                        <%= errors.nombre.msg %>
+                    </div>
+                <% } %>
+                <label for="apellido"></label>
+                <input type="text" name="apellido" placeholder="Apellido" value="<%= usuarioEditar.apellido %>">
+                <% if (locals.errors && errors.apellido) { %>
+                    <div class="error">
+                        <%= errors.apellido.msg %>
+                    </div>
+                <% } %>
+                <label for="email"></label>
+                <input type="text" name="email" placeholder="Correo electronico" value="<%= <%= usuarioEditar.email %>">
+                <% if (locals.errors && errors.email) { %>
+                    <div class="error">
+                        <%= errors.email.msg %>
+                    </div>
+                <% } %>
+                <label for="password1"></label>
+                <input type="password" name="password1" placeholder="Nueva Contraseña" value="<%= locals.oldData && oldData.password1 ? oldData.password1 : null %>">
+                <% if (locals.errors && errors.password1) { %>
+                    <div class="error">
+                        <%= errors.password1.msg %>
+                    </div>
+                <% } %>
+                <label for="password2"></label>
+                <input type="password" name="password2" placeholder="Confirmar nueva contraseña" value="<%= locals.oldData && oldData.password2 ? oldData.password2 : null %>">
+                <% if (locals.errors && errors.password2) { %>
+                    <div class="error">
+                        <%= errors.password2.msg %>
+                    </div>
+                <% } %>
+                <label for="file" class="fileInput">Foto <br>
+                    <input type="file" name="imagenUsuario" class="fileInput">
+                </label>
+                <section class="">
+                    <hr class="hr-top">
+                    <div class="button-sesion">
+                        <button type="submit">Registrarse</button>
+                        <a href="/login">¿Ya tenes cuenta?</a>
+                    </div>
+                    <hr class="hr-bottom">
+                </section>
+            </form>
+                
+        </section>
+    </div>
+</body>
+
+</html>

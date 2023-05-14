@@ -86,7 +86,7 @@ const admController = {
         //     res.redirect('/admin/add');
         // }
     },
-    delate: (req,res)=>{
+    delete: (req,res)=>{
         let idProducto= req.params.idProducto;
         let archivoProductos = fs.readFileSync(archivo, {encoding:'utf-8'});
         let productosTodos= JSON.parse(archivoProductos);

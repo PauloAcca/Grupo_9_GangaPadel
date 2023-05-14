@@ -61,6 +61,8 @@ router.get('/login',guestMiddleware ,mainController.login);
 router.post('/login',guestMiddleware ,mainController.loginProcess);
 // Ver el registro
 router.get('/register',guestMiddleware, mainController.registro);
+// ActualizarUsuario
+router.get('/editarUsuario',guestMiddleware, mainController.editarUsuario);
 // LogOut
 router.get('/logOut', mainController.logOut);
 // Procesar el registro
