@@ -87,7 +87,7 @@ const mainController = {
             nombre: req.body.nombre,
             apellido: req.body.apellido,
             email: req.body.email,
-            password: bcryptjs.hashSync(req.body.password1, 10),
+            pasword: bcryptjs.hashSync(req.body.password1, 10),
             tipoUsuario: 0,
         }).then(()=>{
             res.redirect('/');
