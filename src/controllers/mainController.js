@@ -83,13 +83,18 @@ const mainController = {
                 oldData: req.body
             })
         }
-        db.Usuarios.create({
+        db.Usuario.create({
             nombre: req.body.nombre,
             apellido: req.body.apellido,
             email: req.body.email,
-            password: bcryptjs.hashSync(req.body.password1, 10)
+            password: bcryptjs.hashSync(req.body.password1, 10),
+            tipoUsuario: 0,
+        }).then(()=>{
+            res.redirect('/');
         })
-        return res.redirect('/login')
+        .catch(error =>{
+            res.send(error)
+        })
     },
     logOut: (req,res)=>{
         res.clearCookie('userEmail');
