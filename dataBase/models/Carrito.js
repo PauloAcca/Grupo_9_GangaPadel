@@ -19,10 +19,22 @@ module.exports=(sequelize, dataTypes)=>{
         }
     }
     let config={
-        tableName:'carritos', //No hace falta si la tabla es el plural del nombbre del archivo
+        tableName:'carrito', //No hace falta si la tabla es el plural del nombbre del archivo
         timestamps: false, //Son columnas de actualizacion de las tablas, sino las tenemos se pone false
     }
+    
 
     const Carrito = sequelize.define(alias, cols, config);
+
+    Carrito.associate = function(models){
+        Carrito.hasMany(models.CarritoProducto,{
+            as:"carritoproducto",
+            foreignKey: "idCarrito"
+        });
+        Carrito.belongsTo(models.Usuario,{
+            as: "usuarios",
+            foreignKey: "idUsuario"
+        })
+    }
     return Carrito;
-};
+}
