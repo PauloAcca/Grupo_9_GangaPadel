@@ -25,7 +25,7 @@ module.exports=(sequelize, dataTypes)=>{
         timestamps: false, //Son columnas de actualizacion de las tablas, sino las tenemos se pone false
     }
 
-    const CarritoProducto = sequelize.define(alias, cols, config);
+ /*    const CarritoProducto = sequelize.define(alias, cols, config);
     CarritoProducto.associate = function(models){
         CarritoProducto.belongsTo(models.Producto,{
             as:"productos",
@@ -38,6 +38,6 @@ module.exports=(sequelize, dataTypes)=>{
             foreignKey: "idCarrito",
             timestamps:false
         })
-    }
+    } */
     return CarritoProducto;
 };
