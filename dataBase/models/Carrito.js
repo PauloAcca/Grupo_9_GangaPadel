@@ -27,13 +27,19 @@ module.exports=(sequelize, dataTypes)=>{
     const Carrito = sequelize.define(alias, cols, config);
 
     Carrito.associate = function(models){
-        Carrito.hasMany(models.CarritoProducto,{
-            as:"carritoproducto",
-            foreignKey: "idCarrito"
+        Carrito.belongsToMany(models.Producto,{
+            as:"productos",
+            through: models.CarritoProducto,
+            foreignKey: "idCarrito",
+            otherKey:"productos",
+            timestamps:false
+            
+        
         });
         Carrito.belongsTo(models.Usuario,{
             as: "usuarios",
-            foreignKey: "idUsuario"
+            foreignKey: "idUsuario",
+            timestamps:false
         })
     }
     return Carrito;

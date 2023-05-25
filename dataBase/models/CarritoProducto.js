@@ -29,11 +29,14 @@ module.exports=(sequelize, dataTypes)=>{
     CarritoProducto.associate = function(models){
         CarritoProducto.belongsTo(models.Producto,{
             as:"productos",
-            foreignKey: "idProducto"
+            foreignKey: "idProducto",
+            timestamps:false
+
         });
         CarritoProducto.belongsTo(models.Carrito,{
-            as: "carrito",
-            foreignKey: "idCarrito"
+            as: "carritos",
+            foreignKey: "idCarrito",
+            timestamps:false
         })
     }
     return CarritoProducto;
