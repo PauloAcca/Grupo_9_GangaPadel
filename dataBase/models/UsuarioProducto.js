@@ -1,12 +1,10 @@
 module.exports=(sequelize, dataTypes)=>{
-    let alias= 'CarritoProducto';
+    let alias= 'CarritoProductos';
     let cols={
-        idCarrito:{
+        idUsuario:{
             type: dataTypes.INTEGER,
             primaryKey: true,
             unique:true,
-            autoIncrement:true, 
-            allowNull:false,
         },
         idProducto:{
             type: dataTypes.INTEGER,
@@ -17,11 +15,12 @@ module.exports=(sequelize, dataTypes)=>{
         },
         cant_producto:{
             type: dataTypes.INTEGER,
+            primaryKey: true, 
             allowNull:false,
         }
     }
     let config={
-        tableName:'carritoproducto', //No hace falta si la tabla es el plural del nombbre del archivo
+        tableName:'usuarioproductos', //No hace falta si la tabla es el plural del nombbre del archivo
         timestamps: false, //Son columnas de actualizacion de las tablas, sino las tenemos se pone false
     }
 

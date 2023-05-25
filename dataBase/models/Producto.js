@@ -1,15 +1,11 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'Producto';
+    let alias = 'Productos';
     let cols = {
         idProducto: {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
             unique: true,
-            allowNull: false,
-        },
-        nombreProducto: {
-            type: dataTypes.STRING,
             allowNull: false,
         },
         precio: {
@@ -20,20 +16,25 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER,
             defaultValue: null,
         },
-        idCategoria: {
-            type: dataTypes.INTEGER,
-            allowNull: false,
-        },
         descripcion: {
             type: dataTypes.STRING,
             defaultValue: null,
+        },
+        image: {
+            type: dataTypes.STRING,
+            allowNull: false,
+        },
+        nombreProducto: {
+            type: dataTypes.STRING,
+            allowNull: false,
         },
         idMarca: {
             type: dataTypes.STRING,
             allowNull: false,
         },
-        image: {
-            type: dataTypes.STRING,
+        
+        idCategoria: {
+            type: dataTypes.INTEGER,
             allowNull: false,
         }
     }

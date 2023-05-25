@@ -1,5 +1,5 @@
 module.exports=(sequelize, dataTypes)=>{
-    let alias= 'CategoriaProducto';
+    let alias= 'CategoriaProductos';
     let cols={
         idCategoria:{
             type: dataTypes.INTEGER,
@@ -13,7 +13,7 @@ module.exports=(sequelize, dataTypes)=>{
         },
     }
     let config={
-        tableName:'categoriaproducto', //No hace falta si la tabla es el plural del nombbre del archivo
+        tableName:'categoriaproductos', //No hace falta si la tabla es el plural del nombbre del archivo
         timestamps: false, //Son columnas de actualizacion de las tablas, sino las tenemos se pone false
     }
 

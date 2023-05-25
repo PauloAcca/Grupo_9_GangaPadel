@@ -1,5 +1,5 @@
 module.exports=(sequelize, dataTypes)=>{
-    let alias= 'Usuario';
+    let alias= 'Usuarios';
     let cols={
         idUsuario:{
             type: dataTypes.INTEGER,
@@ -30,6 +30,7 @@ module.exports=(sequelize, dataTypes)=>{
             allowNull:false,
         }
     }
+
     let config={
         tableName:'usuarios', //No hace falta si la tabla es el plural del nombbre del archivo
         timestamps: false, //Son columnas de actualizacion de las tablas, sino las tenemos se pone false
