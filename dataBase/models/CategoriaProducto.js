@@ -17,7 +17,8 @@ module.exports=(sequelize, dataTypes)=>{
         timestamps: false, //Son columnas de actualizacion de las tablas, sino las tenemos se pone false
     }
 
-/*     const CategoriaProducto = sequelize.define(alias, cols, config);
+    const CategoriaProducto = sequelize.define(alias, cols, config);
+/*  
     CategoriaProducto.associate = function(models){
         CategoriaProducto.belongsTo(models.Producto,{
             as:"productos",
