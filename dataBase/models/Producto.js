@@ -44,29 +44,33 @@ module.exports = (sequelize, dataTypes) => {
 
     const Producto = sequelize.define(alias, cols, config);
 
-    /* Producto.associate = function (models) {
-        Producto.belongsTo(models.CategoriaProducto, {
-            as: "categoriaProductos",
-            foreignKey: 'idCategoria',
-            timestamps: false,
-
-        })
-
-        Producto.hasMany(models.Carrito, {
-            as: "carritos",
-            through: models.CarritoProducto,
-            foreignKey: 'idCarrito',
-            otherKey:"idProducto",
-            timestamps:false,
-        })
-
+    Producto.associate = function (models) {
         Producto.belongsTo(models.Marca, {
             as: "marcas",
             foreignKey: 'idMarca',
             timestamps: false,
+        });
 
-        })
-    } */
+        Producto.belongsTo(models.CategoriaProducto, {
+            as: "categoriaProductos",
+            foreignKey: 'idCategoria',
+            timestamps: false,
+        });
+
+        Producto.belongsToMany(models.Carrito, {
+            as: "carritos",
+            through: {model: 'carrito_producto', //agrego el atributo faltante
+            scope:{cant_producto:{
+                type: dataTypes.INTEGER,
+                allowNull:false,
+            }}},
+            foreignKey: 'idProducto',
+            otherKey:"idCarrito",
+            timestamps:false,
+        });
+
+    }
+
     return Producto;
 }
 

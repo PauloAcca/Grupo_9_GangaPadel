@@ -34,17 +34,9 @@
                     </div>
                 </div>
                 <div class="info-prod">
-                    <h2><%= productoDetail[0].name %></h2>
-                    <h3><%= productoDetail[0].price %></h3>
-                    <p class="informacion">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum at, maxime architecto
-                        inventore provident harum veritatis rerum quasi repudiandae eius aspernatur culpa, enim
-                        voluptates. Autem ea dicta animi cum tenetur? Lorem ipsum dolor, sit amet consectetur
-                        adipisicing elit. Eaque quae enim aspernatur nemo atque sunt ratione in distinctio
-                        maxime ut culpa sint, ipsa exercitationem, magnam consequatur officiis fuga saepe fugit?
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni sed, dolorem, minima
-                        earum sequi quo consequuntur non dolores nesciunt quia iste. Tempore porro sapiente
-                        quaerat suscipit ratione! Non, ad ipsam.
+                    <h2><%= producto.nombreProducto %></h2>
+                    <h3><%= producto.precio %></h3>
+                    <p class="informacion"><%= producto.descripcion %>
                     </p>
                     <div class="buttons-container">
                         <div class="div-cantidades">
@@ -73,6 +65,14 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div>
+                <a href="/admin/edit/<%= producto.idProducto %>">
+                    <button>Editar</button>
+                </a>
+                <form action="/admin/delete/<%= producto.idProducto %>?_method=DELETE" method="POST">
+                    <button type="submit">Borrar</button>
+                </form>
             </div>
         </div>
         <div class="div-prods-Relacionados">
