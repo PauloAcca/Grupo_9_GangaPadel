@@ -5,10 +5,7 @@ module.exports=(sequelize, dataTypes)=>{
             type: dataTypes.INTEGER,
             primaryKey: true,
             unique:true,
-<<<<<<< HEAD:dataBase/models/CarritoProducto.js
             allowNull:false,
-=======
->>>>>>> f52338a78d5e0728de3be3bfc66975821ac3aff1:dataBase/models/UsuarioProducto.js
         },
         idProducto:{
             type: dataTypes.INTEGER,
@@ -23,11 +20,7 @@ module.exports=(sequelize, dataTypes)=>{
         }
     }
     let config={
-<<<<<<< HEAD:dataBase/models/CarritoProducto.js
         tableName:'carrito_producto', //No hace falta si la tabla es el plural del nombbre del archivo
-=======
-        tableName:'usuarioproductos', //No hace falta si la tabla es el plural del nombbre del archivo
->>>>>>> f52338a78d5e0728de3be3bfc66975821ac3aff1:dataBase/models/UsuarioProducto.js
         timestamps: false, //Son columnas de actualizacion de las tablas, sino las tenemos se pone false
     }
 
