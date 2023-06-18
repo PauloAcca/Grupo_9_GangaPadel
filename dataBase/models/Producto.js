@@ -38,7 +38,7 @@ module.exports=(sequelize, dataTypes)=>{
         }
     }
     let config={
-        tableName:'productos', //No hace falta si la tabla es el plural del nombbre del archivo
+        tableName:'productos', //No hace falta si la tabla es el plural del nombre del archivo
         timestamps: false, //Son columnas de actualizacion de las tablas, sino las tenemos se pone false
     }
 
