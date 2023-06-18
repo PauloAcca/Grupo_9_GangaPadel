@@ -53,4 +53,4 @@ const User = {
         return true;
     }
 }
-module.exports = User;
+module.exports = User;

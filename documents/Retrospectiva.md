@@ -1,4 +1,16 @@
 
+RETRO SPRINT  6
+
+Seguimos avanzando con el proyecto, si bien las exigencias son cada vez mas altas, tratamos de definir las tareas y llevarlas a cabo con éxito. 
+
+
+Puntos para mejorar: Aumentar las reuniones y puesta en común.
+Comenzar a hacer: Retocar y pulir detalles del proyecto. Repartir las tareas de manera equitativa. 
+Continuar con la misma dinámica y buena comunicación.
+
+
+________________________________________________________________________________________________________________________________________
+
 RETRO SPRINT 5 
 
 Ya podemos decir que somos un grupo 100% consolidado. Conocemos las fortalezas de cada integrante del equipo y las explotamos al máximo.

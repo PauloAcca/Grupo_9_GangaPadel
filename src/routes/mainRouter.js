@@ -41,7 +41,8 @@ const validations = [
     body('apellido').notEmpty().withMessage('El apellido no puede estar vacio'),
     //bail corta las validaciones de email
     body('email').notEmpty().withMessage('El email no puede estar vacio').bail().isEmail().withMessage('Ingrese un mail valido'),
-    body('password1').notEmpty().withMessage('La password no puede estar vacia').bail().isLength({ min: 8 }).withMessage('La password debe tener minimo 8 caracteres').matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/).withMessage('La password debe contener al menos una mayuscula, una minuscula y un numero'),
+    body('password1').notEmpty().withMessage('La password no puede estar vacia').bail().isLength({ min: 8 }).withMessage('La password debe tener minimo 8 caracteres').matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d!@#$%^&*()_+]{8,}$/)
+    .withMessage('La password debe contener al menos una mayuscula, una minuscula y un numero'),
     body('password2').notEmpty().withMessage('La password no puede estar vacia').custom((value,{req})=>{
         if (value!==req.body.password1){
             throw new Error('La confirmación de la password no coincide con la password');
@@ -67,7 +68,7 @@ router.get('/editarUsuario',guestMiddleware, mainController.editarUsuario);
 router.get('/logOut', mainController.logOut);
 // Procesar el registro
 router.post('/register', fileUpload.single('imagenUsuario'),validations,mainController.processRegister); //fileUpload.single('nameDeInputEnEjs')
-// si pongo processRegister en ves de newUser los usuarios de mandan a users.json y no a usuarios.json
+// si pongo processRegister en vez de newUser los usuarios de mandan a users.json y no a usuarios.json
 
 
 
