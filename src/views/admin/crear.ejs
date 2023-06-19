@@ -10,7 +10,7 @@
 		<%- include('../partials/header')  %>
     	<%- include('../partials/navbar.ejs') %>
 	</header>
-    
+	
 	<main>
 		<h2>Crear producto</h2>
 		<form id="form" action="/admin/add" method="POST" enctype="multipart/form-data">
@@ -26,16 +26,20 @@
 			
 			<label for="category">Categoría:</label>
 			<select id="category" name="category">
-				<option value="value1">Valor 1</option>
-				<option value="value2">Valor 2</option>
-				<option value="value3">Valor 3</option>
+				<% for (let i=0; i< categoria.length; i++) { %>
+				<option value=" <%=categoria[i].idCategoria %>"> <%=categoria[i].categoria%></option>
+			<% } %>
 			</select>
 			
 			<label for="description">Descripción:</label>
 			<textarea id="description" name="description"></textarea>
 			
 			<label for="brand">Marca:</label>
-			<input type="text" id="brand" name="brand">
+			<select id="brand" name="brand">
+				<% for (let i=0; i< marca.length; i++) { %>
+					<option value=" <%=marca[i].idMarca %>"> <%=marca[i].nombreMarca%></option>
+				<% } %>
+			</select>
 			
 			<label for="image">Imagen:</label>
 			<input type="file" id="image" name="image">

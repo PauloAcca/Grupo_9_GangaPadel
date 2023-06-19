@@ -6,36 +6,18 @@ const db = require('../../dataBase/models');
 // Creamos el objeto literal con los métodos a exportar
 const productsController = {
     
-    producto: (req,res)=>{
-        let archivoProductos = fs.readFileSync(archivo, {encoding:'utf-8'});
-        let producto= JSON.parse(archivoProductos);
-
-        let idDetail=req.query.id;
-
-        if (idDetail){
-            productoDetail= producto.filter( producto=>{
-                console.log([producto.id,parseInt(idDetail, 10)])
-                return producto.id == parseInt(idDetail, 10)
-            });
-            console.log(productoDetail)
-    
-            res.render('products/producto', {productoDetail});
-        }else{
-            res.render('products/producto', {productoDetail:producto}); 
-        }
-
+    detalle: (req,res)=>{
+        db.Producto.findByPk(req.params.id, {include: [{association: 'marcas'}, {association: 'categoriaProductos'}]})
+            .then(function(producto){
+                res.render('products/producto', {producto:producto})
+            })
     },
 
     filtrado: (req,res)=>{
-        // db.Productos.findAll()
-        //     .then(function(productos){
-        //         res.render('products/filtrado', {productos:productos});
-        //     })
-        let archivoProductos = fs.readFileSync(archivo, {encoding:'utf-8'});
-        let producto= JSON.parse(archivoProductos);
-        res.render('products/filtrado', {producto:producto});
-
-        
+        db.Producto.findAll()
+            .then(function(producto){
+            res.render('products/filtrado', {producto:producto});
+        })        
     },
 
     search: (req,res)=>{

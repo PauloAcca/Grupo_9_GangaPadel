@@ -1,18 +1,20 @@
 module.exports=(sequelize, dataTypes)=>{
-    let alias= 'UsuarioProductos';
+    let alias= 'CarritoProducto';
     let cols={
-        idUsuario:{
+        idCarrito:{
             type: dataTypes.INTEGER,
             primaryKey: true,
+            unique:true,
+            allowNull:false,
         },
         idProducto:{
             type: dataTypes.INTEGER,
             primaryKey: true,
+            unique:true,
             allowNull:false,
         },
         cant_producto:{
             type: dataTypes.INTEGER,
-            primaryKey: true, 
             allowNull:false,
         }
     }

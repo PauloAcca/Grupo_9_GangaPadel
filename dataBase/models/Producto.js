@@ -1,11 +1,15 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'Productos';
+    let alias = 'Producto';
     let cols = {
         idProducto: {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
             unique: true,
+            allowNull: false,
+        },
+        nombreProducto: {
+            type: dataTypes.STRING,
             allowNull: false,
         },
         precio: {
@@ -16,25 +20,20 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER,
             defaultValue: null,
         },
+        idCategoria: {
+            type: dataTypes.INTEGER,
+            allowNull: false,
+        },
         descripcion: {
             type: dataTypes.STRING,
             defaultValue: null,
-        },
-        image: {
-            type: dataTypes.STRING,
-            allowNull: false,
-        },
-        nombreProducto: {
-            type: dataTypes.STRING,
-            allowNull: false,
         },
         idMarca: {
             type: dataTypes.STRING,
             allowNull: false,
         },
-        
-        idCategoria: {
-            type: dataTypes.INTEGER,
+        image: {
+            type: dataTypes.STRING,
             allowNull: false,
         }
     }
@@ -45,29 +44,33 @@ module.exports = (sequelize, dataTypes) => {
 
     const Producto = sequelize.define(alias, cols, config);
 
-    /* Producto.associate = function (models) {
-        Producto.belongsTo(models.CategoriaProducto, {
-            as: "categoriaProductos",
-            foreignKey: 'idCategoria',
-            timestamps: false,
-
-        })
-
-        Producto.hasMany(models.Carrito, {
-            as: "carritos",
-            through: models.CarritoProducto,
-            foreignKey: 'idCarrito',
-            otherKey:"idProducto",
-            timestamps:false,
-        })
-
+    Producto.associate = function (models) {
         Producto.belongsTo(models.Marca, {
             as: "marcas",
             foreignKey: 'idMarca',
             timestamps: false,
+        });
 
-        })
-    } */
+        Producto.belongsTo(models.CategoriaProducto, {
+            as: "categoriaProductos",
+            foreignKey: 'idCategoria',
+            timestamps: false,
+        });
+
+        Producto.belongsToMany(models.Carrito, {
+            as: "carritos",
+            through: {model: 'carrito_producto', //agrego el atributo faltante
+            scope:{cant_producto:{
+                type: dataTypes.INTEGER,
+                allowNull:false,
+            }}},
+            foreignKey: 'idProducto',
+            otherKey:"idCarrito",
+            timestamps:false,
+        });
+
+    }
+
     return Producto;
 }
 

@@ -1,0 +1,70 @@
+<head>
+    <%- include('../partials/head.ejs') %>
+    <%- include('../partials/header-footer-stylesheet.ejs') %>
+    
+    <link rel="stylesheet" href="/css/agregado.css">
+    <title>Pagina agregado de productos</title>
+</head>
+<body>
+	<header>
+		<%- include('../partials/header')  %>
+    	<%- include('../partials/navbar.ejs') %>
+	</header>
+    
+	<main>
+		<h2>Editar producto</h2>
+		<form id="form" action="/admin/edit/<%= producto.idProducto %>?_method=PUT" method="POST" enctype="multipart/form-data">
+			<label for="name">Producto:</label>
+			<input type="text" id="name" name="name" value="<%=producto.nombreProducto %>" required>
+			
+			<label for="price">Precio:</label>
+			<input type="text" id="discount" name="price" placeholder="Ej: 60000" value="<%=producto.precio %>">
+
+			<label for="discount">Descuento:</label>
+			<input type="text" id="discount" name="discount" placeholder="Ej: 20" value="<%=producto.descuento%>"
+
+			
+			<label for="category">Categoría:</label>
+			<select id="category" name="category">
+				<% for (let i=0; i< categoria.length; i++) { %>
+					<% if (categoria[i].idCategoria == producto.idCategoria) {%>
+						<option value=" <%=categoria[i].idCategoria %>" selected> 
+							<%=categoria[i].categoria%></option>
+					<% } else { %>
+						<option value=" <%=categoria[i].idCategoria %>"> 
+							<%=categoria[i].categoria%></option>
+					<% } %>
+			<% } %>
+			</select>
+			
+			<label for="description">Descripción:</label>
+			
+			<textarea id="description" name="description"><%=producto.descripcion%></textarea>
+			<label for="brand">Marca:</label>
+			<select id="brand" name="brand">
+				<% for (let i=0; i< marca.length; i++) { %>
+					<% if (marca[i].idMarca == producto.idMarca) {%>
+						<option value=" <%=marca[i].idMarca %>" selected> 
+							<%=marca[i].nombreMarca%></option>
+					<% } else { %>
+						<option value=" <%=marca[i].idMarca %>"> 
+							<%=marca[i].nombreMarca%></option>
+					<% } %>
+				<% } %>
+			</select>
+			
+			<label for="image">Imagen:</label>
+			<input type="file" id="image" name="image" value="<%=producto.image  %>">
+			
+			<button type="submit">Editar</button>
+		</form>
+	</main>
+    
+	<footer>
+		<%- include('../partials/footer')  %>
+	</footer>
+	
+</body>
+
+
+

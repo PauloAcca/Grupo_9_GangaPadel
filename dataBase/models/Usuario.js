@@ -1,5 +1,5 @@
 module.exports=(sequelize, dataTypes)=>{
-    let alias= 'Usuarios';
+    let alias= 'Usuario';
     let cols={
         idUsuario:{
             type: dataTypes.INTEGER,
@@ -20,7 +20,7 @@ module.exports=(sequelize, dataTypes)=>{
             allowNull:false,
             unique:true,
         },
-        pasword: {
+        password: {
             type: dataTypes.STRING,
             allowNull:false,
         },
@@ -29,21 +29,19 @@ module.exports=(sequelize, dataTypes)=>{
             allowNull:false,
         }
     }
-
     let config={
         tableName:'usuarios', //No hace falta si la tabla es el plural del nombbre del archivo
         timestamps: false, //Son columnas de actualizacion de las tablas, sino las tenemos se pone false
     }
     const Usuario = sequelize.define(alias, cols, config);
 
-/*    Usuario.associate = function(models){
-        Usuario.belongsTo(models.Carrito,{
-            as:"usuarios",
-            foreignKey:'IdUsuario',
-            timestamps: false
+    Usuario.associate = function(models){
+        Usuario.hasMany(models.Carrito,{
+            as:"carritos",
+            foreignKey:'idUsuario',
+            timestamps: false,
         })
-    } */
-    return Usuario;
+    }
 
-    
+    return Usuario;    
 };

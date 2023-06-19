@@ -14,10 +14,12 @@ const mainController = {
 
      // Manejo del pedido get con ruta
     index: (req,res)=>{
-         // comunicarse con el modelo, conseguir información
-        let archivoProductos = fs.readFileSync(archivo, {encoding:'utf-8'});
-        let producto= JSON.parse(archivoProductos);
-        res.render('home/index', {producto: producto});
+        db.Producto.findAll({include: [{association: 'marcas'}, {association: 'categoriaProductos'}]})
+        .then(function(producto){
+            res.render('home/index', {producto:producto});
+        })
+        .catch(function(error){
+            return res.send(error)});
     },
 
     //Repito proceso para todas las vistas
