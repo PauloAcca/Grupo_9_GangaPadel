@@ -35,27 +35,18 @@ let multerDiskStorage = multer.diskStorage({
 });
 let fileUpload = multer({storage: multerDiskStorage}); 
 // Traigo a los usuarios de mi base de datos 
-const User = require('./dataBase/Usuario'); 
+let db = require("../../dataBase/models")
 //hacemos un array de lo que vamos a validar
 
 const validations = [
     body('nombre').notEmpty().withMessage('El nombre no puede estar vacio').isLength({min:2}).withMessage('El nombre debe tener al menos 2 letras'),
     body('apellido').notEmpty().withMessage('El apellido no puede estar vacio').isLength({min:2}).withMessage('El apellido debe tener al menos 2 letras'),
     //bail corta las validaciones de email
-    body('email').notEmpty().withMessage('El email no puede estar vacio').bail().isEmail().withMessage('Ingrese un mail valido').custom((value, { req }) => {
-        return new Promise((resolve, reject) => {
-        User.findOne({ where: { email: value } })
-            .then(user => {
-            if (user) {
-                reject(new Error('El correo electrónico ya está en uso'));
-            } else {
-                resolve();
-            }
-            })
-            .catch(err => {
-            reject(new Error('Error al verificar el correo electrónico'));
-            });
-        });
+    body('email').notEmpty().withMessage('El email no puede estar vacio').bail().isEmail().withMessage('Ingrese un mail valido').custom(async (value, { req }) => {
+        const user = await db.Usuario.findOne({ where: { email: value } });
+        if (user) {
+        throw new Error('El correo electrónico ya está en uso');
+        }
     }).withMessage('El correo electrónico ya está en uso'),
     body('password1').notEmpty().withMessage('La password no puede estar vacia').bail().isLength({ min: 8 }).withMessage('La password debe tener minimo 8 caracteres').matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d!@#$%^&*()_+]{8,}$/)
     .withMessage('La password debe contener al menos una mayuscula, una minuscula y un numero'),
