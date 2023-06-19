@@ -56,6 +56,13 @@ const validations = [
         }
         return true;
     }),
+    body('imagenUsuario').custom((value, { req }) => {
+        if (!req.file) {
+        throw new Error('No se ha proporcionado ningún archivo');
+        }
+        if (!req.file.originalname.match(/\.(jpg|gif|jpeg|png)$/i)) {
+        throw new Error('El formato del archivo debe ser JPG o GIF');
+        }})
 ]
 
 // En vez de app.get, utilizamos router.get. Esto va "guardando" en router las distintas rutas, que luego exportamos
