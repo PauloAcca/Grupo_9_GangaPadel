@@ -2,14 +2,8 @@
 const path = require('path')
 const fs = require('fs');
 const { json } = require('express');
-<<<<<<< HEAD
-const archivo = path.join(__dirname,'..','data','productos.json');
-const archivoUsers = path.join(__dirname,'..','data','usuarios.json');
-const User = require('../middlewares/User')
-=======
 const archivo = path.join(__dirname, '..', 'data', 'productos.json');
 const archivoUsers = path.join(__dirname, '..', 'data', 'usuarios.json');
->>>>>>> ddb94c10a7bafbd7355fcd9316e408b846469575
 const bcryptjs = require('bcryptjs')
 const { validationResult } = require('express-validator');
 let db = require("../../dataBase/models")
