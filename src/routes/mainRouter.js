@@ -38,7 +38,7 @@ let fileUpload = multer({storage: multerDiskStorage});
 let db = require("../../dataBase/models")
 //hacemos un array de lo que vamos a validar
 
-const validations = [
+const validationsRegister = [
     body('nombre').notEmpty().withMessage('El nombre no puede estar vacio').isLength({min:2}).withMessage('El nombre debe tener al menos 2 letras'),
     body('apellido').notEmpty().withMessage('El apellido no puede estar vacio').isLength({min:2}).withMessage('El apellido debe tener al menos 2 letras'),
     //bail corta las validaciones de email
@@ -56,7 +56,22 @@ const validations = [
         }
         return true;
     })
+];
+const validationsLogin = [
+    body('email').notEmpty().withMessage('El Mail no puede estar vacio').isEmail().withMessage('Inserte formato válido').custom(async (value, { req }) => {
+        const user = await db.Usuario.findOne({ where: { email: value } });
+        if (!user) {
+        throw new Error('El correo electrónico no está registrado');
+        }
+    }).withMessage('El correo no está registrado'),
+    body('password').notEmpty().withMessage('Password requerida').custom(async (value, { req }) => {
+        const contra = await db.Usuario.findOne({ where: { pasword: value } });
+        if (!contra || contra != user) {
+        throw new Error('Contraseña o usuario incorrecto');
+        }
+    }).withMessage('Contraseña o usuario incorrecto'),
 ]
+
 
 // En vez de app.get, utilizamos router.get. Esto va "guardando" en router las distintas rutas, que luego exportamos
 
@@ -66,7 +81,7 @@ router.get("/", mainController.index);
 // Repetimos proceso con las distintas vistas
 router.get('/login',guestMiddleware ,mainController.login);
 // Procesar el login
-router.post('/login',guestMiddleware ,mainController.loginProcess);
+router.post('/login', guestMiddleware , validationsLogin, mainController.loginProcess);
 // Ver el registro
 router.get('/register',guestMiddleware, mainController.registro);
 // ActualizarUsuario
@@ -74,7 +89,7 @@ router.get('/editarUsuario',guestMiddleware, mainController.editarUsuario);
 // LogOut
 router.get('/logOut', mainController.logOut);
 // Procesar el registro
-router.post('/register', fileUpload.single('imagenUsuario'),validations,mainController.processRegister); //fileUpload.single('nameDeInputEnEjs')
+router.post('/register', fileUpload.single('imagenUsuario'),validationsRegister,mainController.processRegister); //fileUpload.single('nameDeInputEnEjs')
 // si pongo processRegister en vez de newUser los usuarios de mandan a users.json y no a usuarios.json
 
 
