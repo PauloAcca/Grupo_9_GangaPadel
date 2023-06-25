@@ -75,6 +75,8 @@ window.addEventListener("load", () => {
             
         };
 
+         /* Contraseña 1 */ 
+
 
         if (password2.value == "") {
             errores.push("El campo contraseña no puede estar vacío");
