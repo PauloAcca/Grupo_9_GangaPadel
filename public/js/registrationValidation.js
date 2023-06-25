@@ -75,7 +75,7 @@ window.addEventListener("load", () => {
             
         };
 
-         /* Contraseña 1 */ 
+         /* Contraseña 2 */ 
 
 
         if (password2.value == "") {
