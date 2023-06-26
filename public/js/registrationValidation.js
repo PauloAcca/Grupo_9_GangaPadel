@@ -15,7 +15,7 @@ window.addEventListener("load", () => {
         /* Nombre */
 
         if (form.nombre.value == "") {
-            errores.push("Debe insertar su nombre");
+            errores.push("El campo nombre es obligatorio");
             form.nombre.classList.remove("es-valido")
             form.nombre.classList.add("es-invalido")
         } else if (form.nombre.value.length < 2) {
@@ -32,7 +32,7 @@ window.addEventListener("load", () => {
         /* Apellido */
 
         if (form.apellido.value == "") {
-            errores.push("Debe ingresar su apellido");
+            errores.push("El campo apellido es obligatorio");
             form.apellido.classList.remove("es-valido")
             form.apellido.classList.add("es-invalido")
         } else if (form.apellido.value.length < 2) {
@@ -53,7 +53,11 @@ window.addEventListener("load", () => {
             errores.push("Debe ingresar un email válido");
             form.email.classList.add("is-invalid");
             form.email.classList.remove("is-valid");
-        } else {
+        } else if (form.email.value == "") {
+            errores.push("El campo email es obligatorio");
+            form.apellido.classList.remove("es-valido")
+            form.apellido.classList.add("es-invalido")
+        }  else {
             form.email.classList.add("is-valid");
             form.email.classList.remove("is-invalid");
             form.password.focus();
@@ -66,7 +70,7 @@ window.addEventListener("load", () => {
             form.password1.classList.remove("is-valid");
             form.password1.classList.add("is-invalid");
         } else if (password1.value.length < 8) {
-            errores.push("El campo nombre debe tener al menos 8 caracteres");
+            errores.push("La contraseña debe tener al menos 8 caracteres");
             form.password1.classList.remove("is-valid");
             form.password1.classList.add("is-invalid");
         } else {
@@ -83,7 +87,7 @@ window.addEventListener("load", () => {
             form.password2.classList.remove("is-valid");
             form.password2.classList.add("is-invalid");
         } else if (password2.value.length < 8) {
-            errores.push("El campo nombre debe tener al menos 8 caracteres");
+            errores.push("La contraseña debe tener al menos 8 caracteres");
             form.password2.classList.remove("is-valid");
             form.password2.classList.add("is-invalid");
         } else {
