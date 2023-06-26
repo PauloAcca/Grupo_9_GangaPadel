@@ -1,4 +1,4 @@
-const { Console } = require('console');
+/*const { Console } = require('console');
 const fs = require('fs');
 const { all } = require('../routes/usersRouter');
 
@@ -53,4 +53,4 @@ const User = {
         return true;
     }
 }
-module.exports = User;
+module.exports = User;*/

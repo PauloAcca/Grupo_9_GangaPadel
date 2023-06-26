@@ -6,7 +6,6 @@ module.exports=(sequelize, dataTypes)=>{
             primaryKey: true,
             autoIncrement:true, 
             allowNull:false,
-            unique:true,
         },
         nombre: {
             type: dataTypes.STRING,
@@ -21,7 +20,7 @@ module.exports=(sequelize, dataTypes)=>{
             allowNull:false,
             unique:true,
         },
-        password: {
+        pasword: {
             type: dataTypes.STRING,
             allowNull:false,
         },

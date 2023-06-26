@@ -4,13 +4,10 @@ module.exports=(sequelize, dataTypes)=>{
         idUsuario:{
             type: dataTypes.INTEGER,
             primaryKey: true,
-            unique:true,
-            allowNull:false,
         },
         idProducto:{
             type: dataTypes.INTEGER,
             primaryKey: true,
-            unique:true,
             allowNull:false,
         },
         cant_producto:{

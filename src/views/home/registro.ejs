@@ -16,11 +16,13 @@
 </head>
 
 <body>
+
     <div class="main-div">
         <section class="top-title">
             <div class="first-title">
                 <h1>Ganga Padel</h1>
             </div>
+           
             <h3 class="second-title">Registrate</h3>
             <div class="icons-container">
                 <a href="">
@@ -34,58 +36,69 @@
                 </a>
             </div>
         </section>
+        <ul id="errores">
+
+        </ul>
         <section class="bottom-form">
             <form class="forms" method="POST" action="/register" enctype="multipart/form-data">
                 <label for="nombre"></label>
-                <input type="text" name="nombre" placeholder="Nombre" value="<%= locals.oldData && oldData.nombre ? oldData.nombre : null %>">
+                <input type="text" name="nombre" placeholder="Nombre"
+                    value="<%= locals.oldData && oldData.nombre ? oldData.nombre : null %>">
                 <% if (locals.errors && errors.nombre) { %>
                     <div class="error">
                         <%= errors.nombre.msg %>
                     </div>
-                <% } %>
-                <label for="apellido"></label>
-                <input type="text" name="apellido" placeholder="Apellido" value="<%= locals.oldData && oldData.apellido ? oldData.apellido : null %>">
-                <% if (locals.errors && errors.apellido) { %>
-                    <div class="error">
-                        <%= errors.apellido.msg %>
-                    </div>
-                <% } %>
-                <label for="email"></label>
-                <input type="text" name="email" placeholder="Correo electronico" value="<%= locals.oldData && oldData.email ? oldData.email : null %>">
-                <% if (locals.errors && errors.email) { %>
-                    <div class="error">
-                        <%= errors.email.msg %>
-                    </div>
-                <% } %>
-                <label for="password1"></label>
-                <input type="password" name="password1" placeholder="Contraseña" value="<%= locals.oldData && oldData.password1 ? oldData.password1 : null %>">
-                <% if (locals.errors && errors.password1) { %>
-                    <div class="error">
-                        <%= errors.password1.msg %>
-                    </div>
-                <% } %>
-                <label for="password2"></label>
-                <input type="password" name="password2" placeholder="Confirmar contraseña" value="<%= locals.oldData && oldData.password2 ? oldData.password2 : null %>">
-                <% if (locals.errors && errors.password2) { %>
-                    <div class="error">
-                        <%= errors.password2.msg %>
-                    </div>
-                <% } %>
-                <label for="file" class="fileInput">Foto <br>
-                    <input type="file" name="imagenUsuario" class="fileInput">
-                </label>
-                <section class="">
-                    <hr class="hr-top">
-                    <div class="button-sesion">
-                        <button type="submit">Registrarse</button>
-                        <a href="/login">¿Ya tenes cuenta?</a>
-                    </div>
-                    <hr class="hr-bottom">
-                </section>
+                    <% } %>
+                        <label for="apellido"></label>
+                        <input type="text" name="apellido" placeholder="Apellido"
+                            value="<%= locals.oldData && oldData.apellido ? oldData.apellido : null %>">
+                        <% if (locals.errors && errors.apellido) { %>
+                            <div class="error">
+                                <%= errors.apellido.msg %>
+                            </div>
+                            <% } %>
+                                <label for="email"></label>
+                                <input type="text" name="email" placeholder="Correo electronico"
+                                    value="<%= locals.oldData && oldData.email ? oldData.email : null %>">
+                                <% if (locals.errors && errors.email) { %>
+                                    <div class="error">
+                                        <%= errors.email.msg %>
+                                    </div>
+                                    <% } %>
+                                        <label for="password1"></label>
+                                        <input type="password" name="password1" placeholder="Contraseña"
+                                            value="<%= locals.oldData && oldData.password1 ? oldData.password1 : null %>">
+                                        <% if (locals.errors && errors.password1) { %>
+                                            <div class="error">
+                                                <%= errors.password1.msg %>
+                                            </div>
+                                            <% } %>
+                                                <label for="password2"></label>
+                                                <input type="password" name="password2"
+                                                    placeholder="Confirmar contraseña"
+                                                    value="<%= locals.oldData && oldData.password2 ? oldData.password2 : null %>">
+                                                <% if (locals.errors && errors.password2) { %>
+                                                    <div class="error">
+                                                        <%= errors.password2.msg %>
+                                                    </div>
+                                                    <% } %>
+                                                        <label for="file" class="fileInput">Foto <br>
+                                                            <input type="file" name="imagenUsuario" class="fileInput">
+                                                        </label>
+                                                        <section class="">
+                                                            <hr class="hr-top">
+                                                            <div class="button-sesion">
+                                                                <button type="submit">Registrarse</button>
+                                                                <a href="/login">¿Ya tenes cuenta?</a>
+                                                            </div>
+                                                            <hr class="hr-bottom">
+                                                        </section>
             </form>
-                
+
+
         </section>
     </div>
+    <script src="/js/registrationValidation.js"></script>
 </body>
 
 </html>
