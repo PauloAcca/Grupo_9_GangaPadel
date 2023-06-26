@@ -71,43 +71,42 @@ const mainController = {
                 email:req.body.email
             }
         })
-            .then(userInDB => {
-                console.log(userInDB)
-                let resultValidation = validationResult(req);
-                if (resultValidation.errors.length > 0) {
-                    return res.render('home/registro', {
-                        //convierte el array en objeto litereal con los nombres del formulario
-                        errors: resultValidation.mapped(),
-                        oldData: req.body,
-                    })
-                }
-                if (userInDB) {
-                    return res.render('home/registro', {
-                        errors: {
-                            email: {
-                                msg: 'Este email ya esta registrado'
-                            }
-                        },
-                        oldData: req.body
-                    })
-                }
-
-
-                return db.Usuario.create({
-                    nombre: req.body.nombre,
-                    apellido: req.body.apellido,
-                    email: req.body.email,
-                    pasword: bcryptjs.hashSync(req.body.password1, 10),
-                    tipoUsuario: 0,
-                })
+        .then(userInDB => {
+            let resultValidation = validationResult(req);
+            if (resultValidation.errors.length > 0) {
+                return res.render('home/registro', {
+                    errors: resultValidation.mapped(),
+                    oldData: req.body,
+                });
+            }
+            if (userInDB) {
+                return res.render('home/registro', {
+                    errors: {
+                        email: {
+                            msg: 'Este email ya está registrado'
+                        }
+                    },
+                    oldData: req.body
+                });
+            }
+    
+            return db.Usuario.create({
+                nombre: req.body.nombre,
+                apellido: req.body.apellido,
+                email: req.body.email,
+                pasword: bcryptjs.hashSync(req.body.password1, 10),
+                tipoUsuario: 0,
             })
-
             .then(() => {
                 res.redirect('/');
             })
             .catch(error => {
-                res.send(error)
-            })
+                res.send(error);
+            });
+        })
+        .catch(error => {
+            res.send(error);
+        });
     },
     logOut: (req, res) => {
         res.clearCookie('userEmail');

@@ -51,48 +51,59 @@ window.addEventListener("load", () => {
         let regEmail = /\S+@\S+\.\S+/;
         if (!regEmail.test(form.email.value)) {
             errores.push("Debe ingresar un email válido");
-            email.classList.add("is-invalid");
-            email.classList.remove("is-valid");
+            form.email.classList.add("is-invalid");
+            form.email.classList.remove("is-valid");
         } else {
-            email.classList.add("is-valid");
-            email.classList.remove("is-invalid");
+            form.email.classList.add("is-valid");
+            form.email.classList.remove("is-invalid");
             form.password.focus();
         };
 
-        /* Contraseña 1 */ 
+        /* Contraseña 1 */
 
         if (password1.value == "") {
             errores.push("El campo contraseña no puede estar vacío");
-            password1.classList.remove("is-valid");
-            password1.classList.add("is-invalid");
+            form.password1.classList.remove("is-valid");
+            form.password1.classList.add("is-invalid");
         } else if (password1.value.length < 8) {
             errores.push("El campo nombre debe tener al menos 8 caracteres");
-            password1.classList.remove("is-valid");
-            password1.classList.add("is-invalid");
+            form.password1.classList.remove("is-valid");
+            form.password1.classList.add("is-invalid");
         } else {
-            password1.classList.add("is-valid");
-            password1.classList.remove("is-invalid");
-            
+            form.password1.classList.add("is-valid");
+            form.password1.classList.remove("is-invalid");
+
         };
 
-         /* Contraseña 2 */ 
+        /* Contraseña 2 */
 
 
         if (password2.value == "") {
             errores.push("El campo contraseña no puede estar vacío");
-            password2.classList.remove("is-valid");
-            password2.classList.add("is-invalid");
+            form.password2.classList.remove("is-valid");
+            form.password2.classList.add("is-invalid");
         } else if (password2.value.length < 8) {
             errores.push("El campo nombre debe tener al menos 8 caracteres");
-            password2.classList.remove("is-valid");
-            password2.classList.add("is-invalid");
+            form.password2.classList.remove("is-valid");
+            form.password2.classList.add("is-invalid");
         } else {
-            password2.classList.add("is-valid");
-            password2.classList.remove("is-invalid");
-            
+            form.password2.classList.add("is-valid");
+            form.password2.classList.remove("is-invalid");
+
         };
 
-        /* Falta chequear la imagen Deberá ser un archivo válido (JPG, JPEG, PNG, GIF).*/
+        /* La imagen Deberá ser un archivo válido (JPG, JPEG, PNG, GIF).*/
+
+        let imagenUsuario = form.imagenUsuario;
+        if (imagenUsuario.files.length === 0) {
+            errores.push("Debe seleccionar una imagen");
+        } else {
+            let file = imagenUsuario.files[0];
+            let allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+            if (!allowedExtensions.test(file.name)) {
+                errores.push("La imagen debe tener una extensión válida (JPG, JPEG, PNG, GIF)");
+            }
+        }
 
 
 
