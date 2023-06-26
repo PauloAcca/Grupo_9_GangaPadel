@@ -57,7 +57,7 @@ const admController = {
         })
     },
 
-    guardarProducto: (req,res)=>{
+    guardarProducto: (req, res) => {
         db.Producto.create({
             nombreProducto: req.body.name,
             precio: parseInt(req.body.price),
@@ -66,15 +66,15 @@ const admController = {
             descripcion: req.body.description,
             idMarca: parseInt(req.body.brand),
             image: req.file.filename,
-        }
-        .then(()=>{
+        })
+        .then(() => {
             res.redirect('/');
         })
-        .catch(error =>{
+        .catch(error => {
             res.send(error);
-        })
-    )},
-
+        });
+    },
+    
     delete: (req,res)=>{
         db.Producto.destroy({
             where:{
