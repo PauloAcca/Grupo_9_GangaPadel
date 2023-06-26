@@ -1,7 +1,7 @@
 module.exports= {
   "development": {
     "username": "root",
-    "password": '',
+    "password": 'viviviv0',
     "database": "db_padel",
     "host": "localhost",
     "dialect": "mysql"

@@ -5,13 +5,14 @@ module.exports=(sequelize, dataTypes)=>{
             type: dataTypes.INTEGER,
             primaryKey: true,
             unique:true,
+            allowNull:false,
             autoIncrement:true, 
-            allowNull:false,
         },
-        idUsuario: {
+        idUsuario:{
             type: dataTypes.INTEGER,
-            allowNull:false,
+            primaryKey: true,
             unique:true,
+            allowNull:false,
         },
         precio_total:{
             type: dataTypes.INTEGER,
@@ -24,5 +25,25 @@ module.exports=(sequelize, dataTypes)=>{
     }
 
     const Carrito = sequelize.define(alias, cols, config);
+
+    Carrito.associate = function(models){
+        Carrito.belongsTo(models.Usuario,{
+            as:"usuarios",
+            foreignKey:'idUsuario',
+            timestamps: false,
+        })
+
+        Carrito.belongsToMany(models.Producto, {
+            as: "productos",
+            through: {model: 'carrito_producto', //agrego el atributo faltante
+            scope:{cant_producto:{
+                type: dataTypes.INTEGER,
+                allowNull:false,
+            }}},
+            foreignKey: 'idCarrito',
+            otherKey:"idProducto",
+            timestamps:false,
+        })
+    }
     return Carrito;
 };

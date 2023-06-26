@@ -18,13 +18,13 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage});
 
-router.get("/add", admController.agregado);
+router.get("/add", admController.crear);
 
 router.post('/add', upload.single('image') ,admController.guardarProducto);
 
 router.get("/edit/:idProducto", admController.editado);
 
-router.put('/edit', admController.editadoPut);
+router.put('/edit/:idProducto', upload.single('image') ,admController.actualizar);
 
 router.delete('/delete/:idProducto',admController.delete);
 

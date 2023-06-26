@@ -21,7 +21,7 @@ module.exports=(sequelize, dataTypes)=>{
             allowNull:false,
             unique:true,
         },
-        pasword: {
+        password: {
             type: dataTypes.STRING,
             allowNull:false,
         },
@@ -36,16 +36,13 @@ module.exports=(sequelize, dataTypes)=>{
     }
     const Usuario = sequelize.define(alias, cols, config);
 
-    // Usuario.associate = function(models){
-    //     Usuario.belongsToMany(models.Productos,{
-    //         as:"productos",
-    //         through:"usuario_productos",
-    //         foreignKey:'productosID',
-    //         otherKey:'idUsuario',
-    //         timestamps: false
-    //     })
-    // }
-    return Usuario;
+    Usuario.associate = function(models){
+        Usuario.hasMany(models.Carrito,{
+            as:"carritos",
+            foreignKey:'idUsuario',
+            timestamps: false,
+        })
+    }
 
-    
+    return Usuario;    
 };

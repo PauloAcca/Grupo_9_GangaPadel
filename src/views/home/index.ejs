@@ -38,15 +38,15 @@
                     <% } else { %>
                         <article class="articulo">
                     <% } %>
-                        <a href="/products/detail?id=<%= producto[i].id %>" class="link-producto"></a>
+                        <a href="/products/detail?id=<%= producto[i].idProducto %>" class="link-producto"></a>
                         <div class="contenedor-imagen">
                             <img class="imagen-producto" src="img/<%= producto[i].image %>" alt="imagen-producto">
                         </div>
                         <div class="descripcion-producto">
-                            <p class="categoria"><%= producto[i].category %></p>
-                            <p class="nombre_producto"><%= producto[i].name %></p>
+                            <p class="categoria"><%= producto[i].categoriaProductos.categoria %></p>
+                            <p class="nombre_producto"><%= producto[i].nombreProducto %></p>
                         </div>
-                        <p class="precio"><%= producto[i].price %></p>
+                        <p class="precio"><%= producto[i].precio %></p>
                     </article>
                 <% } %>
                 <i class="fa-solid fa-arrow-left arrow-left-article"></i>
@@ -71,16 +71,15 @@
                         <% } else { %>
                             <article class="articulo">
                         <% } %>
-                            <a href="/products/detail?id=<%= producto[i].id %>" class="link-producto"></a>
+                            <a href="/products/detail?id=<%= producto[i].idProducto %>" class="link-producto"></a>
                             <div class="contenedor-imagen">
-                            <p class="categoria"><%= producto[i].category %></p>
-                            <img class="imagen-producto" src="img/<%= producto[i].image %>" alt="imagen-producto">
+                                <img class="imagen-producto" src="img/<%= producto[i].image %>" alt="imagen-producto">
                             </div>
                             <div class="descripcion-producto">
-                                <p class="categoria"><%= producto[i].category %></p>
-                                <p class="nombre_producto"><%= producto[i].name %></p>
+                                <p class="categoria"><%= producto[i].categoriaProductos.categoria %></p>
+                                <p class="nombre_producto"><%= producto[i].nombreProducto %></p>
                             </div>
-                            <p class="precio"><%= producto[i].price %></p>
+                            <p class="precio"><%= producto[i].precio %></p>
                         </article>
                     <% } %>
                     <i class="fa-solid fa-arrow-left arrow-left-article"></i>
@@ -92,5 +91,3 @@
 </body>
 
 </html>
-
-<!--  -->
