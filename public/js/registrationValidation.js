@@ -2,10 +2,10 @@ window.addEventListener("load", () => {
 
     let form = document.querySelector(".forms");
 
-
     let erroresHtml = document.querySelector("#errores");
 
     form.addEventListener("submit", (event) => {
+
 
         /* Creo un array de errores vacio. 
         En caso de ir detectando errores  los iremos agregando aquí */
@@ -45,6 +45,7 @@ window.addEventListener("load", () => {
 
         }
 
+
         /* Email */
 
 
@@ -57,19 +58,20 @@ window.addEventListener("load", () => {
             errores.push("El campo email es obligatorio");
             form.apellido.classList.remove("es-valido")
             form.apellido.classList.add("es-invalido")
-        }  else {
+        } else {
             form.email.classList.add("is-valid");
             form.email.classList.remove("is-invalid");
-            form.password.focus();
+
         };
+
 
         /* Contraseña 1 */
 
-        if (password1.value == "") {
-            errores.push("El campo contraseña no puede estar vacío");
+        if (form.password1.value == "") {
+            errores.push("La contraseña no puede estar vacía");
             form.password1.classList.remove("is-valid");
             form.password1.classList.add("is-invalid");
-        } else if (password1.value.length < 8) {
+        } else if (form.password1.value.length < 8) {
             errores.push("La contraseña debe tener al menos 8 caracteres");
             form.password1.classList.remove("is-valid");
             form.password1.classList.add("is-invalid");
@@ -79,14 +81,15 @@ window.addEventListener("load", () => {
 
         };
 
+
         /* Contraseña 2 */
 
 
-        if (password2.value == "") {
-            errores.push("El campo contraseña no puede estar vacío");
+        if (form.password2.value == "") {
+            errores.push("La contraseña no puede estar vacía");
             form.password2.classList.remove("is-valid");
             form.password2.classList.add("is-invalid");
-        } else if (password2.value.length < 8) {
+        } else if (form.password2.value.length < 8) {
             errores.push("La contraseña debe tener al menos 8 caracteres");
             form.password2.classList.remove("is-valid");
             form.password2.classList.add("is-invalid");
@@ -95,6 +98,8 @@ window.addEventListener("load", () => {
             form.password2.classList.remove("is-invalid");
 
         };
+
+
 
         /* La imagen Deberá ser un archivo válido (JPG, JPEG, PNG, GIF).*/
 
@@ -109,9 +114,8 @@ window.addEventListener("load", () => {
             }
         }
 
-
-
         /* Chequeo de errores en pantalla  */
+
 
         if (errores.length > 0) {
 

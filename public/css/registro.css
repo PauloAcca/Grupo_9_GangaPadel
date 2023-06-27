@@ -210,11 +210,15 @@ body, html{
   
   #errores {
   
-    color: #842029;
+    color: red;
     background-color: #F8D7DA;
-    text-align: center;
-    border-radius: 10px;
     list-style: none;
+    border-radius: 10px;
+    font-weight: bold;
+    margin: 0;
+    margin-top: 15px;
+    padding: 10px;
+    
   }
 
   
