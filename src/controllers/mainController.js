@@ -27,14 +27,16 @@ const mainController = {
         res.render('home/login');
     },
     loginProcess: (req, res) => {
-        db.Usuarios.findOne({
+        db.Usuario.findOne({
             where: {
                 email: req.body.email
             }
         })
             .then((userToLogin) => {
                 if (userToLogin) {
-                    let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
+                    console.log(req.body.password );
+                    console.log( userToLogin);
+                    let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.pasword);
                     if (isOkThePassword) {
                         delete userToLogin.password;
                         req.session.userLogged = userToLogin;
