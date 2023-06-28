@@ -7,11 +7,6 @@ const usersConbtroller = {
     carrito: (req,res)=>{
          // comunicarse con el modelo, conseguir información
         res.render('users/carrito');
-    },
-
-    //Repito proceso para todas las vistas
-    wishlist: (req,res)=>{
-        res.render('users/wishlist');
     }
 }
 
