@@ -125,8 +125,10 @@ window.addEventListener("load", () => {
             for (let i = 0; i < errores.length; i++) {
                 erroresHtml.innerHTML += "<li>" + errores[i] + "</li>";
             };
+            erroresHtml.classList.remove("hidden"); // Mostrar el elemento <ul>
         } else {
             erroresHtml.innerHTML = "";
+            erroresHtml.classList.add("hidden"); // Ocultar el elemento <ul>
             form.submit();
 
 
