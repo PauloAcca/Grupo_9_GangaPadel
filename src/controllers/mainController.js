@@ -38,32 +38,24 @@ const mainController = {
                     console.log( userToLogin);
                     let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.pasword);
                     if (isOkThePassword) {
-                        delete userToLogin.password;
+                        delete userToLogin.pasword;
                         req.session.userLogged = userToLogin;
 
                         if (req.body.recordar) {
                             res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 2 })
                         }
-                        return res.redirect('/')
+                        res.redirect('/')
                     }
-                    return res.render('home/login', {
-                        errors: {
-                            email: {
-                                msg: 'Credenciales invalidas'
+                    else{
+                        res.render('/asdasd', {
+                            errors: {
+                                email: {
+                                    msg: 'Credenciales invalidas'
+                                }
                             }
-                        }
-                    })
-                }
-                return res.render('home/login', {
-                    errors: {
-                        email: {
-                            msg: 'No se encuentra registrado'
-                        }
+                        })
                     }
-                })
-            })
-
-    },
+                    }})},
     registro: (req, res) => {
         res.render('home/registro');
     },
