@@ -27,8 +27,14 @@ main{
     border: solid 3px black;
     padding-top: 2%;
 }
-
-
+.divProductos{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.listaEnvios{
+    list-style: none;
+}
 
 .textos {
 
@@ -57,9 +63,12 @@ main{
     display: block;
     background-color: #DA0037;
     color: white;
+    width: 5rem;
+    padding: 10px;
     text-align: center;
     font-weight: bold;
     border-radius: 3px;
+    text-decoration: none;
 }
 
 .contenedores-hijos{
