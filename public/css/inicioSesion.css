@@ -185,3 +185,12 @@ body, html{
     border: var(--gris-p) 1.5px solid;
 }
 
+@media (max-width: 425px) {
+    .main-div{
+        flex-direction: column;
+    }
+    .forms{
+        justify-content: space-between;
+    }
+}
+
