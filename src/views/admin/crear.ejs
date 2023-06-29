@@ -3,7 +3,7 @@
     <%- include('../partials/header-footer-stylesheet.ejs') %>
     
     <link rel="stylesheet" href="/css/agregado.css">
-    <title>Pagina agregado de productos</title>
+    <title>Agregar producto</title>
 </head>
 <body>
 	<header>
@@ -12,6 +12,9 @@
 	</header>
 	
 	<main>
+		<ul id="erroresAdd" class="hidden">
+
+        </ul>
 		<h2>Crear producto</h2>
 		<form id="form" action="/admin/add" method="POST" enctype="multipart/form-data">
 			<label for="name">Producto:</label>
@@ -51,6 +54,8 @@
 	<footer>
 		<%- include('../partials/footer')  %>
 	</footer>
+
+	<script src="/js/addValidation.js"></script>
 	
 </body>
 
