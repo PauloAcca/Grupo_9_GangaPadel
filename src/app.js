@@ -5,6 +5,9 @@ const app = express();
 // Requerimos path
 const path=require("path");
 
+//Requerimos router
+const router = express.Router();
+
 // Requerimos mainRouter
 const mainRouter=require("./routes/mainRouter.js");
 
@@ -23,6 +26,7 @@ const usersRouter = require('./routes/usersRouter.js');
 const productsRouter = require('./routes/productsRouter.js');
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware.js')
 const cookies = require('cookie-parser');
+const apiUsuarios =  require("./controllers/apiUsuarios.js");
 
 //requerimo sequelize y lo configuramos
 
@@ -61,6 +65,8 @@ app.use("/", mainRouter);
 app.use("/products",productsRouter);
 app.use("/users",usersRouter);
 app.use("/admin",admRouter);
+router.get('/api/users',apiUsuarios.info)
+router.get('/api/users/:id',apiUsuarios.detalle)
 
 // Ponemos a escuchar el servidor
 app.listen(port, () => {
