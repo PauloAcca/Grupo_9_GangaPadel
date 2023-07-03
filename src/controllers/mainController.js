@@ -1,10 +1,5 @@
 // Requerimos path para poder enviar los archivos HTML
-const path = require('path')
-const fs = require('fs');
-const { json } = require('express');
-const archivo = path.join(__dirname, '..', 'data', 'productos.json');
-const archivoUsers = path.join(__dirname, '..', 'data', 'usuarios.json');
-const bcryptjs = require('bcryptjs')
+const bcrypt = require('bcryptjs')
 const { validationResult } = require('express-validator');
 let db = require("../../dataBase/models")
 
@@ -33,29 +28,36 @@ const mainController = {
             }
         })
             .then((userToLogin) => {
+                console.log(userToLogin)
                 if (userToLogin) {
-                    console.log(req.body.password );
-                    console.log( userToLogin);
-                    let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.pasword);
+                    let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.pasword);
                     if (isOkThePassword) {
-                        delete userToLogin.pasword;
+                        delete userToLogin.password;
                         req.session.userLogged = userToLogin;
 
                         if (req.body.recordar) {
                             res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 2 })
                         }
-                        res.redirect('/')
+                        return res.redirect('/')
                     }
-                    else{
-                        res.render('/asdasd', {
-                            errors: {
-                                email: {
-                                    msg: 'Credenciales invalidas'
-                                }
+                    return res.render('home/login', {
+                        errors: {
+                            email: {
+                                msg: 'Credenciales invalidas'
                             }
-                        })
+                        }
+                    })
+                }
+                return res.render('home/login', {
+                    errors: {
+                        email: {
+                            msg: 'No se encuentra registrado'
+                        }
                     }
-                    }})},
+                })
+            })
+
+    },
     registro: (req, res) => {
         res.render('home/registro');
     },
@@ -88,7 +90,7 @@ const mainController = {
                 nombre: req.body.nombre,
                 apellido: req.body.apellido,
                 email: req.body.email,
-                pasword: bcryptjs.hashSync(req.body.password1, 10),
+                pasword: bcrypt.hashSync(req.body.password1, 10),
                 tipoUsuario: 0,
             })
             .then(() => {

@@ -1,7 +1,4 @@
 // Requerimos path para poder enviar los archivos HTML
-const path = require('path');
-const fs=require('fs');
-const archivo= path.join(__dirname,'..','data','productos.json');
 const db = require('../../dataBase/models');
 // Creamos el objeto literal con los métodos a exportar
 const productsController = {
@@ -20,21 +17,21 @@ const productsController = {
         })        
     },
 
-    search: (req,res)=>{
-        let archivoProductos = fs.readFileSync(archivo, {encoding:'utf-8'});
-        let producto= JSON.parse(archivoProductos);
-
-        let busqueda = req.query.busqueda;
-
-        let resultado = [];
-
-        for (let i = 0; i<producto.length; i++){
-            if (producto[i].name.includes(busqueda)){
-                resultado.push(producto[i]);
-            }
-        }
-
-        res.render('products/filtrado', {producto:resultado});
+    search: (req, res) => {
+    let busqueda = req.query.busqueda;
+        db.Producto.findAll({
+            where: db.Sequelize.where(
+                db.Sequelize.fn('LOWER', db.Sequelize.col('nombreProducto')), //Paso el campo a minsucula
+                'LIKE',
+                '%' + busqueda.toLowerCase() + '%' //Paso la busqueda a minuscula
+                )
+        })
+        .then(function (producto) {
+            res.render('products/filtrado', {producto:producto});
+        })
+        .catch(function (error) {
+                console.log(error);
+        });    
     }
 }
 

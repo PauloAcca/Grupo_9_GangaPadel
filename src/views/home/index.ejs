@@ -13,46 +13,48 @@
     <main>
         <div id="contenedor-slider">
             <div class="slider">
-                <img src="img/slider-1.jpg" alt="imagen-slider">
+                <div class="slide active">
+                    <img src="img/slider-1.jpg" alt="imagen-slider">
+                </div>
+                <div class="slide">
+                    <img src="img/slider-2.jpg" alt="imagen-slider">
+                </div>
+                <div class="slide">
+                    <img src="img/slider-3.jpg" alt="imagen-slider">
+                </div>
             </div>
-            <i class="fa-solid fa-arrow-left"></i>
-            <i class="fa-solid fa-arrow-right"></i>
             <div id="dots">
                 <i class="fa-solid fa-circle"></i>
                 <i class="fa-solid fa-circle"></i>
                 <i class="fa-solid fa-circle"></i>
             </div>
         </div>
+        <script src="/js/carousel.js"></script>
         <div class="contenedor-h">
             <h3>TE RECOMENDAMOS</h3>
         </div>
         <section>
-            <div class="contenedor-productos">
-                <% for (let i =0; i<5; i++ ) { %>
-                    <% if(i==2) {%>
-                        <article class="articulo" id="uno">
-                    <% } else if (i==3) { %>
-                        <article class="articulo" id="dos">
-                    <% } else if (i==4) { %>
-                        <article class="articulo" id="tres">
-                    <% } else { %>
+            <div class="carousel-productos">
+                <div class="contenedor-productos">
+                    <% for (let i =0; i<producto.length; i++ ) { %>
                         <article class="articulo">
+                            <a href="/products/detail/<%= producto[i].idProducto %>" class="link-producto"></a>
+                            <div class="contenedor-imagen">
+                                <img class="imagen-producto" src="img/paletas/<%= producto[i].image %>" alt="imagen-producto">
+                            </div>
+                            <div class="descripcion-producto">
+                                <p class="categoria"><%= producto[i].categoriaProductos.categoria %></p>
+                                <p class="nombre_producto"><%= producto[i].nombreProducto %></p>
+                            </div>
+                            <p class="precio"><%= producto[i].precio %></p>
+                        </article>
                     <% } %>
-                        <a href="/products/detail?id=<%= producto[i].idProducto %>" class="link-producto"></a>
-                        <div class="contenedor-imagen">
-                            <img class="imagen-producto" src="img/<%= producto[i].image %>" alt="imagen-producto">
-                        </div>
-                        <div class="descripcion-producto">
-                            <p class="categoria"><%= producto[i].categoriaProductos.categoria %></p>
-                            <p class="nombre_producto"><%= producto[i].nombreProducto %></p>
-                        </div>
-                        <p class="precio"><%= producto[i].precio %></p>
-                    </article>
-                <% } %>
-                <i class="fa-solid fa-arrow-left arrow-left-article"></i>
-                <i class="fa-solid fa-arrow-right arrow-right-article"></i>
+                    <i class="fa-solid fa-arrow-left arrow-left-article arrow-prev"></i>
+                    <i class="fa-solid fa-arrow-right arrow-right-article arrow-next"></i>
+                </div>
             </div>
         </section>
+        <script src="/js/carouselProductos.js"></script>
         <div id="contenedor-imagen-promocional">
             <img src="img/slider-2.jpg" alt="imagen-promocional">
         </div>
@@ -71,9 +73,9 @@
                         <% } else { %>
                             <article class="articulo">
                         <% } %>
-                            <a href="/products/detail?id=<%= producto[i].idProducto %>" class="link-producto"></a>
+                            <a href="/products/detail/<%= producto[i].idProducto %>" class="link-producto"></a>
                             <div class="contenedor-imagen">
-                                <img class="imagen-producto" src="img/<%= producto[i].image %>" alt="imagen-producto">
+                                <img class="imagen-producto" src="img/paletas/<%= producto[i].image %>" alt="imagen-producto">
                             </div>
                             <div class="descripcion-producto">
                                 <p class="categoria"><%= producto[i].categoriaProductos.categoria %></p>

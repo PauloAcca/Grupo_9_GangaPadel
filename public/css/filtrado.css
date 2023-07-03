@@ -42,13 +42,12 @@ li{
 .galeriaProductos{
     display:flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: start;
 }
 
 article{
-    width: 13%; 
-    height: 357px;
+    width: 45%; 
     background-color: rgb(239, 239, 239);
     text-align: center;
     border-radius: 10%;
@@ -60,7 +59,7 @@ article:hover{
 article img{
     padding: 0.25rem;
     margin-top: 1rem;
-    width: 60%;
+    width: 90%;
     border-radius: 10%;
 }
 
@@ -90,7 +89,7 @@ li{
 }
 @media(min-width: 760px){
     article{
-        width: 13%;
+        width: 30%;
         margin: 0.5rem 1.6%;
     }
     .side h4{
@@ -111,8 +110,7 @@ li{
         display: block;
     }
     article{
-        width: 13%;
-        height: 300px;
+        width: 30%;
         margin: 0.5rem 1.6%;
     }
 }

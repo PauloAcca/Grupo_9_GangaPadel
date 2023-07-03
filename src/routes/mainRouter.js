@@ -18,7 +18,7 @@ const  {body} = require('express-validator');
 
 // Importamos el controlador de las rutas por defecto
 const mainController = require("../controllers/mainController.js");
-const usersConbtroller = require("../controllers/usersController");
+const usersController = require("../controllers/usersController");
 
 // Implemento multer 
 let multerDiskStorage = multer.diskStorage({
