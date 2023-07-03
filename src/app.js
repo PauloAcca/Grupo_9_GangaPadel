@@ -1,20 +1,17 @@
-// Requerimos express y lo ejecutamos para tener disponibles todos los metodos que vamos a precisar
+    // Requerimos express y lo ejecutamos para tener disponibles todos los metodos que vamos a precisar
 const express = require("express");
 const app = express();
 
 // Requerimos path
-const path=require("path");
-
-//Requerimos router
-const router = express.Router();
+const path = require("path");
 
 // Requerimos mainRouter
-const mainRouter=require("./routes/mainRouter.js");
+const mainRouter = require("./routes/mainRouter.js");
 
-//Requerimos methodOverride
-const methodOverride= require('method-override');
+// Requerimos methodOverride
+const methodOverride = require('method-override');
 
-//Requerimos Session
+// Requerimos Session
 const session = require('express-session');
 
 // Guardamos direccion del puerto
@@ -26,7 +23,7 @@ const usersRouter = require('./routes/usersRouter.js');
 const productsRouter = require('./routes/productsRouter.js');
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware.js')
 const cookies = require('cookie-parser');
-const apiUsuarios =  require("./controllers/apiUsuarios.js");
+const apiUsuarios = require("./controllers/apiUsuarios.js");
 
 //requerimo sequelize y lo configuramos
 
@@ -35,23 +32,21 @@ const dbConfig = require('../dataBase/config/config.js');
 const sequelize = new Sequelize(dbConfig.development);
 
 // elegimos nuestro view engine
-app.set("view engine", "ejs");               
+app.set("view engine", "ejs");
 
 // Usando recursos estáticos.
 app.use(express.static("public"));
 app.use(express.json());
-app.use(express.urlencoded({extended:false}));
+app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
-
 
 // Establecemos el metodo a usar en las vistas
 app.set('views', path.resolve(__dirname, "views"));
 
-
 // Indicamos Session como Midleware a nivel de aplicacion
 app.use(session({
     secret: 'Esto es un secreto',
-    resave: false ,
+    resave: false,
     saveUninitialized: false
 }));
 // Otro Middleware de aplicacion
@@ -62,11 +57,10 @@ app.use(cookies());
 
 // Usando los enrutadores importados
 app.use("/", mainRouter);
-app.use("/products",productsRouter);
-app.use("/users",usersRouter);
-app.use("/admin",admRouter);
-router.get('/api/users',apiUsuarios.info)
-router.get('/api/users/:id',apiUsuarios.detalle)
+app.use("/products", productsRouter);
+app.use("/users", usersRouter);
+app.use("/admin", admRouter);
+
 
 // Ponemos a escuchar el servidor
 app.listen(port, () => {
