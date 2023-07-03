@@ -5,6 +5,9 @@ const app = express();
 // Requerimos path
 const path=require("path");
 
+//Requerimos router
+const router = express.Router();
+
 // Requerimos mainRouter
 const mainRouter=require("./routes/mainRouter.js");
 
@@ -23,7 +26,7 @@ const usersRouter = require('./routes/usersRouter.js');
 const productsRouter = require('./routes/productsRouter.js');
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware.js')
 const cookies = require('cookie-parser');
-const apiUsuarios =  require("../controllers/apiUsuarios.js");
+const apiUsuarios =  require("./controllers/apiUsuarios.js");
 
 //requerimo sequelize y lo configuramos
 
