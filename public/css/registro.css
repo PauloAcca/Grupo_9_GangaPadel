@@ -221,6 +221,11 @@ body, html{
     
   }
 
-  
+  .hidden{
+
+    display: none;
+  }
+
+
   
 
