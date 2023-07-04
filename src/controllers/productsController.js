@@ -49,17 +49,39 @@ const productsController = {
         let minimo = req.query.minimo;
         let maximo = req.query.maximo;
         let marca = req.query.marca;
-        console.log(marca)
         let categoria = req.query.categoria;
-        console.log(categoria)
+        let condiciones = {};
+
+        if (minimo && maximo) {
+            if(minimo>maximo){
+                condiciones.precio = {
+                    [db.Sequelize.Op.gte]: minimo
+                };
+            }else{
+                condiciones.precio = {
+                    [db.Sequelize.Op.between]: [minimo, maximo]
+                };
+            }
+            
+        }else if (minimo) {
+            condiciones.precio = {
+                [db.Sequelize.Op.gte]: minimo
+            };
+        } else if (maximo) {
+            condiciones.precio = {
+                [db.Sequelize.Op.lte]: maximo
+            };
+        }
+        if (marca) {
+            condiciones.idMarca = marca;
+        }
+        if (categoria) {
+            condiciones.idCategoria = categoria;
+        }
+
         db.Producto.findAll({
-            where: {
-                // precio: {
-                //     [db.Sequelize.Op.between]: [minimo, maximo] // Filtrar por rango de precios
-                // },
-                idMarca: marca, // Filtrar por marca
-                idCategoria: categoria // Filtrar por categoría
-            },include:[{ association: 'marcas' }, { association: 'categoriaProductos' }]
+            where: condiciones,
+            include:[{ association: 'marcas' }, { association: 'categoriaProductos' }]
         })
         .then(function(resultados){
             response.resultados = resultados;
