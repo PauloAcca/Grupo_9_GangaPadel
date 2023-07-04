@@ -113,6 +113,33 @@ const productsController = {
         })
     },
 
+    specials: (req,res)=>{
+        let response={};
+        db.Producto.findAll({
+            where: {
+                descuento: {
+                    [db.Sequelize.Op.gte]: 1
+                }
+            },     
+            include:[{ association: 'marcas' }, { association: 'categoriaProductos' }]
+        })
+        .then(function (producto) {
+            response.producto = producto;
+            return db.Marca.findAll();
+        })
+        .then(function (marca) {
+            response.marca = marca;
+            return db.CategoriaProducto.findAll();
+        })
+        .then(function (categoria) {
+            response.categoria = categoria;
+            res.render('products/filtrado', {producto: response.producto, marca: response.marca, categoria: response.categoria});
+        })
+        .catch(function (error) {
+                res.send(error);
+        });    
+    },
+
     categoria: (req,res)=>{
         let busqueda = req.params.categoria;
         let response={};

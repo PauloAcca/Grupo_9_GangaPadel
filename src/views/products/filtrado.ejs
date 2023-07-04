@@ -57,12 +57,27 @@
                     <div class="contenedor-imagen">
                         <img class="imagen-producto" src="/img/paletas/<%= producto[i].image %>" alt="imagen-producto">
                     </div>
-                    <div class="contenedor-mas">
-                        <div class="descripcion-producto">
-                            <p class="categoria"><%= producto[i].categoriaProductos.categoria %></p>
-                            <p class="nombre_producto"><%= producto[i].nombreProducto %></p>
-                        </div>
-                        <p class="precio"><%= producto[i].precio %></p>     
+                    <div class="descripcion-producto">
+                        <p class="categoria"><%= producto[i].categoriaProductos.categoria %></p>
+                        <p class="nombre_producto"><%= producto[i].nombreProducto %></p>
+                    </div>
+                    <div class="precios">
+                        <% if (producto[i].descuento>0) { %>
+                            <p class="descuento"><%= producto[i].descuento %>%</p>
+                            <% 
+                                function isFloat(value) {
+                                return value % 1 !== 0;
+                                }
+                                let valorTotal = producto[i].precio - (producto[i].precio * (producto[i].descuento/100))
+                            %>
+                            <% if (isFloat(valorTotal)) { %>
+                                <p class="precio">$<%= valorTotal.toFixed(2) %></p>
+                            <% } else { %>
+                                <p class="precio">$<%= valorTotal %></p>
+                            <% } %>
+                        <% } else { %>
+                            <p class="precio">$<%= producto[i].precio%></p>
+                        <% } %>
                     </div>
                 </article>
             <% } %>

@@ -9,7 +9,7 @@ const validationsFiltro =[body('minimo').optional().custom((value, { req }) => {
     }
     return true;
     }).withMessage('El precio minimo debe ser un número'),
-body('maximo').optional().custom((value, { req }) => {
+    body('maximo').optional().custom((value, { req }) => {
     if (value !== undefined && value !== '' && isNaN(value)) {
         throw new Error('El precio maximo debe ser un número');
     }
@@ -18,9 +18,12 @@ body('maximo').optional().custom((value, { req }) => {
 ]
 
 router.post('/filtro',validationsFiltro,productsController.filtro);
+router.get('/specials',productsController.specials);
 router.get('/',productsController.filtrado);
 router.get('/detail/:id',productsController.detalle);
 router.get('/search',productsController.search);
 router.get('/:marca',productsController.marca);
 router.get('/cat/:categoria',productsController.categoria);
+
+
 module.exports = router;

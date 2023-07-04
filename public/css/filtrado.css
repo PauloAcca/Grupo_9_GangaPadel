@@ -215,7 +215,25 @@ label {
     width: fit-content;
 }
 
+.descuento{
+    color: rgb(36, 232, 36);
+    font-size: small;
+    font-weight: bolder;
+    margin-top: 10px;
+    margin-right: 15px;
+}
 
+.precio{
+    color: #171717;
+    font-size: small;
+    margin-top: 10px;
+    margin-right: 20px;
+    font-weight: bolder;
+}
+
+.precios{
+    display: flex;
+}
 
 @media(min-width: 760px){
     article{
