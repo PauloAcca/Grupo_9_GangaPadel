@@ -33,61 +33,51 @@
         <div class="contenedor-h">
             <h3>TE RECOMENDAMOS</h3>
         </div>
-        <section>
-            <div class="carousel-productos">
-                <div class="contenedor-productos">
-                    <% for (let i =0; i<producto.length; i++ ) { %>
-                        <article class="articulo">
-                            <a href="/products/detail/<%= producto[i].idProducto %>" class="link-producto"></a>
-                            <div class="contenedor-imagen">
-                                <img class="imagen-producto" src="img/paletas/<%= producto[i].image %>" alt="imagen-producto">
-                            </div>
-                            <div class="descripcion-producto">
-                                <p class="categoria"><%= producto[i].categoriaProductos.categoria %></p>
-                                <p class="nombre_producto"><%= producto[i].nombreProducto %></p>
-                            </div>
-                            <p class="precio"><%= producto[i].precio %></p>
-                        </article>
-                    <% } %>
-                    <i class="fa-solid fa-arrow-left arrow-left-article arrow-prev"></i>
-                    <i class="fa-solid fa-arrow-right arrow-right-article arrow-next"></i>
-                </div>
+        <section id="carousel1">
+            <div class="contenedor-productos">
+                <% for (let i =0; i<producto.length; i++ ) { %>
+                    <article class="articulo">
+                        <a href="/products/detail/<%= producto[i].idProducto %>" class="link-producto"></a>
+                        <div class="contenedor-imagen">
+                            <img class="imagen-producto" src="img/paletas/<%= producto[i].image %>" alt="imagen-producto">
+                        </div>
+                        <div class="descripcion-producto">
+                            <p class="categoria"><%= producto[i].categoriaProductos.categoria %></p>
+                            <p class="nombre_producto"><%= producto[i].nombreProducto %></p>
+                        </div>
+                        <p class="precio"><%= producto[i].precio %></p>
+                    </article>
+                <% } %>
+                <i class="fa-solid fa-arrow-left arrow-left-article arrow-prev"></i>
+                <i class="fa-solid fa-arrow-right arrow-right-article arrow-next"></i>
             </div>
         </section>
-        <script src="/js/carouselProductos.js"></script>
         <div id="contenedor-imagen-promocional">
             <img src="img/slider-2.jpg" alt="imagen-promocional">
         </div>
         <div class="contenedor-h">
             <h3>OFERTAS</h3>
         </div>
-        <section>
-                <div class="contenedor-productos">
-                    <% for (let i =0; i<5; i++ ) { %>
-                        <% if(i==2) {%>
-                            <article class="articulo" id="uno">
-                        <% } else if (i==3) { %>
-                            <article class="articulo" id="dos">
-                        <% } else if (i==4) { %>
-                            <article class="articulo" id="tres">
-                        <% } else { %>
-                            <article class="articulo">
-                        <% } %>
-                            <a href="/products/detail/<%= producto[i].idProducto %>" class="link-producto"></a>
-                            <div class="contenedor-imagen">
-                                <img class="imagen-producto" src="img/paletas/<%= producto[i].image %>" alt="imagen-producto">
-                            </div>
-                            <div class="descripcion-producto">
-                                <p class="categoria"><%= producto[i].categoriaProductos.categoria %></p>
-                                <p class="nombre_producto"><%= producto[i].nombreProducto %></p>
-                            </div>
-                            <p class="precio"><%= producto[i].precio %></p>
-                        </article>
-                    <% } %>
-                    <i class="fa-solid fa-arrow-left arrow-left-article"></i>
-                    <i class="fa-solid fa-arrow-right arrow-right-article"></i>
-                </div>
+        <section id="carousel2">
+            <div class="contenedor-productos">
+                <% for (let i =0; i<producto.length; i++ ) { %>
+                    <article class="articulo">
+                        <a href="/products/detail/<%= producto[i].idProducto %>" class="link-producto"></a>
+                        <div class="contenedor-imagen">
+                            <img class="imagen-producto" src="img/paletas/<%= producto[i].image %>" alt="imagen-producto">
+                        </div>
+                        <div class="descripcion-producto">
+                            <p class="categoria"><%= producto[i].categoriaProductos.categoria %></p>
+                            <p class="nombre_producto"><%= producto[i].nombreProducto %></p>
+                        </div>
+                        <p class="precio"><%= producto[i].precio %></p>
+                    </article>
+                <% } %>
+                <i class="fa-solid fa-arrow-left arrow-left-article arrow-prev"></i>
+                <i class="fa-solid fa-arrow-right arrow-right-article arrow-next"></i>
+            </div>
         </section>
+        <script src="/js/carouselProductos.js"></script>
         <%- include('../partials/footer.ejs') %>
     </main>
 </body>

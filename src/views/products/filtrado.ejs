@@ -10,47 +10,59 @@
 
 <body>
     <%- include('../partials/header.ejs') %>
-        <%- include('../partials/navbar.ejs') %>
-            <main>
-
-                <div class="side">
-                    <h4>Filtrado</h4>
-                    <ul class="filtros">
-                        <li><a href="#">Categoría</a></li>
-                        <li><a href="#">Precio</a></li>
-                        <li><a href="#">Marca</a></li>
-
-                    </ul>
-                </div>
-
-                <div class="galeriaProductos">
-                    <% for (let i=0; i<producto.length; i++){ %>
-
-                        <article>
-                            <form method="POST" action="#" class="form-edit">
-                                <input type="submit" value="Editar">
-                            </form>
-                            <form method="POST" action="#" class="form-delete">
-                                <input type="submit" value="Eliminar">
-                            </form>
-                            <a href="/products/detail/<%= producto[i].idProducto %>" class="link-producto"> 
-                                <img class="imagen-producto" src="/img/paletas/<%= producto[i].image %>" alt="imagen-producto"></a>
-                            <div class="contenedor-imagen">
-
-                            </div>
-                            <div class="bloque-info">
-                                <p class="precio">
-                                    <%= producto[i].precio %>
-                                </p>
-                                <p class="descripcion">
-                                    <%= producto[i].nombreProducto %>
-                                </p>
-                            </div>
-                        </article>
+    <%- include('../partials/navbar.ejs') %>
+    <main>
+        <div class="filtro">
+            <h2>Filtrado</h2>
+            <div class="linea-filtro"></div>
+            <form action="/products/filtro" method="GET">
+                <div class="filtro-form">
+                    <label for="marca">Marca:</label>
+                    <select id="marca" name="marca">
+                        <% for (let i=0; i< marca.length; i++) { %>
+                            <option value=" <%=marca[i].idMarca %>"> <%=marca[i].nombreMarca%></option>
                         <% } %>
+                    </select>
+                    <label for="producto">Categoria:</label>
+                    <select id="categoria" name="categoria">
+                        <% for (let i=0; i< categoria.length; i++) { %>
+                        <option value=" <%=categoria[i].idCategoria %>"> <%=categoria[i].categoria%></option>
+                    <% } %>
+                    </select>
+                    <p class="p-precio">Precio:</p>
+                    <div class="precio-contenedor">
+                        <div class="minimo">
+                            <input type="text" id="minimo" name="minimo" placeholder="Minimo">
+                        </div>
+                        <p class="separador"> - </p>
+                        <div class="maximo">
+                            <input type="text" id="maximo" name="maximo" placeholder="Maximo">
+                        </div>
+                    </div>
                 </div>
-            </main>
-            <%- include('../partials/footer.ejs') %>
+                <button type="submit" class="boton">Filtrar</button>
+            </form>
+        </div>
+
+        <div class="galeriaProductos">
+            <% for (let i =0; i<producto.length; i++ ) { %>
+                <article class="articulo">
+                    <a href="/products/detail/<%= producto[i].idProducto %>" class="link-producto"></a>
+                    <div class="contenedor-imagen">
+                        <img class="imagen-producto" src="/img/paletas/<%= producto[i].image %>" alt="imagen-producto">
+                    </div>
+                    <div class="contenedor-mas">
+                        <div class="descripcion-producto">
+                            <p class="categoria"><%= producto[i].categoriaProductos.categoria %></p>
+                            <p class="nombre_producto"><%= producto[i].nombreProducto %></p>
+                        </div>
+                        <p class="precio"><%= producto[i].precio %></p>     
+                    </div>
+                </article>
+            <% } %>
+        </div>
+    </main>
+    <%- include('../partials/footer.ejs') %>
 
 </body>
 

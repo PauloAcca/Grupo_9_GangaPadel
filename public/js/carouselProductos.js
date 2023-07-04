@@ -1,33 +1,40 @@
-// Obtén los elementos del carrusel
-const carrusel = document.querySelector('.contenedor-productos');
-const articulos = Array.from(document.querySelectorAll('.articulo'));
-const prevButton = document.querySelector('.arrow-prev');
-const nextButton = document.querySelector('.arrow-next');
+// Obtén referencias a los elementos relevantes de los carruseles
+const carousel1 = document.getElementById('carousel1');
+const contenedorProductos1 = carousel1.querySelector('.contenedor-productos');
+const arrowPrev1 = carousel1.querySelector('.arrow-prev');
+const arrowNext1 = carousel1.querySelector('.arrow-next');
 
-// Calcula el ancho de cada artículo
-const articuloWidth = articulos[0].offsetWidth;
+const carousel2 = document.getElementById('carousel2');
+const contenedorProductos2 = carousel2.querySelector('.contenedor-productos');
+const arrowPrev2 = carousel2.querySelector('.arrow-prev');
+const arrowNext2 = carousel2.querySelector('.arrow-next');
 
-// Configura el desplazamiento inicial
-let desplazamiento = 0;
+// Configura los eventos de las flechas del primer carrusel
+arrowPrev1.addEventListener('click', () => {
+  contenedorProductos1.scrollBy({
+    left: -contenedorProductos1.offsetWidth,
+    behavior: 'smooth'
+  });
+});
 
-// Mueve el carrusel hacia la izquierda
-const moveLeft = () => {
-    desplazamiento += articuloWidth;
-    if (desplazamiento > 0) {
-        desplazamiento = -(articuloWidth * (articulos.length - 1));
-    }
-    carrusel.style.transform = `translateX(${desplazamiento}px)`;
-};
+arrowNext1.addEventListener('click', () => {
+  contenedorProductos1.scrollBy({
+    left: contenedorProductos1.offsetWidth,
+    behavior: 'smooth'
+  });
+});
 
-// Mueve el carrusel hacia la derecha
-const moveRight = () => {
-    desplazamiento -= articuloWidth;
-    if (desplazamiento < -(articuloWidth * (articulos.length - 1))) {
-        desplazamiento = 0;
-    }
-    carrusel.style.transform = `translateX(${desplazamiento}px)`;
-};
+// Configura los eventos de las flechas del segundo carrusel
+arrowPrev2.addEventListener('click', () => {
+  contenedorProductos2.scrollBy({
+    left: -contenedorProductos2.offsetWidth,
+    behavior: 'smooth'
+  });
+});
 
-// Agrega los listeners de eventos a los botones de navegación
-prevButton.addEventListener('click', moveLeft);
-nextButton.addEventListener('click', moveRight);
+arrowNext2.addEventListener('click', () => {
+  contenedorProductos2.scrollBy({
+    left: contenedorProductos2.offsetWidth,
+    behavior: 'smooth'
+  });
+});

@@ -6,6 +6,7 @@ const archivo= path.join(__dirname,'..','data','productos.json');
 //requiero todos los modelos de la base de datos
 const db = require('../../dataBase/models');
 const { producto } = require('./productsController');
+const { validationResult } = require('express-validator');
 // Creamos el objeto literal con los métodos a exportar
 const admController = {
 
@@ -58,21 +59,41 @@ const admController = {
     },
 
     guardarProducto: (req, res) => {
-        db.Producto.create({
-            nombreProducto: req.body.name,
-            precio: parseInt(req.body.price),
-            descuento: parseInt(req.body.discount),
-            idCategoria: parseInt(req.body.category),
-            descripcion: req.body.description,
-            idMarca: parseInt(req.body.brand),
-            image: req.file.filename,
+        let resultValidation = validationResult(req);
+        let response={}
+        db.Marca.findAll()
+        .then(function (marca) {
+            response.marca = marca;
+            return db.CategoriaProducto.findAll();
         })
-        .then(() => {
-            res.redirect('/');
-        })
-        .catch(error => {
+        .then(function (categoria) {
+            response.categoria = categoria
+            if(resultValidation.errors.length > 0){
+                res.render('admin/crear', {
+                    errors: resultValidation.mapped(),
+                    oldData: req.body,
+                    marca: response.marca,
+                    categoria: response.categoria
+                })
+            } else{
+                db.Producto.create({
+                    nombreProducto: req.body.name,
+                    precio: parseInt(req.body.price),
+                    descuento: parseInt(req.body.discount),
+                    idCategoria: parseInt(req.body.category),
+                    descripcion: req.body.description,
+                    idMarca: parseInt(req.body.brand),
+                    image: req.file.filename,
+                }) .then(() => {
+                    res.redirect('/');
+                })
+                .catch(error => {
+                    res.send(error);
+                })
+            }
+        }).catch(error => {
             res.send(error);
-        });
+        })
     },
     
     delete: (req,res)=>{
