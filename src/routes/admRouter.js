@@ -48,11 +48,11 @@ const upload = multer({storage});
 
 router.get("/add", admController.crear);
 
-router.post('/add', upload.single('image') , validationsAdd,admController.guardarProducto);
+router.post('/add', upload.single('image'), validationsAdd, admController.guardarProducto);
 
 router.get("/edit/:idProducto", admController.editado);
 
-router.put('/edit/:idProducto', upload.single('image') ,admController.actualizar);
+router.put('/edit/:idProducto', upload.single('image'), validationsAdd , admController.actualizar);
 
 router.delete('/delete/:idProducto',admController.delete);
 

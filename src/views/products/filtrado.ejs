@@ -12,74 +12,89 @@
     <%- include('../partials/header.ejs') %>
     <%- include('../partials/navbar.ejs') %>
     <main>
-        <div class="filtro">
-            <h2>Filtrado</h2>
-            <div class="linea-filtro"></div>
-            <form action="/products/filtro" method="POST">
-                <div class="filtro-form">
-                    <label for="marca">Marca:</label>
-                    <select id="marca" name="marca">
-                        <% for (let i=0; i< marca.length; i++) { %>
-                            <option value=" <%=marca[i].idMarca %>"> <%=marca[i].nombreMarca%></option>
-                        <% } %>
-                    </select>
-                    <label for="producto">Categoria:</label>
-                    <select id="categoria" name="categoria">
-                        <% for (let i=0; i< categoria.length; i++) { %>
-                        <option value=" <%=categoria[i].idCategoria %>"> <%=categoria[i].categoria%></option>
-                    <% } %>
-                    </select>
-                    <p class="p-precio">Precio:</p>
-                    <div class="precio-contenedor">
-                        <div class="minimo">
-                            <input type="text" id="minimo" name="minimo" placeholder="Minimo">
-                        </div>
-                        <p class="separador"> - </p>
-                        <div class="maximo">
-                            <input type="text" id="maximo" name="maximo" placeholder="Maximo">
-                        </div>
-                    </div>
-                    <% if (locals.errors && errors.minimo) { %>
-                        <p class="ojo"><%= errors.minimo.msg %></p>
-                    <% } %>
-                    <% if (locals.errors && errors.maximo) { %>
-                        <p class="ojo"><%= errors.maximo.msg %></p>
-                    <% } %>
-                </div>
-                <button type="submit" class="boton">Filtrar</button>
-            </form>
-        </div>
-
-        <div class="galeriaProductos">
-            <% for (let i =0; i<producto.length; i++ ) { %>
-                <article class="articulo">
-                    <a href="/products/detail/<%= producto[i].idProducto %>" class="link-producto"></a>
-                    <div class="contenedor-imagen">
-                        <img class="imagen-producto" src="/img/paletas/<%= producto[i].image %>" alt="imagen-producto">
-                    </div>
-                    <div class="descripcion-producto">
-                        <p class="categoria"><%= producto[i].categoriaProductos.categoria %></p>
-                        <p class="nombre_producto"><%= producto[i].nombreProducto %></p>
-                    </div>
-                    <div class="precios">
-                        <% if (producto[i].descuento>0) { %>
-                            <p class="descuento"><%= producto[i].descuento %>%</p>
-                            <% 
-                                function isFloat(value) {
-                                return value % 1 !== 0;
-                                }
-                                let valorTotal = producto[i].precio - (producto[i].precio * (producto[i].descuento/100))
-                            %>
-                            <% if (isFloat(valorTotal)) { %>
-                                <p class="precio">$<%= valorTotal.toFixed(2) %></p>
-                            <% } else { %>
-                                <p class="precio">$<%= valorTotal %></p>
+        <div class="principal">
+            <div class="filtro">
+                <h2>Filtrado</h2>
+                <div class="linea-filtro"></div>
+                <form action="/products/filtro" method="POST">
+                    <div class="filtro-form">
+                        <label for="marca">Marca:</label>
+                        <select id="marca" name="marca">
+                            <% for (let i=0; i< marca.length; i++) { %>
+                                <option value=" <%=marca[i].idMarca %>"> <%=marca[i].nombreMarca%></option>
                             <% } %>
-                        <% } else { %>
-                            <p class="precio">$<%= producto[i].precio%></p>
+                        </select>
+                        <label for="producto">Categoria:</label>
+                        <select id="categoria" name="categoria">
+                            <% for (let i=0; i< categoria.length; i++) { %>
+                            <option value=" <%=categoria[i].idCategoria %>"> <%=categoria[i].categoria%></option>
+                        <% } %>
+                        </select>
+                        <p class="p-precio">Precio:</p>
+                        <div class="precio-contenedor">
+                            <div class="minimo">
+                                <input type="text" id="minimo" name="minimo" placeholder="Minimo">
+                            </div>
+                            <p class="separador"> - </p>
+                            <div class="maximo">
+                                <input type="text" id="maximo" name="maximo" placeholder="Maximo">
+                            </div>
+                        </div>
+                        <% if (locals.errors && errors.minimo) { %>
+                            <p class="ojo"><%= errors.minimo.msg %></p>
+                        <% } %>
+                        <% if (locals.errors && errors.maximo) { %>
+                            <p class="ojo"><%= errors.maximo.msg %></p>
                         <% } %>
                     </div>
-                </article>
+                    <button type="submit" class="boton">Filtrar</button>
+                </form>
+            </div>
+    
+            <div class="galeriaProductos">
+                <% const startIndex = (currentPage - 1) * 8; %>
+                <% const endIndex = startIndex + 8; %>
+                <% for (let i = startIndex; i < endIndex && i < producto.length; i++) { %>
+                    <% if (i % 4 === 0) { %>
+                        <div class="fila-productos">
+                    <% } %>
+                    <article class="articulo">
+                        <a href="/products/detail/<%= producto[i].idProducto %>" class="link-producto"></a>
+                        <div class="contenedor-imagen">
+                            <img class="imagen-producto" src="/img/paletas/<%= producto[i].image %>" alt="imagen-producto">
+                        </div>
+                        <div class="descripcion-producto">
+                            <p class="categoria"><%= producto[i].categoriaProductos.categoria %></p>
+                            <p class="nombre_producto"><%= producto[i].nombreProducto %></p>
+                        </div>
+                        <div class="precios">
+                            <% if (producto[i].descuento>0) { %>
+                                <p class="descuento"><%= producto[i].descuento %>%</p>
+                                <% 
+                                    function isFloat(value) {
+                                    return value % 1 !== 0;
+                                    }
+                                    let valorTotal = producto[i].precio - (producto[i].precio * (producto[i].descuento/100))
+                                %>
+                                <% if (isFloat(valorTotal)) { %>
+                                    <p class="precio">$<%= valorTotal.toFixed(2) %></p>
+                                <% } else { %>
+                                    <p class="precio">$<%= valorTotal %></p>
+                                <% } %>
+                            <% } else { %>
+                                <p class="precio">$<%= producto[i].precio%></p>
+                            <% } %>
+                        </div>
+                    </article>
+                    <% if ((i + 1) % 4 === 0 || (i + 1) === producto.length || (i + 1) === endIndex) { %>
+                    </div>
+                <% } %>
+            <% } %>
+            </div>
+        </div>
+        <div class="pagination">
+            <% for (let pageNumber = 1; pageNumber <= Math.ceil(producto.length / 8); pageNumber++) { %>
+                <a href="/products?page=<%= pageNumber %>" class="pagination-link"><%= pageNumber %></a>
             <% } %>
         </div>
     </main>

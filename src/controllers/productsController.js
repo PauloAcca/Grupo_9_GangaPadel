@@ -26,6 +26,8 @@ const productsController = {
 
     filtrado: (req,res)=>{
         const response={};
+        const currentPage = parseInt(req.query.page) || 1;
+        console.log(currentPage)
         db.Producto.findAll({ include: [{ association: 'marcas' }, { association: 'categoriaProductos' }] })
         .then(function (producto) {
             response.producto = producto;
@@ -38,7 +40,7 @@ const productsController = {
         })
         .then(function (categoria) {
             response.categoria = categoria;
-            res.render('products/filtrado', { producto: response.producto, marca: response.marca, categoria: response.categoria });
+            res.render('products/filtrado', { producto: response.producto, marca: response.marca, categoria: response.categoria, currentPage: currentPage });
             
         })
         .catch(function (error) {
@@ -47,6 +49,7 @@ const productsController = {
     },
 
     filtro:(req,res)=>{
+        const currentPage = parseInt(req.query.page) || 1;
         let response = {};
         let minimo = req.body.minimo;
         let maximo = req.body.maximo;
@@ -106,7 +109,7 @@ const productsController = {
                     categoria: response.categoria
                 })
             }else{
-            res.render('products/filtrado', {producto: response.resultados, marca: response.marca, categoria: response.categoria})
+            res.render('products/filtrado', {producto: response.resultados, marca: response.marca, categoria: response.categoria, currentPage: currentPage })
             }
         }).catch(function(error){
             res.send(error);
@@ -114,6 +117,7 @@ const productsController = {
     },
 
     specials: (req,res)=>{
+        const currentPage = parseInt(req.query.page) || 1;
         let response={};
         db.Producto.findAll({
             where: {
@@ -133,7 +137,7 @@ const productsController = {
         })
         .then(function (categoria) {
             response.categoria = categoria;
-            res.render('products/filtrado', {producto: response.producto, marca: response.marca, categoria: response.categoria});
+            res.render('products/filtrado', {producto: response.producto, marca: response.marca, categoria: response.categoria, currentPage: currentPage });
         })
         .catch(function (error) {
                 res.send(error);
@@ -141,6 +145,7 @@ const productsController = {
     },
 
     categoria: (req,res)=>{
+        const currentPage = parseInt(req.query.page) || 1;
         let busqueda = req.params.categoria;
         let response={};
         db.CategoriaProducto.findOne({
@@ -164,7 +169,7 @@ const productsController = {
             })
             .then(function (categoria) {
                 response.categoria = categoria;
-                res.render('products/filtrado', {producto: response.producto, marca: response.marca, categoria: response.categoria});
+                res.render('products/filtrado', {producto: response.producto, marca: response.marca, categoria: response.categoria, currentPage: currentPage });
             })
             .catch(function (error) {
                     res.send(error);
@@ -175,6 +180,7 @@ const productsController = {
     },
 
     marca: (req,res) =>{
+        const currentPage = parseInt(req.query.page) || 1;
         let busqueda = req.params.marca;
         let response={};
         db.Marca.findOne({
@@ -197,7 +203,7 @@ const productsController = {
             })
             .then(function (categoria) {
                 response.categoria = categoria;
-                res.render('products/filtrado', {producto: response.producto, marca: response.marca, categoria: response.categoria});
+                res.render('products/filtrado', {producto: response.producto, marca: response.marca, categoria: response.categoria, currentPage: currentPage });
             })
             .catch(function (error) {
                     res.send(error);
@@ -208,6 +214,7 @@ const productsController = {
     },
 
     search: (req, res) => {
+        const currentPage = parseInt(req.query.page) || 1;
         let response={};
         let busqueda = req.query.busqueda;
         db.Producto.findAll({
@@ -227,7 +234,7 @@ const productsController = {
         })
         .then(function (categoria) {
             response.categoria = categoria;
-            res.render('products/filtrado', {producto: response.producto, marca: response.marca, categoria: response.categoria});
+            res.render('products/filtrado', {producto: response.producto, marca: response.marca, categoria: response.categoria, currentPage: currentPage });
         })
         .catch(function (error) {
                 res.send(error);
