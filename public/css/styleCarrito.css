@@ -26,6 +26,7 @@ main{
     margin: auto;
     border: solid 3px black;
     padding-top: 2%;
+    justify-content: space-between;
 }
 
 
@@ -60,6 +61,9 @@ main{
     text-align: center;
     font-weight: bold;
     border-radius: 3px;
+    width: 80px;
+    padding: 10px;
+    text-decoration: none;
 }
 
 .contenedores-hijos{
@@ -73,6 +77,14 @@ main{
     border-radius: 4%;
     padding: 1%;
     max-width: 396px;
+}
+.envio{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 1.5rem;
+}
+.contenedorProductos{
+    display: flex;
 }
 
 .fa-sharp{
@@ -94,7 +106,9 @@ main{
     padding: 7px;
     text-decoration: none;
 }
-
+.listaMetodosEnvio{
+    list-style: none;
+}
 .contenedores-hijos-agregar-carrito{
 
     display: flex;
@@ -117,6 +131,7 @@ main{
 
 .similares{
     text-align: center;
+    margin-top: 10px;
 }
 
 .img-raqueta-similares{
