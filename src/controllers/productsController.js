@@ -27,7 +27,6 @@ const productsController = {
     filtrado: (req,res)=>{
         const response={};
         const currentPage = parseInt(req.query.page) || 1;
-        console.log(currentPage)
         db.Producto.findAll({ include: [{ association: 'marcas' }, { association: 'categoriaProductos' }] })
         .then(function (producto) {
             response.producto = producto;
