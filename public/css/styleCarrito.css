@@ -26,6 +26,7 @@ main{
     margin: auto;
     border: solid 3px black;
     padding-top: 2%;
+    justify-content: space-between;
 }
 
 

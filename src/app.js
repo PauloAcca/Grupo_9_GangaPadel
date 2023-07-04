@@ -23,7 +23,6 @@ const usersRouter = require('./routes/usersRouter.js');
 const productsRouter = require('./routes/productsRouter.js');
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware.js')
 const cookies = require('cookie-parser');
-const apiUsuarios = require("./controllers/apiUsuarios.js");
 
 //requerimo sequelize y lo configuramos
 
