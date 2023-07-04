@@ -1,5 +1,6 @@
 // Requerimos path para poder enviar los archivos HTML
 const db = require('../../dataBase/models');
+const { validationResult } = require('express-validator');
 // Creamos el objeto literal con los métodos a exportar
 const productsController = {
     
@@ -38,6 +39,7 @@ const productsController = {
         .then(function (categoria) {
             response.categoria = categoria;
             res.render('products/filtrado', { producto: response.producto, marca: response.marca, categoria: response.categoria });
+            
         })
         .catch(function (error) {
             return res.send(error)
@@ -46,11 +48,12 @@ const productsController = {
 
     filtro:(req,res)=>{
         let response = {};
-        let minimo = req.query.minimo;
-        let maximo = req.query.maximo;
-        let marca = req.query.marca;
-        let categoria = req.query.categoria;
+        let minimo = req.body.minimo;
+        let maximo = req.body.maximo;
+        let marca = req.body.marca;
+        let categoria = req.body.categoria;
         let condiciones = {};
+        let resultValidation = validationResult(req);
 
         if (minimo && maximo) {
             if(minimo>maximo){
@@ -93,7 +96,18 @@ const productsController = {
         })
             .then(function (categoria) {
             response.categoria = categoria;
+            console.log(resultValidation)
+            if (resultValidation.errors.length > 0){
+                res.render('products/filtrado',{
+                    errors: resultValidation.mapped(),
+                    oldData: req.body,
+                    producto: response.resultados,
+                    marca: response.marca,
+                    categoria: response.categoria
+                })
+            }else{
             res.render('products/filtrado', {producto: response.resultados, marca: response.marca, categoria: response.categoria})
+            }
         }).catch(function(error){
             res.send(error);
         })

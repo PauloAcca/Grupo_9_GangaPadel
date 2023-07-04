@@ -15,7 +15,7 @@
         <div class="filtro">
             <h2>Filtrado</h2>
             <div class="linea-filtro"></div>
-            <form action="/products/filtro" method="GET">
+            <form action="/products/filtro" method="POST">
                 <div class="filtro-form">
                     <label for="marca">Marca:</label>
                     <select id="marca" name="marca">
@@ -39,6 +39,12 @@
                             <input type="text" id="maximo" name="maximo" placeholder="Maximo">
                         </div>
                     </div>
+                    <% if (locals.errors && errors.minimo) { %>
+                        <p class="ojo"><%= errors.minimo.msg %></p>
+                    <% } %>
+                    <% if (locals.errors && errors.maximo) { %>
+                        <p class="ojo"><%= errors.maximo.msg %></p>
+                    <% } %>
                 </div>
                 <button type="submit" class="boton">Filtrar</button>
             </form>

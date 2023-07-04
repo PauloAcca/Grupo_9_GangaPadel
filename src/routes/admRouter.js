@@ -27,7 +27,7 @@ const validationsAdd = [
             throw new Error('El precio no puede ser menor a 0');
         }
         return true;
-    }).withMessage('El p    recio no puede ser menor a 0'),
+    }).withMessage('El precio no puede ser menor a 0'),
     body('image')
     .custom((value, { req }) => {
         console.log(req.file)
