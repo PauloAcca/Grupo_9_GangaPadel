@@ -170,6 +170,7 @@ body, html{
 .button-sesion a{
     margin-top: 1rem;
     font-weight:bolder;
+    color: var(--rojo-p);
 }
 .button-sesion button{
     padding: 8px;

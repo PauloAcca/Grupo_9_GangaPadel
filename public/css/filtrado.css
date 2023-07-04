@@ -89,7 +89,7 @@ li{
 }
 @media(min-width: 760px){
     article{
-        width: 30%;
+        width: 16%;
         margin: 0.5rem 1.6%;
     }
     .side h4{
@@ -110,7 +110,10 @@ li{
         display: block;
     }
     article{
-        width: 30%;
+        width: 10%;
         margin: 0.5rem 1.6%;
+    }
+    .galeriaProductos{
+        justify-content: flex-start;
     }
 }
