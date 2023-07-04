@@ -1,3 +1,12 @@
+RETRO SPRINT 7 Y 8 
+
+Hemos llegado al final de este proyecto y estamos todos muy orgullosos y contetos. No podemos decir que fue facil, pero cada barrera en el camino fue aprovechada como aprendizaje tanto a nivel indivudual, como  grupal.
+
+No nos queda más que pulir los últimos detalles finales y preparanos para exponer nuestro trabajo.
+
+Sabemos que esto recién empieza. Hay un largo camino por delante , ¡Y estamos muy entusiadmos y con fuerzas para recorrelo!
+
+
 
 RETRO SPRINT  6
 
