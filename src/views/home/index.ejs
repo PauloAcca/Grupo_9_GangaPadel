@@ -45,7 +45,24 @@
                             <p class="categoria"><%= producto[i].categoriaProductos.categoria %></p>
                             <p class="nombre_producto"><%= producto[i].nombreProducto %></p>
                         </div>
-                        <p class="precio"><%= producto[i].precio %></p>
+                        <div class="precios">
+                            <% if (producto[i].descuento>0) { %>
+                                <p class="descuento"><%= producto[i].descuento %>%</p>
+                                <% 
+                                    function isFloat(value) {
+                                    return value % 1 !== 0;
+                                    }
+                                    let valorTotal = producto[i].precio - (producto[i].precio * (producto[i].descuento/100))
+                                %>
+                                <% if (isFloat(valorTotal)) { %>
+                                    <p class="precio">$<%= valorTotal.toFixed(2) %></p>
+                                <% } else { %>
+                                    <p class="precio">$<%= valorTotal %></p>
+                                <% } %>
+                            <% } else { %>
+                                <p class="precio">$<%= producto[i].precio%></p>
+                            <% } %>
+                        </div>
                     </article>
                 <% } %>
                 <i class="fa-solid fa-arrow-left arrow-left-article arrow-prev"></i>
@@ -61,17 +78,32 @@
         <section id="carousel2">
             <div class="contenedor-productos">
                 <% for (let i =0; i<producto.length; i++ ) { %>
-                    <article class="articulo">
-                        <a href="/products/detail/<%= producto[i].idProducto %>" class="link-producto"></a>
-                        <div class="contenedor-imagen">
-                            <img class="imagen-producto" src="img/paletas/<%= producto[i].image %>" alt="imagen-producto">
-                        </div>
-                        <div class="descripcion-producto">
-                            <p class="categoria"><%= producto[i].categoriaProductos.categoria %></p>
-                            <p class="nombre_producto"><%= producto[i].nombreProducto %></p>
-                        </div>
-                        <p class="precio"><%= producto[i].precio %></p>
-                    </article>
+                    <% if (producto[i].descuento>0) { %>
+                        <article class="articulo">
+                            <a href="/products/detail/<%= producto[i].idProducto %>" class="link-producto"></a>
+                            <div class="contenedor-imagen">
+                                <img class="imagen-producto" src="img/paletas/<%= producto[i].image %>" alt="imagen-producto">
+                            </div>
+                            <div class="descripcion-producto">
+                                <p class="categoria"><%= producto[i].categoriaProductos.categoria %></p>
+                                <p class="nombre_producto"><%= producto[i].nombreProducto %></p>
+                            </div>
+                            <div class="precios">
+                                <p class="descuento"><%= producto[i].descuento%>%</p>
+                                <% 
+                                    function isFloat(value) {
+                                    return value % 1 !== 0;
+                                    }
+                                    let valorTotal = producto[i].precio - (producto[i].precio * (producto[i].descuento/100))
+                                %>
+                                <% if (isFloat(valorTotal)) { %>
+                                    <p class="precio">$<%= valorTotal.toFixed(2) %></p>
+                                <% } else { %>
+                                    <p class="precio">$<%= valorTotal %></p>
+                                <% } %>
+                            </div>
+                        </article>
+                    <% } %>
                 <% } %>
                 <i class="fa-solid fa-arrow-left arrow-left-article arrow-prev"></i>
                 <i class="fa-solid fa-arrow-right arrow-right-article arrow-next"></i>
