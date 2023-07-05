@@ -4,7 +4,6 @@
 <head> 
     <%- include('../partials/head.ejs') %>
     <%- include('../partials/header-footer-stylesheet.ejs') %>
-    <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
     <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/producto.css">
     <title>Producto</title>
@@ -20,24 +19,18 @@
                 <div class="swiffy-slider">
                     <ul class="slider-container">
                         <li><img src="/img/paletas/<%= producto.image %>" style="max-width: 104%;height: 94%;"></li>
-                        <li><img src="/img/paletas/<%= producto.image %>" style="max-width: 104%;height: 94%;"></li>
-                        <li><img src="/img/paletas/<%= producto.image %>" style="max-width: 104%;height: 94%;"></li>
                     </ul>
-                
-                    <button type="button" class="slider-nav"></button>
-                    <button type="button" class="slider-nav slider-nav-next"></button>
-                
-                    <div class="slider-indicators">
-                        <button class="active"></button>
-                        <button></button>
-                        <button></button>
-                    </div>
                 </div>
                 <div class="info-prod">
                     <h2><%= producto.nombreProducto %></h2>
                     <h3><%= producto.precio %></h3>
                     <p class="informacion"><%= producto.descripcion %>
                     </p>
+                    <form action="/users/carrito/agregar" method="POST">
+                        <input type="hidden" name="idProducto" value="<%= producto.idProducto %>">
+                        <input type="number" name="cantidad" min="1" value="1">
+                        <button type="submit">Agregar al carrito</button>
+                    </form>
                     <div class="buttons-container">
                         <div class="div-cantidades">
                             <p>Cantidad</p>
@@ -45,7 +38,7 @@
                         </div>
                         <button class="botones comprar">Comprar</button>
                         <button class="botones botonesLetras">Agregar al carrito</button>
-                        <button class="botones botonesIcons"><i class="fa-solid fa-cart-shopping"></i></button>
+                        <button class="botones botonesIcons"><a href="/users/productCart"><i class="fa-solid fa-cart-shopping"></i></i></a></button>
                         <button class="botones botonesLetras">LIsta de deseos</button>
                         <button class="botones botonesIcons"><i class="fa-solid fa-heart"></i></button>
                     </div>

@@ -221,7 +221,8 @@ const productsController = {
                 db.Sequelize.fn('LOWER', db.Sequelize.col('nombreProducto')), //Paso el campo a minsucula
                 'LIKE',
                 '%' + busqueda.toLowerCase() + '%' //Paso la busqueda a minuscula
-                )
+                ),     
+                include:[{ association: 'marcas' }, { association: 'categoriaProductos' }]
         })
         .then(function (producto) {
             response.producto = producto;
