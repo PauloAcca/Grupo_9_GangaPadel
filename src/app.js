@@ -21,7 +21,8 @@ const port = process.env.PORT || 3030;
 const admRouter = require('./routes/admRouter.js');
 const usersRouter = require('./routes/usersRouter.js');
 const productsRouter = require('./routes/productsRouter.js');
-const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware.js')
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware.js');
+const verificarUsuario = require('./middlewares/verificarUsuario.js');
 const cookies = require('cookie-parser');
 
 //requerimo sequelize y lo configuramos
@@ -58,7 +59,7 @@ app.use(cookies());
 app.use("/", mainRouter);
 app.use("/products", productsRouter);
 app.use("/users", usersRouter);
-app.use("/admin", admRouter);
+app.use("/admin",verificarUsuario, admRouter);
 
 
 // Ponemos a escuchar el servidor
