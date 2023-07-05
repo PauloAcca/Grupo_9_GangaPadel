@@ -3,6 +3,8 @@ const router = express.Router();
 // Requerimos multer
 const multer = require('multer');
 const productsController =  require("../controllers/productsController.js");
+let db = require("../../dataBase/models")
+const Op = db.Sequelize.Op
 //API
 router.get("/api/products", (req, res) => {
     db.Producto.findAll()
@@ -37,6 +39,7 @@ router.get("/api/products/:id", (req, res) => {
             res.status(500).json({ error: 'Ha ocurrido un error, intente nuevamente' });
         });
 });
+
 router.get('/',productsController.filtrado);
 router.get('/detail/:id',productsController.detalle);
 router.get('/search',productsController.search);
