@@ -105,7 +105,8 @@ const productsController = {
                     oldData: req.body,
                     producto: response.resultados,
                     marca: response.marca,
-                    categoria: response.categoria
+                    categoria: response.categoria,
+                    currentPage: currentPage
                 })
             }else{
             res.render('products/filtrado', {producto: response.resultados, marca: response.marca, categoria: response.categoria, currentPage: currentPage })

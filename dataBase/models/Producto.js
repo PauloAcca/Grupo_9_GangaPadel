@@ -59,11 +59,8 @@ module.exports = (sequelize, dataTypes) => {
 
         Producto.belongsToMany(models.Carrito, {
             as: "carritos",
-            through: {model: 'carrito_producto', //agrego el atributo faltante
-            scope:{cant_producto:{
-                type: dataTypes.INTEGER,
-                allowNull:false,
-            }}},
+            through: {model: 'carrito_producto',
+            },
             foreignKey: 'idProducto',
             otherKey:"idCarrito",
             timestamps:false,
