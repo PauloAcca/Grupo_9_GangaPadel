@@ -1,16 +1,19 @@
 module.exports=(sequelize, dataTypes)=>{
     let alias= 'CarritoProducto';
     let cols={
-        idCarrito:{
+        idCarritoProducto:{
             type: dataTypes.INTEGER,
             primaryKey: true,
             unique:true,
+            autoIncrement: true,
+            allowNull:false,
+        },
+        idCarrito:{
+            type: dataTypes.INTEGER,
             allowNull:false,
         },
         idProducto:{
             type: dataTypes.INTEGER,
-            primaryKey: true,
-            unique:true,
             allowNull:false,
         },
         cant_producto:{
@@ -24,7 +27,7 @@ module.exports=(sequelize, dataTypes)=>{
     }
 
     const CarritoProducto = sequelize.define(alias, cols, config);
-/*    
+    
     CarritoProducto.associate = function(models){
         CarritoProducto.belongsTo(models.Producto,{
             as:"productos",
@@ -37,6 +40,6 @@ module.exports=(sequelize, dataTypes)=>{
             foreignKey: "idCarrito",
             timestamps:false
         })
-    } */
+    }
     return CarritoProducto;
 };

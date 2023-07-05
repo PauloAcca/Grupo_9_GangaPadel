@@ -32,4 +32,5 @@ router.get("/api/users/:id", (req, res) => {
 router.get('/productCart',usersController.carrito);
 router.get('/carrito',usersController.carrito);
 router.post('/carrito/agregar',usersController.agregar)
+router.get('/pagar',usersController.pagar)
 module.exports = router;
