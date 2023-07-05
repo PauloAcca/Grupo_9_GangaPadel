@@ -52,9 +52,11 @@ router.get("/api/products/:id", (req, res) => {
         });
 });
 
+router.post('/filtro',validationsFiltro,productsController.filtro);
+router.get('/specials',productsController.specials);
+router.get('/search',productsController.search);
 router.get('/',productsController.filtrado);
 router.get('/detail/:id',productsController.detalle);
-router.get('/search',productsController.search);
 router.get('/:marca',productsController.marca);
 router.get('/cat/:categoria',productsController.categoria);
 
