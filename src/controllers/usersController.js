@@ -16,11 +16,10 @@ const usersController = {
                 return db.Carrito.findOne({
                     where: {
                         idUsuario: req.session.userLogged.idUsuario
-                    },include: [{ association: 'productos' }]
+                    },include: [{ association: 'productos'},{association:'carritosProducto'}]
                 }).then(carrito=>{
                     response.carrito= carrito;
-                    console.log(carrito.productos)
-                    res.render('users/carrito', {marca: response.marca, categoria: response.categoria});
+                    res.render('users/carrito', {marca: response.marca, categoria: response.categoria, carrito: response.carrito});
                 }).catch(function (error) {
                     res.send(error);
                 });    
@@ -55,25 +54,12 @@ const usersController = {
             .then((carrito) => {
                 if (carrito) {
                 // El usuario ya tiene un carrito existente
-                    return db.CarritoProducto.findOne({
-                        where:{
-                            idCarrito: carrito.idCarrito,
-                            idProducto: idProducto,
-                        }
+                    return db.CarritoProducto.create({                      
+                        idCarrito: carrito.idCarrito,
+                        idProducto: idProducto,
+                        cant_producto: cantidad,                       
                     }).then((carritoProducto) =>{
-                        if(carritoProducto){
                             res.render('users/carrito', {marca: response.marca, categoria: response.categoria})
-                        }else{
-                            return db.CarritoProducto.create({
-                                idCarrito: carrito.idCarrito,
-                                idProducto: idProducto,
-                                cant_producto: cantidad,
-                            }).then((carritoProducto)=>{
-                                res.render('users/carrito', {marca: response.marca, categoria: response.categoria})
-                            }).catch((error)=>{
-                                console.log(error)
-                            })
-                        }
                     }).catch((error)=>{
                         console.log(error)
                     })
@@ -83,35 +69,20 @@ const usersController = {
                     idUsuario: idUsuario,
                     precio_total: 0,
                 }).then((carrito) => {
-                    return db.CarritoProducto.findOne({
-                        where:{
-                            idCarrito: carrito.idCarrito,
-                            idProducto: idProducto,
-                        }
-                    }).then((carritoProducto) =>{
-                        if(carritoProducto){
-                            res.render('users/carrito', {marca: response.marca, categoria: response.categoria})
-                        }else{
-                            return db.CarritoProducto.create({
-                                idCarrito: carrito.idCarrito,
-                                idProducto: idProducto,
-                                cant_producto: cantidad,
-                            }).then((carritoProducto)=>{
-                                res.render('users/carrito', {marca: response.marca, categoria: response.categoria})
-                            }).catch((error)=>{
-                                console.log(error)
-                            })
-                        }
+                    return db.CarritoProducto.create({
+                        idCarrito: carrito.idCarrito,
+                        idProducto: idProducto,
+                        cant_producto: cantidad,
+                    }).then((carritoProducto)=>{
+                        res.render('users/carrito', {marca: response.marca, categoria: response.categoria})
                     }).catch((error)=>{
                         console.log(error)
                     })
-                });
+                })
                 }
+            }).catch((error)=>{
+                console.log(error)
             })
-            .catch((error) => {
-                console.log(error);
-                res.send('error');
-            });
         } else {
             res.render('home/login');
         }

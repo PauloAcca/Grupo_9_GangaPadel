@@ -13,40 +13,49 @@
     <%- include('../partials/navbar.ejs') %>
     
     <main>
-        <h2 class="titulo-productos"> Carrito</h2>
+        <h2 class="titulo-productos">Carrito</h2>
         <div class="contenedor-padre">
             <div class="contenedorProductos">
+                <% let subtotal = 0; %>
+                <% carrito.productos.forEach(function(producto) { %>
                 <article class="contenedores-hijos">
-                    <img class="img-raqueta" src="/img/adidas-pala-padel-metalbone-3.2.jpg" alt="Raqueta">
-                    <p class="textos">Adidas </p>
-                    <p class="textos">$65.000</P>
-                    <input id="number" type="number" value="1" />
-                    <p class="textos">Total: $65000</p>
-                    <p class="texto-eliminar"> <strong>Eliminar producto</strong></p>
+                    <img class="img-raqueta" src="/img/paletas/<%= producto.image %>" alt="Raqueta">
+                    <p class="textos"><%= producto.nombreProducto %></p>
+                    <p class="textos">$<%= producto.precio %></p>
+                    <p class="textos">Cantidad: 
+                    <% let cantidad = 0; %>
+                    <% carrito.carritosProducto.forEach(function(pedido) {
+                        if (producto.idProducto === pedido.idProducto) {
+                            cantidad += pedido.cant_producto;
+                        }
+                    }); %>
+                    <%= cantidad %>
+                    </p>
+                    <% const totalProducto = producto.precio * cantidad; %>
+                    <p class="textos">Total: $<%= totalProducto %></p>
+                    <p class="texto-eliminar"><strong>Eliminar producto</strong></p>
+                    <% subtotal += totalProducto; %>
                 </article>
-                <article class="contenedores-hijos">
-                    <img class="img-raqueta" src="/img/head-pala-padel-evo-delta-2022.jpg" alt="Raqueta">
-                    <p class="textos">Head</p>
-                    <P class="textos">$80000</P>
-                    <input id="number" type="number" value="1" />
-                    <p class="textos">Total: $80000</p>
-                    <p class="texto-eliminar"> <strong>Eliminar producto</strong></p>
-                </article>
-            </div>
-            <article class="contenedores-hijos-3">
-                <p class="contenedor-3">Subtotal</p>
-                <p class="contenedor-3">$145000</p>
-                <hr>
-                <u><p class="contenedor-3 envio">Envio</p></u>
-                <ul class="listaMetodosEnvio">
-                    <li><label for="tipo-entrega" value="domicilio"> Domicilio </label> <input type="radio"
-                        name="tipo-entrega" value="Domicilio"></li>
-                    <li><label for="Sucursal"> Retiro en sucursal </label> <input type="radio" name="tipo-entrega"
-                        value="Sucursal"></li>
-                </ul>
-                <a href="#" class="contenedor-pagar"> Pagar</a>
-                <i class="fa-sharp fa-solid fa-cart-shopping"></i>
-            </article>
+                <% }); %>
+        </div>
+        <article class="contenedores-hijos-3">
+            <p class="contenedor-3">Subtotal</p>
+            <p class="contenedor-3">$<%= subtotal %></p>
+            <hr>
+            <u><p class="contenedor-3 envio">Envio</p></u>
+            <ul class="listaMetodosEnvio">
+            <li>
+                <label for="tipo-entrega" value="domicilio">Domicilio</label>
+                <input type="radio" name="tipo-entrega" value="Domicilio">
+            </li>
+            <li>
+                <label for="Sucursal">Retiro en sucursal</label>
+                <input type="radio" name="tipo-entrega" value="Sucursal">
+            </li>
+            </ul>
+            <a href="#" class="contenedor-pagar">Pagar</a>
+            <i class="fa-sharp fa-solid fa-cart-shopping"></i>
+        </article>
         </div>
     </main>
     <%- include('../partials/footer.ejs') %>

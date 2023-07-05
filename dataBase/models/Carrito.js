@@ -33,6 +33,12 @@ module.exports=(sequelize, dataTypes)=>{
             timestamps: false,
         })
 
+        Carrito.hasMany(models.CarritoProducto,{
+            as:'carritosProducto',
+            foreignKey: 'idCarrito',
+            timestamps: false
+        })
+
         Carrito.belongsToMany(models.Producto, {
             as: "productos",
             through: {model: 'carrito_producto'},
