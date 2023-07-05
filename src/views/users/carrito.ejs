@@ -17,8 +17,9 @@
         <div class="contenedor-padre">
             <div class="contenedorProductos">
                 <% let subtotal = 0; %>
-                <% carrito.productos.forEach(function(producto) { %>
-                <article class="contenedores-hijos">
+                <% if (carrito && carrito.productos) { %>
+                    <% carrito.productos.forEach(function(producto) { %>
+                      <article class="contenedores-hijos">
                     <img class="img-raqueta" src="/img/paletas/<%= producto.image %>" alt="Raqueta">
                     <p class="textos"><%= producto.nombreProducto %></p>
                     <p class="textos">$<%= producto.precio %></p>
@@ -36,7 +37,8 @@
                     <p class="texto-eliminar"><strong>Eliminar producto</strong></p>
                     <% subtotal += totalProducto; %>
                 </article>
-                <% }); %>
+                    <% }); %>
+                    <% } %>
         </div>
         <article class="contenedores-hijos-3">
             <p class="contenedor-3">Subtotal</p>

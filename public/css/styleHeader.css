@@ -124,6 +124,10 @@ header .hipervinculo-logo{
     width: 10%;
     
 }
+.iconos-header a{
+    margin-left: 10px;
+    margin-right: 18px;
+}
 
 #busqueda{
     width: 30vw;
