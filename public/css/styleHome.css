@@ -10,7 +10,6 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -21,6 +20,7 @@ body{
 
 main{
     width: 100%;
+    position: relative;
 }
 
 .slider{
@@ -58,6 +58,7 @@ main{
 }
 
 .fa-arrow-right, .fa-arrow-left{
+    transform: translateY(-50%);
     cursor: pointer;
     position: absolute;
     z-index: 1;
@@ -110,20 +111,34 @@ main{
     height: 300px;
 }
 
-.carousel-productos{
-    position: relative;
+
+
+.contenedor-productos {
+    display: flex;
     overflow-x: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    width: calc(100% + 20px); /* Asegura que todos los productos se muestren en una fila */
+    margin-bottom: 20px; /* Espacio inferior para las flechas */
 }
 
-.contenedor-productos{
-    width: 100%;
-    padding-bottom: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.articulo {
+    flex: 0 0 calc(20% - 20px); /* Muestra 5 productos por fila */
+    scroll-snap-align: start;
+    margin-right: 20px;
     position: relative;
-    transition: 0,4 ease-in-out;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
+
+#carousel1,
+#carousel2 {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
 
 .articulo img{
     width: 100%;
@@ -141,17 +156,7 @@ main{
     opacity: 0;
 }
 
-.articulo{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: 40px;
-    margin-left: 1px;
-    background-color: whitesmoke;
-    position: relative;
-    box-shadow: 0;
-    transition: box-shadow 0.3s ease;
-}
+
 
 .articulo:hover{
     box-shadow: 3px 3px 3px gray;
@@ -178,11 +183,14 @@ main{
 .precio{
     color: #171717;
     font-size: small;
-    margin-top: 15px;
+    margin-top: 10px;
     margin-right: 20px;
-    font-weight: bold;
+    font-weight: bolder;
 }
 
+.precios{
+    display: flex;
+}
 
 
 .arrow-left-article,.arrow-right-article{
@@ -221,24 +229,20 @@ main{
     margin: 20px 0;
 }
 
+.descuento{
+    color: rgb(36, 232, 36);
+    font-size: small;
+    font-weight: bolder;
+    margin-top: 10px;
+    margin-right: 15px;
+}
+
 /* NOTEBOOKS */
 
 @media(min-device-width: 1023px){
     .articulo{
         width: 19.7%;
         margin-bottom: 3px;
-    }
-
-    #uno{
-        display: flex;
-    }
-
-    #dos{
-        display: flex;
-    }
-
-    #tres{
-        display: flex;
     }
 
     #contenedor-slider{
@@ -301,10 +305,10 @@ main{
 /* CELULARES */
 
 @media (max-device-width: 768px){    
-    .articulo{
+    /* .articulo{
         width: 49.5%;
         margin-bottom: 3px;
-    }
+    } */
 
     #uno{
         display: none;

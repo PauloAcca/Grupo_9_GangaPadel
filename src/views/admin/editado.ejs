@@ -15,13 +15,23 @@
 		<h2>Editar producto</h2>
 		<form id="form" action="/admin/edit/<%= producto.idProducto %>?_method=PUT" method="POST" enctype="multipart/form-data">
 			<label for="name">Producto:</label>
-			<input type="text" id="name" name="name" value="<%=producto.nombreProducto %>" required>
+			<input type="text" id="name" name="name" value="<%= locals.oldData && locals.oldData.name ? locals.oldData.name : producto.nombreProducto %>">
+			<% if (locals.errors && errors.name) { %>
+				<p class="ojo"><%= errors.name.msg %></p>
+			<% } %>
 			
 			<label for="price">Precio:</label>
-			<input type="text" id="discount" name="price" placeholder="Ej: 60000" value="<%=producto.precio %>">
+			<input type="text" id="price" name="price" placeholder="Ej: 60000" value="<%= locals.oldData && locals.oldData.price ? locals.oldData.price : producto.precio %>">
+			<% if (locals.errors && errors.price) { %>
+				<p class="ojo"><%= errors.price.msg %></p>
+			<% } %>
 
 			<label for="discount">Descuento:</label>
-			<input type="text" id="discount" name="discount" placeholder="Ej: 20" value="<%=producto.descuento%>"
+			<div>
+				<input type="range" id="discount" name="discount" min="0" max="100" value="<%= locals.oldData && locals.oldData.discount ? locals.oldData.discount : producto.descuento %>" onchange="updateDiscountValue(this.value)">
+				<span id="discountValue"><%= locals.oldData && locals.oldData.discount ? locals.oldData.discount : producto.descuento %></span>%
+			</div>
+			<script src="/js/barraPorcentaje.js"></script>
 
 			
 			<label for="category">Categoría:</label>
@@ -38,8 +48,11 @@
 			</select>
 			
 			<label for="description">Descripción:</label>
-			
-			<textarea id="description" name="description"><%=producto.descripcion%></textarea>
+			<textarea id="description" name="description"><%= locals.oldData && locals.oldData.description ? locals.oldData.description : producto.descripcion %></textarea>
+			<% if (locals.errors && errors.description) { %>
+    			<p class="ojo"><%= errors.description.msg %></p>
+			<% } %>
+
 			<label for="brand">Marca:</label>
 			<select id="brand" name="brand">
 				<% for (let i=0; i< marca.length; i++) { %>
@@ -54,10 +67,9 @@
 			</select>
 			
 			<label for="image">Imagen:</label>
-			<input type="file" id="image" name="image" value="<%=producto.image  %>">
-			
+			<input type="file" id="image" name="image" value="<%=producto.image%>">			
 			<button type="submit">Editar</button>
-		</form>
+			</form>
 	</main>
     
 	<footer>

@@ -8,9 +8,20 @@ const mainController = {
 
     // Manejo del pedido get con ruta
     index: (req, res) => {
+        const response={};
         db.Producto.findAll({ include: [{ association: 'marcas' }, { association: 'categoriaProductos' }] })
             .then(function (producto) {
-                res.render('home/index', { producto: producto });
+                response.producto = producto;
+                return db.Marca.findAll();
+                
+            })
+            .then(function (marca) {
+                response.marca = marca;
+                return db.CategoriaProducto.findAll();
+            })
+            .then(function (categoria) {
+                response.categoria = categoria;
+                res.render('home/index', { producto: response.producto, marca: response.marca, categoria: response.categoria });
             })
             .catch(function (error) {
                 return res.send(error)

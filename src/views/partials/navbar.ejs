@@ -1,5 +1,19 @@
 <div class="barraInferior">
-    <a href="/products">Productos<i class="fa-solid fa-chevron-down"></i></a>
-    <a href="#">Marcas<i class="fa-solid fa-chevron-down"></i></a>
-    <a href="#">Ofertas<i class="fa-solid fa-chevron-down"></i></a>
+    <div class="dropdown">
+        <a href="/products">Productos<i class="fa-solid fa-chevron-down main"></i></a>
+        <div class="dropdown-content">
+            <% for (let i=0; i<categoria.length; i++) {%>
+                <a href="/products/cat/<%= categoria[i].categoria %>"><%= categoria[i].categoria %></a>
+            <% } %>
+        </div>
+    </div>
+    <div class="dropdown">
+        <a href="/products">Marcas<i class="fa-solid fa-chevron-down main"></i></a>
+        <div class="dropdown-content">
+            <% for (let i=0; i<marca.length; i++) {%>
+                <a href="/products/<%= marca[i].nombreMarca %>"><%= marca[i].nombreMarca %></a>
+            <% } %>
+        </div>
+    </div>
+    <a href="/products/specials">Ofertas</a>
 </div>
