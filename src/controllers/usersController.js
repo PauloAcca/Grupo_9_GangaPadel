@@ -84,50 +84,60 @@ const usersController = {
                 return db.Carrito.findOne({
                     where: {
                         idUsuario: idUsuario,
-                    },include: [{ association: 'productos'},{association:'carritosProducto'}]
+                    },
+                    include: [{ association: 'productos' }, { association: 'carritosProducto' }]
                 });
             })
             .then((carrito) => {
                 if (carrito) {
-                // El usuario ya tiene un carrito existente
-                    response.carrito= carrito;
-                    return db.CarritoProducto.create({                      
+                    // El usuario ya tiene un carrito existente
+                    response.carrito = carrito;
+                    return db.CarritoProducto.create({
                         idCarrito: carrito.idCarrito,
                         idProducto: idProducto,
-                        cant_producto: cantidad,                       
-                    }).then((carritoProducto) =>{
+                        cant_producto: cantidad,
+                    }).then((carritoProducto) => {
                         return Promise.all([
                             carrito.getProductos(), // Obtener los productos del carrito actualizados
                             carrito.getCarritosProducto(), // Obtener los carritoProducto actualizados
                         ]).then(([productos, carritosProducto]) => {
                             response.carrito.productos = productos;
                             response.carrito.carritosProducto = carritosProducto;
-                            res.render('users/carrito', {marca: response.marca, categoria: response.categoria, carrito: response.carrito});
+                            res.render('users/carrito', { marca: response.marca, categoria: response.categoria, carrito: response.carrito });
                         });
                     }).catch((error) => {
                         console.log(error);
-                    });        
-                } else {
-                // El usuario no tiene un carrito existente, crear uno nuevo
-                return db.Carrito.create({
-                    idUsuario: idUsuario,
-                    precio_total: 0,
-                }).then((carritoProducto) =>{
-                    return Promise.all([
-                        carrito.getProductos(), // Obtener los productos del carrito actualizados
-                        carrito.getCarritosProducto(), // Obtener los carritoProducto actualizados
-                    ]).then(([productos, carritosProducto]) => {
-                        response.carrito.productos = productos;
-                        response.carrito.carritosProducto = carritosProducto;
-                        res.render('users/carrito', {marca: response.marca, categoria: response.categoria, carrito: response.carrito});
                     });
-                }).catch((error) => {
-                    console.log(error);
-                }); 
+                } else {
+                    // El usuario no tiene un carrito existente, crear uno nuevo
+                    return db.Carrito.create({
+                        idUsuario: idUsuario,
+                        precio_total: 0,
+                    }).then((carrito) => {
+                        response.carrito = carrito;
+                        return db.CarritoProducto.create({
+                            idCarrito: carrito.idCarrito,
+                            idProducto: idProducto,
+                            cant_producto: cantidad,
+                        }).then((carritoProducto) => {
+                            return Promise.all([
+                                carrito.getProductos(), // Obtener los productos del carrito actualizados
+                                carrito.getCarritosProducto(), // Obtener los carritoProducto actualizados
+                            ]).then(([productos, carritosProducto]) => {
+                                response.carrito.productos = productos;
+                                response.carrito.carritosProducto = carritosProducto;
+                                res.render('users/carrito', { marca: response.marca, categoria: response.categoria, carrito: response.carrito });
+                            });
+                        }).catch((error) => {
+                            console.log(error);
+                        });
+                    }).catch((error) => {
+                        console.log(error);
+                    });
                 }
-            }).catch((error)=>{
-                console.log(error)
-            })
+            }).catch((error) => {
+                console.log(error);
+            });
         } else {
             res.render('home/login');
         }
